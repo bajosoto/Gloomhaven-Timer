@@ -19,7 +19,7 @@
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Gloom_Timer" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                    <view key="view" hidden="YES" contentMode="scaleToFill" id="8bC-Xf-vdC" userLabel="playerBoard">
                         <rect key="frame" x="0.0" y="0.0" width="736" height="414"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -245,10 +245,15 @@
                         <outlet property="player2ImageView" destination="ArB-Eh-Eci" id="ngA-qI-dG1"/>
                         <outlet property="player3ImageView" destination="b5i-zc-lYa" id="6qz-tj-s05"/>
                         <outlet property="player4ImageView" destination="FQf-kW-T67" id="sNe-hI-3Rt"/>
+                        <outlet property="playerBoard" destination="8bC-Xf-vdC" id="Jk7-Ir-G8p"/>
                         <outlet property="playerButton1" destination="dJ8-NR-iti" id="6uo-kA-iHI"/>
                         <outlet property="playerButton2" destination="43D-HL-0Bh" id="CwO-bE-phh"/>
                         <outlet property="playerButton3" destination="9cl-Lb-Eq8" id="RfB-ei-Hyu"/>
                         <outlet property="playerButton4" destination="lc3-cg-FYO" id="jbv-hU-IIq"/>
+                        <outlet property="playerButtonArea1" destination="2Zk-Ht-Mb8" id="Y95-tC-E80"/>
+                        <outlet property="playerButtonArea2" destination="7Ea-ne-AH3" id="X5R-UX-nxS"/>
+                        <outlet property="playerButtonArea3" destination="Dj1-Uw-RKX" id="3bn-tR-o2v"/>
+                        <outlet property="playerButtonArea4" destination="k1U-8T-J0S" id="unI-Qx-Bbl"/>
                     </connections>
                 </viewController>
                 <view contentMode="scaleToFill" id="4sK-U1-LBV" userLabel="Popup">

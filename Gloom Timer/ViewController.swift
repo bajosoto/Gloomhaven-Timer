@@ -29,6 +29,12 @@ class ViewController: UIViewController {
     @IBOutlet weak var currInitiativeLabel: UILabel!
     @IBOutlet weak var globalTimer: UILabel!
     
+    @IBOutlet var playerBoard: UIView!
+    
+    @IBOutlet weak var playerButtonArea1: UIView!
+    @IBOutlet weak var playerButtonArea2: UIView!
+    @IBOutlet weak var playerButtonArea3: UIView!
+    @IBOutlet weak var playerButtonArea4: UIView!
     
     @IBOutlet weak var playerButton1: UIButton!
     @IBOutlet weak var playerButton2: UIButton!
@@ -101,6 +107,12 @@ class ViewController: UIViewController {
         player1ImageView.transform = playerButton1.transform.rotated(by: CGFloat(Double.pi))
         player4ImageView.transform = playerButton4.transform.rotated(by: CGFloat(Double.pi))
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        // Show player board
+        showPlayerBoard()
+    }
 
     @IBAction func numPadButtonPress(_ sender: UIButton) {
         switch sender.tag {
@@ -151,6 +163,43 @@ class ViewController: UIViewController {
         currInitiativePlayer = sender.tag - 1
         currInitiativeOnes = -1
         currInitiativeTens = -1
+    }
+    
+    func showPlayerBoard() {
+        playerBoard.isHidden = false
+        playerButtonArea1.transform = CGAffineTransform.identity.scaledBy(x: 1.3, y: 1.3)
+        playerButtonArea2.transform = CGAffineTransform.identity.scaledBy(x: 1.3, y: 1.3)
+        playerButtonArea3.transform = CGAffineTransform.identity.scaledBy(x: 1.3, y: 1.3)
+        playerButtonArea4.transform = CGAffineTransform.identity.scaledBy(x: 1.3, y: 1.3)
+        playerButtonArea1.alpha = 0
+        playerButtonArea2.alpha = 0
+        playerButtonArea3.alpha = 0
+        playerButtonArea4.alpha = 0
+        
+        UIView.animateKeyframes(withDuration: 1, delay: 0, options: [.calculationModeCubic], animations: {
+            UIView.addKeyframe(withRelativeStartTime: 0.0/0.5, relativeDuration: 0.2/0.5, animations: {
+                self.playerButtonArea4.transform = CGAffineTransform.identity
+                self.playerButtonArea4.alpha = 1
+            })
+            UIView.addKeyframe(withRelativeStartTime: 0.1/0.5, relativeDuration: 0.2/0.5, animations: {
+                self.playerButtonArea1.transform = CGAffineTransform.identity
+                self.playerButtonArea1.alpha = 1
+            })
+            UIView.addKeyframe(withRelativeStartTime: 0.2/0.5, relativeDuration: 0.2/0.5, animations: {
+                self.playerButtonArea3.transform = CGAffineTransform.identity
+                self.playerButtonArea3.alpha = 1
+            })
+            UIView.addKeyframe(withRelativeStartTime: 0.3/0.5, relativeDuration: 0.2/0.5, animations: {
+                self.playerButtonArea2.transform = CGAffineTransform.identity
+                self.playerButtonArea2.alpha = 1
+            })
+        }, completion:{ _ in
+            // Do nothing
+        })
+//        UIView.animate(withDuration: 0.1) {
+//            self.playerButtonArea1.transform = CGAffineTransform.identity
+//            self.playerButtonArea1.alpha = 1
+//        }
     }
     
     func animateNumPadViewIn(player: Int) {
