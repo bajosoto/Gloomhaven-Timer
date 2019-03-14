@@ -11,9 +11,9 @@ import UIKit
 class ViewController: UIViewController, UITextFieldDelegate {
 
     weak var timer: Timer?
-    var startTime: Double = 0
-    var time: Double = 0
-    var elapsed: Double = 0
+    var timeStart: Double = 0
+    var timeCharSelStart: Double = 0
+    var timeCharSelEnd: Double = 0
     
     var currInitiativeOnes: Int = -1
     var currInitiativeTens: Int = -1
@@ -102,7 +102,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         blurFx.effect = nil
         
         // Store start time and init timer
-        startTime = Date().timeIntervalSinceReferenceDate - elapsed
+        timeStart = Date().timeIntervalSinceReferenceDate
         timer = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: #selector(UpdateTimer), userInfo: nil, repeats: true)
         
         // Rotate player 1 and 4 buttons upside down
@@ -240,6 +240,9 @@ class ViewController: UIViewController, UITextFieldDelegate {
     func showClassSelection() {
         self.view.superview!.addSubview(playerSelectionView)
         
+        // Store time
+        timeCharSelStart = getTimeNow()
+        
         // Pre-scale buttons for animation
         for classButtonView in classButtonViews {
             classButtonView.transform = CGAffineTransform.identity.scaledBy(x: 1.3, y: 1.3)
@@ -288,6 +291,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
                 })
             }
         }, completion:{ _ in
+            self.timeCharSelEnd = self.getTimeNow()
             self.playerSelectionView.removeFromSuperview()
             self.showPlayerBoard()
         })
@@ -369,9 +373,15 @@ class ViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
+    func getTimeNow() -> Double {
+        return Date().timeIntervalSinceReferenceDate
+    }
+    
     @objc func UpdateTimer() {
+        var time: Double = 0
+        
         // Calculate total time since timer started in seconds
-        time = Date().timeIntervalSinceReferenceDate - startTime
+        time = getTimeNow() - timeStart
         
         // Calculate hours
         let hours = UInt8(time / 3600.0)
