@@ -40,6 +40,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet var playerButtonAreas: [UIView]!
     
     @IBOutlet var classButtons: [UIButton]!
+    @IBOutlet var classButtonViews: [UIView]!
     
     @IBOutlet weak var playerButton1: UIButton!
     @IBOutlet weak var playerButton2: UIButton!
@@ -116,30 +117,17 @@ class ViewController: UIViewController, UITextFieldDelegate {
         // Set delegate for text field
         self.playerNameTextField.delegate = self
     }
+ 
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        // Show class selection
+        showClassSelection()
+    }
     
     // End editing when pressing return
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         playerNameTextField.resignFirstResponder()
         return true
-    }
-    
-    func getColor(name: String) -> UIColor {
-        if (colors.keys.contains(name)) {
-            print("Found color \(name)")
-            return colors[name]!
-        } else {
-            print("Didnt find color \(name)")
-            return colors["unassigned"]!
-        }
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        // Show class selection
-        showClassSelection()
-        
-        // Show player board
-//        showPlayerBoard()
     }
 
     @IBAction func numPadButtonPress(_ sender: UIButton) {
@@ -184,22 +172,29 @@ class ViewController: UIViewController, UITextFieldDelegate {
         players.append(Player(player_class: classes[sender.tag], player_number: currPlayerSelection, player_name: playerNameTextField.text!))
         print("Created player \(currPlayerSelection + 1): \(classes[sender.tag])")
         currPlayerSelection += 1
-        playerNameTextField.text = "Player \(currPlayerSelection + 1)"
+        
+        // Animate Text out
+        UIView.animate(withDuration: 0.2) {
+            self.playerNameTextField.alpha = 0
+        }
         
         if(currPlayerSelection == 4) {
             // Assign image to buttons
             for (i, imageView) in playerButtonImages.enumerated() {
                 imageView.image = UIImage(named: players[i].player_class)
             }
-            
             // Assign colors to buttons
             for (i, button) in playerButtons.enumerated() {
                 button.backgroundColor = players[i].player_color
             }
-            
             // Go to player board
             hideClassSelection()
-            
+        } else {
+            playerNameTextField.text = "Player \(currPlayerSelection + 1)"
+            // Animate Text In
+            UIView.animate(withDuration: 0.2) {
+                self.playerNameTextField.alpha = 1
+            }
         }
     }
     
@@ -218,16 +213,59 @@ class ViewController: UIViewController, UITextFieldDelegate {
     }
     
     func showClassSelection() {
-        
         self.view.superview!.addSubview(playerSelectionView)
+        
+        // Pre-scale buttons for animation
+        for classButtonView in classButtonViews {
+            classButtonView.transform = CGAffineTransform.identity.scaledBy(x: 1.3, y: 1.3)
+            classButtonView.alpha = 0
+        }
+        playerNameTextField.alpha = 0
+        
+        // Show main window
         playerSelectionView.center = self.view.center
         playerSelectionView.transform = CGAffineTransform.identity
         playerSelectionView.alpha = 1
+        
+        // Animate buttons
+        UIView.animateKeyframes(withDuration: 1, delay: 0, options: [.calculationModeCubic], animations: {
+            UIView.addKeyframe(withRelativeStartTime: 0/18, relativeDuration: 1/3, animations: {
+                self.playerNameTextField.alpha = 1
+            })
+            for i in 0...16 {
+                var buttView: UIView?
+                for classButtonView in self.classButtonViews {
+                    if (classButtonView.tag) == i {
+                        buttView = classButtonView
+                    }
+                }
+                UIView.addKeyframe(withRelativeStartTime: Double(i + 1)/18, relativeDuration: 1/3, animations: {
+                    buttView!.transform = CGAffineTransform.identity
+                    buttView!.alpha = 1
+                })
+            }
+        })
     }
     
     func hideClassSelection() {
-        self.playerSelectionView.removeFromSuperview()
-        showPlayerBoard()
+        // Animate buttons
+        UIView.animateKeyframes(withDuration: 1, delay: 0, options: [.calculationModeCubic], animations: {
+            for i in 0...16 {
+                var buttView: UIView?
+                for classButtonView in self.classButtonViews {
+                    if (classButtonView.tag) == i {
+                        buttView = classButtonView
+                    }
+                }
+                UIView.addKeyframe(withRelativeStartTime: Double(i + 1)/17, relativeDuration: 1/3, animations: {
+                    buttView!.transform = CGAffineTransform.identity
+                    buttView!.alpha = 0
+                })
+            }
+        }, completion:{ _ in
+            self.playerSelectionView.removeFromSuperview()
+            self.showPlayerBoard()
+        })
     }
     
     func showPlayerBoard() {

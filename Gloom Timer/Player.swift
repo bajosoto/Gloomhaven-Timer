@@ -37,6 +37,14 @@ let colors: [String: UIColor] = ["tinkerer": UIColor(red: 90/255, green: 69/255,
                                  "spellweaver": UIColor(red: 152/255, green: 111/255, blue: 174/255, alpha: 1.0),
                                  "unassigned": UIColor(red: 200/255, green: 200/255, blue: 200/255, alpha: 1.0)]
 
+func getColor(name: String) -> UIColor {
+    if (colors.keys.contains(name)) {
+        return colors[name]!
+    } else {
+        return colors["unassigned"]!
+    }
+}
+
 class Player {
     var player_class : String
     var player_number : Int
@@ -51,11 +59,6 @@ class Player {
         self.player_number = player_number
         self.player_icon = UIImageView()
         self.player_icon.image = UIImage(named: player_class)
-        if (colors.keys.contains(player_class)) {
-            self.player_color = colors[player_class]!
-        } else {
-            self.player_color = colors["unassigned"]!
-        }
-        
+        self.player_color = getColor(name: player_class)
     }
 }

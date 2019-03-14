@@ -273,6 +273,24 @@
                         <outletCollection property="classButtons" destination="L6P-FO-fUX" collectionClass="NSMutableArray" id="q3L-sb-swu"/>
                         <outletCollection property="classButtons" destination="dki-bP-LTt" collectionClass="NSMutableArray" id="Jop-mZ-fIO"/>
                         <outletCollection property="classButtons" destination="2qW-vf-rLg" collectionClass="NSMutableArray" id="9iQ-Za-hJW"/>
+                        <outletCollection property="classButtonViews" destination="fqV-3m-SFR" collectionClass="NSMutableArray" id="Cwz-6z-NdU"/>
+                        <outletCollection property="classButtonViews" destination="8qh-Ys-lmx" collectionClass="NSMutableArray" id="5tE-zu-XlS"/>
+                        <outletCollection property="classButtonViews" destination="5dP-Hc-fee" collectionClass="NSMutableArray" id="M8C-Ql-byI"/>
+                        <outletCollection property="classButtonViews" destination="5dP-Hc-fee" collectionClass="NSMutableArray" id="OQx-4m-3Z7"/>
+                        <outletCollection property="classButtonViews" destination="Z9L-3k-1y8" collectionClass="NSMutableArray" id="nCB-VV-ETa"/>
+                        <outletCollection property="classButtonViews" destination="v7O-By-U6H" collectionClass="NSMutableArray" id="EyU-HB-hic"/>
+                        <outletCollection property="classButtonViews" destination="W9B-7O-84B" collectionClass="NSMutableArray" id="5QD-co-CIi"/>
+                        <outletCollection property="classButtonViews" destination="t1t-Lx-GsB" collectionClass="NSMutableArray" id="F2M-tZ-p2R"/>
+                        <outletCollection property="classButtonViews" destination="ngu-ZS-BcZ" collectionClass="NSMutableArray" id="kdo-BU-m4e"/>
+                        <outletCollection property="classButtonViews" destination="jFj-Rr-9to" collectionClass="NSMutableArray" id="GBb-01-9u1"/>
+                        <outletCollection property="classButtonViews" destination="LiU-cx-EFA" collectionClass="NSMutableArray" id="YNo-We-LYC"/>
+                        <outletCollection property="classButtonViews" destination="kZC-Rx-Ovd" collectionClass="NSMutableArray" id="M0E-07-XcV"/>
+                        <outletCollection property="classButtonViews" destination="mTc-ad-Jb0" collectionClass="NSMutableArray" id="Gh2-mn-nvX"/>
+                        <outletCollection property="classButtonViews" destination="NI6-GE-jCJ" collectionClass="NSMutableArray" id="uhK-my-O3f"/>
+                        <outletCollection property="classButtonViews" destination="vsw-xm-r0b" collectionClass="NSMutableArray" id="Tbf-0W-8F4"/>
+                        <outletCollection property="classButtonViews" destination="76Y-sd-9Zw" collectionClass="NSMutableArray" id="1Df-Xn-8Xj"/>
+                        <outletCollection property="classButtonViews" destination="FiB-Lw-ewB" collectionClass="NSMutableArray" id="aZU-wC-JZJ"/>
+                        <outletCollection property="classButtonViews" destination="3sA-Dv-F6u" collectionClass="NSMutableArray" id="hxk-b6-edZ"/>
                     </connections>
                 </viewController>
                 <view contentMode="scaleToFill" id="ERa-s2-6jZ" userLabel="playerSelection">
@@ -317,7 +335,6 @@
                                                     </constraints>
                                                 </imageView>
                                             </subviews>
-                                            <color key="backgroundColor" red="0.35294117650000001" green="0.2666666667" blue="0.1960784314" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
                                                 <constraint firstItem="vjP-bc-5uh" firstAttribute="centerY" secondItem="fqV-3m-SFR" secondAttribute="centerY" id="5UT-PY-bwe"/>
                                                 <constraint firstItem="1Jc-w9-afV" firstAttribute="leading" secondItem="fqV-3m-SFR" secondAttribute="leading" id="8uY-cL-zg3"/>
@@ -333,7 +350,7 @@
                                                 <constraint firstAttribute="bottom" secondItem="1Jc-w9-afV" secondAttribute="bottom" id="t52-Yx-kY9"/>
                                             </constraints>
                                         </view>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8qh-Ys-lmx" userLabel="class2">
+                                        <view tag="1" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8qh-Ys-lmx" userLabel="class2">
                                             <rect key="frame" x="119.33333333333334" y="0.0" width="99.333333333333343" height="78.333333333333329"/>
                                             <subviews>
                                                 <button opaque="NO" tag="1" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bM2-XC-Ce1" userLabel="buttonPlayer_4">
@@ -353,7 +370,6 @@
                                                     </constraints>
                                                 </imageView>
                                             </subviews>
-                                            <color key="backgroundColor" red="0.35294117650000001" green="0.2666666667" blue="0.1960784314" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="trailing" secondItem="bM2-XC-Ce1" secondAttribute="trailing" id="3wE-cp-dRJ"/>
                                                 <constraint firstItem="zst-Qi-oOn" firstAttribute="centerX" secondItem="8qh-Ys-lmx" secondAttribute="centerX" id="4qF-V6-8wO"/>
@@ -369,7 +385,7 @@
                                                 <constraint firstItem="bM2-XC-Ce1" firstAttribute="leading" secondItem="8qh-Ys-lmx" secondAttribute="leading" id="x4N-Sk-elk"/>
                                             </constraints>
                                         </view>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5dP-Hc-fee" userLabel="class3">
+                                        <view tag="2" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5dP-Hc-fee" userLabel="class3">
                                             <rect key="frame" x="238.66666666666671" y="0.0" width="99.333333333333343" height="78.333333333333329"/>
                                             <subviews>
                                                 <button opaque="NO" tag="2" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CmY-1X-BxJ" userLabel="buttonPlayer_4">
@@ -389,7 +405,6 @@
                                                     </constraints>
                                                 </imageView>
                                             </subviews>
-                                            <color key="backgroundColor" red="0.35294117650000001" green="0.2666666667" blue="0.1960784314" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
                                                 <constraint firstItem="CmY-1X-BxJ" firstAttribute="leading" secondItem="5dP-Hc-fee" secondAttribute="leading" id="13x-be-1QJ"/>
                                                 <constraint firstAttribute="bottom" secondItem="CmY-1X-BxJ" secondAttribute="bottom" id="ATh-Wn-wI6"/>
@@ -405,7 +420,7 @@
                                                 <constraint firstItem="74L-hf-obd" firstAttribute="centerY" secondItem="5dP-Hc-fee" secondAttribute="centerY" id="sMr-aO-nLa"/>
                                             </constraints>
                                         </view>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Z9L-3k-1y8" userLabel="class4">
+                                        <view tag="3" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Z9L-3k-1y8" userLabel="class4">
                                             <rect key="frame" x="358" y="0.0" width="99.333333333333314" height="78.333333333333329"/>
                                             <subviews>
                                                 <button opaque="NO" tag="3" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EmZ-sQ-DOb" userLabel="buttonPlayer_4">
@@ -425,7 +440,6 @@
                                                     </constraints>
                                                 </imageView>
                                             </subviews>
-                                            <color key="backgroundColor" red="0.35294117650000001" green="0.2666666667" blue="0.1960784314" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
                                                 <constraint firstItem="j6L-jL-ALb" firstAttribute="top" secondItem="Z9L-3k-1y8" secondAttribute="top" id="1ms-m2-rMc"/>
                                                 <constraint firstAttribute="bottom" secondItem="j6L-jL-ALb" secondAttribute="bottom" id="2Lo-Bd-K5I"/>
@@ -441,7 +455,7 @@
                                                 <constraint firstAttribute="bottom" secondItem="EmZ-sQ-DOb" secondAttribute="bottom" id="sPn-cy-rtj"/>
                                             </constraints>
                                         </view>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="v7O-By-U6H" userLabel="class5">
+                                        <view tag="4" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="v7O-By-U6H" userLabel="class5">
                                             <rect key="frame" x="477.33333333333331" y="0.0" width="99.333333333333314" height="78.333333333333329"/>
                                             <subviews>
                                                 <button opaque="NO" tag="4" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rWn-sd-AIN" userLabel="buttonPlayer_1">
@@ -461,7 +475,6 @@
                                                     </constraints>
                                                 </imageView>
                                             </subviews>
-                                            <color key="backgroundColor" red="0.1176470588" green="0.23529411759999999" blue="0.3921568627" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
                                                 <constraint firstItem="rWn-sd-AIN" firstAttribute="leading" secondItem="v7O-By-U6H" secondAttribute="leading" id="2uv-85-49j"/>
                                                 <constraint firstItem="dCC-oZ-HC4" firstAttribute="top" secondItem="v7O-By-U6H" secondAttribute="top" id="5G4-g7-Oou"/>
@@ -477,7 +490,7 @@
                                                 <constraint firstItem="rWn-sd-AIN" firstAttribute="leading" secondItem="v7O-By-U6H" secondAttribute="leading" id="yPK-Ui-wgt"/>
                                             </constraints>
                                         </view>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="W9B-7O-84B" userLabel="class1">
+                                        <view tag="5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="W9B-7O-84B" userLabel="class1">
                                             <rect key="frame" x="596.66666666666663" y="0.0" width="99.333333333333371" height="78.333333333333329"/>
                                             <subviews>
                                                 <button opaque="NO" tag="5" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eFk-7l-1Nq" userLabel="buttonPlayer_4">
@@ -497,7 +510,6 @@
                                                     </constraints>
                                                 </imageView>
                                             </subviews>
-                                            <color key="backgroundColor" red="0.35294117650000001" green="0.2666666667" blue="0.1960784314" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="bottom" secondItem="eFk-7l-1Nq" secondAttribute="bottom" id="0eu-pv-SD7"/>
                                                 <constraint firstItem="eFk-7l-1Nq" firstAttribute="leading" secondItem="W9B-7O-84B" secondAttribute="leading" id="0gi-l9-gnT"/>
@@ -518,7 +530,7 @@
                                 <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="YWt-FK-DFx">
                                     <rect key="frame" x="0.0" y="197" width="696" height="78.666666666666686"/>
                                     <subviews>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="t1t-Lx-GsB" userLabel="class2">
+                                        <view tag="6" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="t1t-Lx-GsB" userLabel="class2">
                                             <rect key="frame" x="0.0" y="0.0" width="99.333333333333329" height="78.666666666666671"/>
                                             <subviews>
                                                 <button opaque="NO" tag="6" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="woh-4J-wMZ" userLabel="buttonPlayer_4">
@@ -538,7 +550,6 @@
                                                     </constraints>
                                                 </imageView>
                                             </subviews>
-                                            <color key="backgroundColor" red="0.35294117650000001" green="0.2666666667" blue="0.1960784314" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
                                                 <constraint firstItem="woh-4J-wMZ" firstAttribute="top" secondItem="t1t-Lx-GsB" secondAttribute="top" id="3Dq-oR-y7k"/>
                                                 <constraint firstAttribute="bottom" secondItem="woh-4J-wMZ" secondAttribute="bottom" id="9Lg-Gv-M4S"/>
@@ -554,7 +565,7 @@
                                                 <constraint firstItem="woh-4J-wMZ" firstAttribute="leading" secondItem="t1t-Lx-GsB" secondAttribute="leading" id="uOu-fW-j05"/>
                                             </constraints>
                                         </view>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ngu-ZS-BcZ" userLabel="class3">
+                                        <view tag="7" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ngu-ZS-BcZ" userLabel="class3">
                                             <rect key="frame" x="119.33333333333334" y="0.0" width="99.333333333333343" height="78.666666666666671"/>
                                             <subviews>
                                                 <button opaque="NO" tag="7" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jeK-Wr-VQ3" userLabel="buttonPlayer_4">
@@ -574,7 +585,6 @@
                                                     </constraints>
                                                 </imageView>
                                             </subviews>
-                                            <color key="backgroundColor" red="0.35294117650000001" green="0.2666666667" blue="0.1960784314" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="bottom" secondItem="jeK-Wr-VQ3" secondAttribute="bottom" id="0fD-12-lN9"/>
                                                 <constraint firstItem="jeK-Wr-VQ3" firstAttribute="top" secondItem="ngu-ZS-BcZ" secondAttribute="top" id="5fd-Qg-rGY"/>
@@ -590,7 +600,7 @@
                                                 <constraint firstItem="0dN-DQ-kvh" firstAttribute="centerY" secondItem="ngu-ZS-BcZ" secondAttribute="centerY" id="z9d-DF-0Vr"/>
                                             </constraints>
                                         </view>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jFj-Rr-9to" userLabel="class4">
+                                        <view tag="8" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jFj-Rr-9to" userLabel="class4">
                                             <rect key="frame" x="238.66666666666671" y="0.0" width="99.333333333333343" height="78.666666666666671"/>
                                             <subviews>
                                                 <button opaque="NO" tag="8" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LOB-Uy-pic" userLabel="buttonPlayer_4">
@@ -610,7 +620,6 @@
                                                     </constraints>
                                                 </imageView>
                                             </subviews>
-                                            <color key="backgroundColor" red="0.35294117650000001" green="0.2666666667" blue="0.1960784314" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
                                                 <constraint firstItem="BZD-pV-YJg" firstAttribute="centerX" secondItem="jFj-Rr-9to" secondAttribute="centerX" id="0tA-dG-AHW"/>
                                                 <constraint firstAttribute="bottom" secondItem="BZD-pV-YJg" secondAttribute="bottom" id="8WJ-6o-k7X"/>
@@ -626,7 +635,7 @@
                                                 <constraint firstItem="LOB-Uy-pic" firstAttribute="top" secondItem="jFj-Rr-9to" secondAttribute="top" id="wcd-BI-xQz"/>
                                             </constraints>
                                         </view>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LiU-cx-EFA" userLabel="class5">
+                                        <view tag="9" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LiU-cx-EFA" userLabel="class5">
                                             <rect key="frame" x="358" y="0.0" width="99.333333333333314" height="78.666666666666671"/>
                                             <subviews>
                                                 <button opaque="NO" tag="9" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nOz-KZ-iAM" userLabel="buttonPlayer_1">
@@ -646,7 +655,6 @@
                                                     </constraints>
                                                 </imageView>
                                             </subviews>
-                                            <color key="backgroundColor" red="0.1176470588" green="0.23529411759999999" blue="0.3921568627" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="trailing" secondItem="nOz-KZ-iAM" secondAttribute="trailing" id="2hi-kt-Zyg"/>
                                                 <constraint firstAttribute="trailing" secondItem="nOz-KZ-iAM" secondAttribute="trailing" id="Av5-e1-dVK"/>
@@ -662,7 +670,7 @@
                                                 <constraint firstItem="nOz-KZ-iAM" firstAttribute="leading" secondItem="LiU-cx-EFA" secondAttribute="leading" id="xuk-UR-5QJ"/>
                                             </constraints>
                                         </view>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kZC-Rx-Ovd" userLabel="class1">
+                                        <view tag="10" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kZC-Rx-Ovd" userLabel="class1">
                                             <rect key="frame" x="477.33333333333331" y="0.0" width="99.333333333333314" height="78.666666666666671"/>
                                             <subviews>
                                                 <button opaque="NO" tag="10" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Fz-0u-Zk0" userLabel="buttonPlayer_4">
@@ -682,7 +690,6 @@
                                                     </constraints>
                                                 </imageView>
                                             </subviews>
-                                            <color key="backgroundColor" red="0.35294117650000001" green="0.2666666667" blue="0.1960784314" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
                                                 <constraint firstItem="sVL-An-MYL" firstAttribute="top" secondItem="kZC-Rx-Ovd" secondAttribute="top" id="21Z-Vn-KVh"/>
                                                 <constraint firstItem="5Fz-0u-Zk0" firstAttribute="leading" secondItem="kZC-Rx-Ovd" secondAttribute="leading" id="69E-60-b6U"/>
@@ -698,7 +705,7 @@
                                                 <constraint firstItem="sVL-An-MYL" firstAttribute="centerX" secondItem="kZC-Rx-Ovd" secondAttribute="centerX" id="vne-uq-ymc"/>
                                             </constraints>
                                         </view>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mTc-ad-Jb0" userLabel="class2">
+                                        <view tag="11" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mTc-ad-Jb0" userLabel="class2">
                                             <rect key="frame" x="596.66666666666663" y="0.0" width="99.333333333333371" height="78.666666666666671"/>
                                             <subviews>
                                                 <button opaque="NO" tag="11" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zgP-n6-xnM" userLabel="buttonPlayer_4">
@@ -718,7 +725,6 @@
                                                     </constraints>
                                                 </imageView>
                                             </subviews>
-                                            <color key="backgroundColor" red="0.35294117650000001" green="0.2666666667" blue="0.1960784314" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="trailing" secondItem="zgP-n6-xnM" secondAttribute="trailing" id="4zo-ii-hN2"/>
                                                 <constraint firstAttribute="trailing" secondItem="zgP-n6-xnM" secondAttribute="trailing" id="BR2-9y-L5p"/>
@@ -739,7 +745,7 @@
                                 <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="O2C-wq-Bzu">
                                     <rect key="frame" x="0.0" y="295.66666666666669" width="696" height="78.333333333333314"/>
                                     <subviews>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NI6-GE-jCJ" userLabel="class3">
+                                        <view tag="12" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NI6-GE-jCJ" userLabel="class3">
                                             <rect key="frame" x="0.0" y="0.0" width="123.33333333333333" height="78.333333333333329"/>
                                             <subviews>
                                                 <button opaque="NO" tag="12" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2qW-vf-rLg" userLabel="buttonPlayer_4">
@@ -759,7 +765,6 @@
                                                     </constraints>
                                                 </imageView>
                                             </subviews>
-                                            <color key="backgroundColor" red="0.35294117650000001" green="0.2666666667" blue="0.1960784314" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
                                                 <constraint firstItem="LdI-1f-2JD" firstAttribute="centerX" secondItem="NI6-GE-jCJ" secondAttribute="centerX" id="2OE-Ly-gsT"/>
                                                 <constraint firstAttribute="trailing" secondItem="2qW-vf-rLg" secondAttribute="trailing" id="BGs-YI-TmS"/>
@@ -775,7 +780,7 @@
                                                 <constraint firstAttribute="bottom" secondItem="2qW-vf-rLg" secondAttribute="bottom" id="wHx-3c-t1E"/>
                                             </constraints>
                                         </view>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vsw-xm-r0b" userLabel="class4">
+                                        <view tag="13" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vsw-xm-r0b" userLabel="class4">
                                             <rect key="frame" x="143.33333333333334" y="0.0" width="123.00000000000003" height="78.333333333333329"/>
                                             <subviews>
                                                 <button opaque="NO" tag="13" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dki-bP-LTt" userLabel="buttonPlayer_4">
@@ -795,7 +800,6 @@
                                                     </constraints>
                                                 </imageView>
                                             </subviews>
-                                            <color key="backgroundColor" red="0.35294117650000001" green="0.2666666667" blue="0.1960784314" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
                                                 <constraint firstItem="M9W-oE-HDD" firstAttribute="centerY" secondItem="vsw-xm-r0b" secondAttribute="centerY" id="0vh-ee-CCK"/>
                                                 <constraint firstItem="dki-bP-LTt" firstAttribute="leading" secondItem="vsw-xm-r0b" secondAttribute="leading" id="1Cv-Hy-SqZ"/>
@@ -811,7 +815,7 @@
                                                 <constraint firstItem="dki-bP-LTt" firstAttribute="top" secondItem="vsw-xm-r0b" secondAttribute="top" id="wtz-nG-Vu8"/>
                                             </constraints>
                                         </view>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="76Y-sd-9Zw" userLabel="class5">
+                                        <view tag="14" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="76Y-sd-9Zw" userLabel="class5">
                                             <rect key="frame" x="286.33333333333331" y="0.0" width="123.33333333333331" height="78.333333333333329"/>
                                             <subviews>
                                                 <button opaque="NO" tag="14" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L6P-FO-fUX" userLabel="buttonPlayer_1">
@@ -831,7 +835,6 @@
                                                     </constraints>
                                                 </imageView>
                                             </subviews>
-                                            <color key="backgroundColor" red="0.1176470588" green="0.23529411759999999" blue="0.3921568627" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="trailing" secondItem="L6P-FO-fUX" secondAttribute="trailing" id="2gJ-4f-aCu"/>
                                                 <constraint firstAttribute="trailing" secondItem="L6P-FO-fUX" secondAttribute="trailing" id="EM1-4v-9b7"/>
@@ -847,7 +850,7 @@
                                                 <constraint firstAttribute="bottom" secondItem="qen-L9-LuV" secondAttribute="bottom" id="yod-7G-6pW"/>
                                             </constraints>
                                         </view>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FiB-Lw-ewB" userLabel="class5">
+                                        <view tag="15" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FiB-Lw-ewB" userLabel="class5">
                                             <rect key="frame" x="429.66666666666669" y="0.0" width="123.00000000000006" height="78.333333333333329"/>
                                             <subviews>
                                                 <button opaque="NO" tag="15" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OKW-VW-Ujd" userLabel="buttonPlayer_1">
@@ -867,7 +870,6 @@
                                                     </constraints>
                                                 </imageView>
                                             </subviews>
-                                            <color key="backgroundColor" red="0.1176470588" green="0.23529411759999999" blue="0.3921568627" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="bottom" secondItem="OKW-VW-Ujd" secondAttribute="bottom" id="3Sf-8U-PBf"/>
                                                 <constraint firstAttribute="trailing" secondItem="OKW-VW-Ujd" secondAttribute="trailing" id="3uW-cT-09l"/>
@@ -883,7 +885,7 @@
                                                 <constraint firstItem="OKW-VW-Ujd" firstAttribute="top" secondItem="FiB-Lw-ewB" secondAttribute="top" id="q72-Xt-Kut"/>
                                             </constraints>
                                         </view>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3sA-Dv-F6u" userLabel="class5">
+                                        <view tag="16" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3sA-Dv-F6u" userLabel="class5">
                                             <rect key="frame" x="572.66666666666663" y="0.0" width="123.33333333333337" height="78.333333333333329"/>
                                             <subviews>
                                                 <button opaque="NO" tag="16" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DvE-P9-U7v" userLabel="buttonPlayer_1">
@@ -903,7 +905,6 @@
                                                     </constraints>
                                                 </imageView>
                                             </subviews>
-                                            <color key="backgroundColor" red="0.1176470588" green="0.23529411759999999" blue="0.3921568627" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
                                                 <constraint firstItem="1Iw-DZ-Uem" firstAttribute="centerY" secondItem="3sA-Dv-F6u" secondAttribute="centerY" id="3Pd-T6-Aa7"/>
                                                 <constraint firstItem="DvE-P9-U7v" firstAttribute="leading" secondItem="3sA-Dv-F6u" secondAttribute="leading" id="72Y-MO-rTm"/>
