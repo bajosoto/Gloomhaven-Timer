@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		490689572239A8A70039AE95 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 490689562239A8A70039AE95 /* Player.swift */; };
 		49D104A02236BF360047129E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D1049F2236BF360047129E /* AppDelegate.swift */; };
 		49D104A22236BF360047129E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D104A12236BF360047129E /* ViewController.swift */; };
 		49D104A52236BF360047129E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 49D104A32236BF360047129E /* Main.storyboard */; };
@@ -14,6 +15,7 @@
 		49D104AA2236BF390047129E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 49D104A82236BF390047129E /* LaunchScreen.storyboard */; };
 		49D104B52236BF390047129E /* Gloom_TimerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D104B42236BF390047129E /* Gloom_TimerTests.swift */; };
 		49D104C02236BF390047129E /* Gloom_TimerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D104BF2236BF390047129E /* Gloom_TimerUITests.swift */; };
+		49D104CF2236C5630047129E /* PirataOne-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 49D104CE2236C5630047129E /* PirataOne-Regular.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,6 +36,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		490689562239A8A70039AE95 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		49D1049C2236BF360047129E /* Gloom Timer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Gloom Timer.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		49D1049F2236BF360047129E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		49D104A12236BF360047129E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -47,6 +50,7 @@
 		49D104BB2236BF390047129E /* Gloom TimerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Gloom TimerUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		49D104BF2236BF390047129E /* Gloom_TimerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gloom_TimerUITests.swift; sourceTree = "<group>"; };
 		49D104C12236BF390047129E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		49D104CE2236C5630047129E /* PirataOne-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "PirataOne-Regular.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +81,7 @@
 		49D104932236BF360047129E = {
 			isa = PBXGroup;
 			children = (
+				49D104CD2236C5300047129E /* Fonts */,
 				49D1049E2236BF360047129E /* Gloom Timer */,
 				49D104B32236BF390047129E /* Gloom TimerTests */,
 				49D104BE2236BF390047129E /* Gloom TimerUITests */,
@@ -103,6 +108,7 @@
 				49D104A62236BF390047129E /* Assets.xcassets */,
 				49D104A82236BF390047129E /* LaunchScreen.storyboard */,
 				49D104AB2236BF390047129E /* Info.plist */,
+				490689562239A8A70039AE95 /* Player.swift */,
 			);
 			path = "Gloom Timer";
 			sourceTree = "<group>";
@@ -123,6 +129,14 @@
 				49D104C12236BF390047129E /* Info.plist */,
 			);
 			path = "Gloom TimerUITests";
+			sourceTree = "<group>";
+		};
+		49D104CD2236C5300047129E /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				49D104CE2236C5630047129E /* PirataOne-Regular.ttf */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -232,6 +246,7 @@
 				49D104AA2236BF390047129E /* LaunchScreen.storyboard in Resources */,
 				49D104A72236BF390047129E /* Assets.xcassets in Resources */,
 				49D104A52236BF360047129E /* Main.storyboard in Resources */,
+				49D104CF2236C5630047129E /* PirataOne-Regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -257,6 +272,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				49D104A22236BF360047129E /* ViewController.swift in Sources */,
+				490689572239A8A70039AE95 /* Player.swift in Sources */,
 				49D104A02236BF360047129E /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -435,6 +451,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 67TUUX5VBP;
 				INFOPLIST_FILE = "Gloom Timer/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -453,6 +470,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 67TUUX5VBP;
 				INFOPLIST_FILE = "Gloom Timer/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

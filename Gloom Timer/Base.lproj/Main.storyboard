@@ -1,24 +1,481 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina5_5" orientation="landscape">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="PirataOne-Regular.ttf">
+            <string>PirataOne-Regular</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Gloom_Timer" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="736" height="414"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="zPT-9c-Vhi">
+                                <rect key="frame" x="20" y="20" width="696" height="374"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Mgg-ol-Q90">
+                                        <rect key="frame" x="0.0" y="0.0" width="696" height="111.33333333333333"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="k1U-8T-J0S" userLabel="player4">
+                                                <rect key="frame" x="0.0" y="0.0" width="338" height="111.33333333333333"/>
+                                                <subviews>
+                                                    <button opaque="NO" tag="4" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lc3-cg-FYO" userLabel="buttonPlayer_4">
+                                                        <rect key="frame" x="0.0" y="0.0" width="338" height="111.33333333333333"/>
+                                                        <color key="backgroundColor" red="0.35391873121261597" green="0.2688383162021637" blue="0.19587922096252441" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <state key="normal">
+                                                            <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="playerButtonPress:" destination="BYZ-38-t0r" eventType="touchUpInside" id="SQf-UN-Ek8"/>
+                                                        </connections>
+                                                    </button>
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tinkerer" translatesAutoresizingMaskIntoConstraints="NO" id="FQf-kW-T67">
+                                                        <rect key="frame" x="113.33333333333334" y="0.0" width="111.33333333333334" height="111.33333333333333"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="FQf-kW-T67" secondAttribute="height" multiplier="1:1" id="4nB-Aq-UCF"/>
+                                                        </constraints>
+                                                    </imageView>
+                                                </subviews>
+                                                <color key="backgroundColor" red="0.3529411764705882" green="0.26666666666666666" blue="0.19607843137254902" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <constraints>
+                                                    <constraint firstItem="lc3-cg-FYO" firstAttribute="top" secondItem="k1U-8T-J0S" secondAttribute="top" id="5W6-w9-lnS"/>
+                                                    <constraint firstItem="lc3-cg-FYO" firstAttribute="top" secondItem="k1U-8T-J0S" secondAttribute="top" id="8Je-bM-1wI"/>
+                                                    <constraint firstItem="FQf-kW-T67" firstAttribute="top" secondItem="k1U-8T-J0S" secondAttribute="top" id="9cI-xE-v4O"/>
+                                                    <constraint firstAttribute="bottom" secondItem="lc3-cg-FYO" secondAttribute="bottom" id="EmW-ug-oWH"/>
+                                                    <constraint firstAttribute="trailing" secondItem="lc3-cg-FYO" secondAttribute="trailing" id="FfE-Pa-tDk"/>
+                                                    <constraint firstItem="lc3-cg-FYO" firstAttribute="leading" secondItem="k1U-8T-J0S" secondAttribute="leading" id="JNg-ob-Dlt"/>
+                                                    <constraint firstItem="FQf-kW-T67" firstAttribute="centerY" secondItem="k1U-8T-J0S" secondAttribute="centerY" id="Kqh-Pl-qYX"/>
+                                                    <constraint firstItem="lc3-cg-FYO" firstAttribute="leading" secondItem="k1U-8T-J0S" secondAttribute="leading" id="R0d-3O-MZc"/>
+                                                    <constraint firstAttribute="bottom" secondItem="FQf-kW-T67" secondAttribute="bottom" id="V9U-V9-eEY"/>
+                                                    <constraint firstAttribute="trailing" secondItem="lc3-cg-FYO" secondAttribute="trailing" id="ikM-Hz-rcz"/>
+                                                    <constraint firstAttribute="bottom" secondItem="lc3-cg-FYO" secondAttribute="bottom" id="pL5-Nm-3dK"/>
+                                                    <constraint firstItem="FQf-kW-T67" firstAttribute="centerX" secondItem="k1U-8T-J0S" secondAttribute="centerX" id="zhm-cs-t1P"/>
+                                                </constraints>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2Zk-Ht-Mb8" userLabel="player1">
+                                                <rect key="frame" x="358" y="0.0" width="338" height="111.33333333333333"/>
+                                                <subviews>
+                                                    <button opaque="NO" tag="1" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dJ8-NR-iti" userLabel="buttonPlayer_1">
+                                                        <rect key="frame" x="0.0" y="0.0" width="338" height="111.33333333333333"/>
+                                                        <color key="backgroundColor" red="0.1176470588" green="0.23529411759999999" blue="0.3921568627" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <state key="normal">
+                                                            <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="playerButtonPress:" destination="BYZ-38-t0r" eventType="touchUpInside" id="5Ew-ab-yxv"/>
+                                                        </connections>
+                                                    </button>
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="brute" translatesAutoresizingMaskIntoConstraints="NO" id="W58-wF-bqL">
+                                                        <rect key="frame" x="113.33333333333331" y="0.0" width="111.33333333333331" height="111.33333333333333"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="W58-wF-bqL" secondAttribute="height" multiplier="1:1" id="fqw-51-qD2"/>
+                                                        </constraints>
+                                                    </imageView>
+                                                </subviews>
+                                                <color key="backgroundColor" red="0.11764705882352941" green="0.23529411764705882" blue="0.39215686274509803" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <constraints>
+                                                    <constraint firstItem="dJ8-NR-iti" firstAttribute="leading" secondItem="2Zk-Ht-Mb8" secondAttribute="leading" id="Hq3-kc-U6H"/>
+                                                    <constraint firstItem="W58-wF-bqL" firstAttribute="top" secondItem="2Zk-Ht-Mb8" secondAttribute="top" id="KxX-Tl-5rx"/>
+                                                    <constraint firstAttribute="bottom" secondItem="W58-wF-bqL" secondAttribute="bottom" id="QKn-g8-CVZ"/>
+                                                    <constraint firstItem="dJ8-NR-iti" firstAttribute="leading" secondItem="2Zk-Ht-Mb8" secondAttribute="leading" id="U7w-AD-05r"/>
+                                                    <constraint firstItem="dJ8-NR-iti" firstAttribute="top" secondItem="2Zk-Ht-Mb8" secondAttribute="top" id="Ugx-cN-Rp0"/>
+                                                    <constraint firstAttribute="trailing" secondItem="dJ8-NR-iti" secondAttribute="trailing" id="Yw0-Yi-nKI"/>
+                                                    <constraint firstItem="W58-wF-bqL" firstAttribute="centerY" secondItem="2Zk-Ht-Mb8" secondAttribute="centerY" id="hER-N7-Q4r"/>
+                                                    <constraint firstAttribute="bottom" secondItem="dJ8-NR-iti" secondAttribute="bottom" id="i9t-Wl-Sac"/>
+                                                    <constraint firstItem="W58-wF-bqL" firstAttribute="centerX" secondItem="2Zk-Ht-Mb8" secondAttribute="centerX" id="klQ-iN-gqe"/>
+                                                    <constraint firstAttribute="bottom" secondItem="dJ8-NR-iti" secondAttribute="bottom" id="nNw-f4-l1m"/>
+                                                    <constraint firstItem="dJ8-NR-iti" firstAttribute="top" secondItem="2Zk-Ht-Mb8" secondAttribute="top" id="t8a-a7-fvS"/>
+                                                    <constraint firstAttribute="trailing" secondItem="dJ8-NR-iti" secondAttribute="trailing" id="wqt-Fs-3me"/>
+                                                </constraints>
+                                            </view>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="qZs-5H-JOK">
+                                        <rect key="frame" x="0.0" y="131.33333333333334" width="696" height="111.33333333333334"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h3S-em-jpw">
+                                                <rect key="frame" x="0.0" y="0.0" width="696" height="111.33333333333333"/>
+                                                <fontDescription key="fontDescription" name="PirataOne-Regular" family="Pirata One" pointSize="60"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="XR5-P2-6Ju">
+                                        <rect key="frame" x="0.0" y="262.66666666666669" width="696" height="111.33333333333331"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dj1-Uw-RKX" userLabel="player3">
+                                                <rect key="frame" x="0.0" y="0.0" width="338" height="111.33333333333333"/>
+                                                <subviews>
+                                                    <button opaque="NO" tag="3" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9cl-Lb-Eq8" userLabel="buttonPlayer_3">
+                                                        <rect key="frame" x="0.0" y="0.0" width="338" height="111.33333333333333"/>
+                                                        <color key="backgroundColor" red="0.2666666667" green="0.34509803919999998" blue="0.4941176471" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <state key="normal">
+                                                            <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="playerButtonPress:" destination="BYZ-38-t0r" eventType="touchUpInside" id="1p4-w5-dgw"/>
+                                                        </connections>
+                                                    </button>
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mindthief" translatesAutoresizingMaskIntoConstraints="NO" id="b5i-zc-lYa">
+                                                        <rect key="frame" x="113.33333333333334" y="0.0" width="111.33333333333334" height="111.33333333333333"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="b5i-zc-lYa" secondAttribute="height" multiplier="1:1" id="KeS-vG-D1P"/>
+                                                        </constraints>
+                                                    </imageView>
+                                                </subviews>
+                                                <color key="backgroundColor" red="0.2666666667" green="0.34509803919999998" blue="0.4941176471" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <constraints>
+                                                    <constraint firstItem="b5i-zc-lYa" firstAttribute="top" secondItem="Dj1-Uw-RKX" secondAttribute="top" id="4SX-kY-HJB"/>
+                                                    <constraint firstAttribute="bottom" secondItem="9cl-Lb-Eq8" secondAttribute="bottom" id="5RW-3B-IF8"/>
+                                                    <constraint firstItem="9cl-Lb-Eq8" firstAttribute="leading" secondItem="Dj1-Uw-RKX" secondAttribute="leading" id="856-vT-a8Y"/>
+                                                    <constraint firstItem="b5i-zc-lYa" firstAttribute="centerY" secondItem="Dj1-Uw-RKX" secondAttribute="centerY" id="FAn-Th-LX2"/>
+                                                    <constraint firstItem="9cl-Lb-Eq8" firstAttribute="top" secondItem="Dj1-Uw-RKX" secondAttribute="top" id="KnI-gB-9vg"/>
+                                                    <constraint firstItem="b5i-zc-lYa" firstAttribute="centerX" secondItem="Dj1-Uw-RKX" secondAttribute="centerX" id="LpY-0c-vGb"/>
+                                                    <constraint firstAttribute="trailing" secondItem="9cl-Lb-Eq8" secondAttribute="trailing" id="Oit-le-4Fk"/>
+                                                    <constraint firstAttribute="bottom" secondItem="9cl-Lb-Eq8" secondAttribute="bottom" id="g6Y-55-cRA"/>
+                                                    <constraint firstAttribute="trailing" secondItem="9cl-Lb-Eq8" secondAttribute="trailing" id="npx-uO-eIm"/>
+                                                    <constraint firstAttribute="bottom" secondItem="b5i-zc-lYa" secondAttribute="bottom" id="rXq-yP-MC2"/>
+                                                    <constraint firstItem="9cl-Lb-Eq8" firstAttribute="leading" secondItem="Dj1-Uw-RKX" secondAttribute="leading" id="udo-1F-HpG"/>
+                                                    <constraint firstItem="9cl-Lb-Eq8" firstAttribute="top" secondItem="Dj1-Uw-RKX" secondAttribute="top" id="wdD-fb-01F"/>
+                                                </constraints>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7Ea-ne-AH3" userLabel="player2">
+                                                <rect key="frame" x="358" y="0.0" width="338" height="111.33333333333333"/>
+                                                <subviews>
+                                                    <button opaque="NO" tag="2" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="43D-HL-0Bh" userLabel="buttonPlayer_2">
+                                                        <rect key="frame" x="0.0" y="0.0" width="338" height="111.33333333333333"/>
+                                                        <color key="backgroundColor" red="0.1764705882" green="0.41176470590000003" blue="0.4823529412" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <state key="normal">
+                                                            <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="playerButtonPress:" destination="BYZ-38-t0r" eventType="touchUpInside" id="siV-nx-VIg"/>
+                                                        </connections>
+                                                    </button>
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="doom" translatesAutoresizingMaskIntoConstraints="NO" id="ArB-Eh-Eci">
+                                                        <rect key="frame" x="113.33333333333331" y="0.0" width="111.33333333333331" height="111.33333333333333"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="ArB-Eh-Eci" secondAttribute="height" multiplier="1:1" id="AP0-lW-ERe"/>
+                                                        </constraints>
+                                                    </imageView>
+                                                </subviews>
+                                                <color key="backgroundColor" red="0.1764705882352941" green="0.41176470588235292" blue="0.4823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <constraints>
+                                                    <constraint firstItem="ArB-Eh-Eci" firstAttribute="top" secondItem="7Ea-ne-AH3" secondAttribute="top" id="1rC-lA-OTh"/>
+                                                    <constraint firstAttribute="bottom" secondItem="ArB-Eh-Eci" secondAttribute="bottom" id="2WY-bB-UKr"/>
+                                                    <constraint firstItem="ArB-Eh-Eci" firstAttribute="centerY" secondItem="7Ea-ne-AH3" secondAttribute="centerY" id="AUM-ae-K6M"/>
+                                                    <constraint firstItem="43D-HL-0Bh" firstAttribute="top" secondItem="7Ea-ne-AH3" secondAttribute="top" id="Hmg-b5-BvB"/>
+                                                    <constraint firstAttribute="bottom" secondItem="43D-HL-0Bh" secondAttribute="bottom" id="YCU-a0-naq"/>
+                                                    <constraint firstItem="43D-HL-0Bh" firstAttribute="leading" secondItem="7Ea-ne-AH3" secondAttribute="leading" id="Z7o-pX-HgD"/>
+                                                    <constraint firstItem="ArB-Eh-Eci" firstAttribute="centerX" secondItem="7Ea-ne-AH3" secondAttribute="centerX" id="ZP5-Sy-108"/>
+                                                    <constraint firstAttribute="trailing" secondItem="43D-HL-0Bh" secondAttribute="trailing" id="b3s-Ie-MuB"/>
+                                                    <constraint firstItem="43D-HL-0Bh" firstAttribute="leading" secondItem="7Ea-ne-AH3" secondAttribute="leading" id="cbr-if-WTg"/>
+                                                    <constraint firstAttribute="trailing" secondItem="43D-HL-0Bh" secondAttribute="trailing" id="dp4-dQ-kch"/>
+                                                    <constraint firstAttribute="bottom" secondItem="43D-HL-0Bh" secondAttribute="bottom" id="rvc-Uy-V33"/>
+                                                    <constraint firstItem="43D-HL-0Bh" firstAttribute="top" secondItem="7Ea-ne-AH3" secondAttribute="top" id="s0o-ea-t03"/>
+                                                </constraints>
+                                            </view>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                            <visualEffectView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JoB-5s-hE9">
+                                <rect key="frame" x="0.0" y="0.0" width="736" height="414"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="PH8-dg-KeI">
+                                    <rect key="frame" x="0.0" y="0.0" width="736" height="414"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                </view>
+                                <blurEffect style="dark"/>
+                            </visualEffectView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.0" green="0.050160227237424589" blue="0.11704582253886009" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="JoB-5s-hE9" secondAttribute="trailing" id="2CS-Rf-HkE"/>
+                            <constraint firstAttribute="trailing" secondItem="zPT-9c-Vhi" secondAttribute="trailing" constant="20" id="Tbx-nS-wNW"/>
+                            <constraint firstItem="JoB-5s-hE9" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="YFk-Tg-Heg"/>
+                            <constraint firstItem="zPT-9c-Vhi" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="bLw-tF-yiR"/>
+                            <constraint firstItem="zPT-9c-Vhi" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="eaF-Vq-O2U"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="JoB-5s-hE9" secondAttribute="bottom" id="gw4-0f-mWd"/>
+                            <constraint firstItem="JoB-5s-hE9" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="jz2-7m-DCG"/>
+                            <constraint firstItem="zPT-9c-Vhi" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" constant="-20" id="sws-uA-2iF"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="PopupView" destination="4sK-U1-LBV" id="hEr-kK-Oxb"/>
+                        <outlet property="blurFx" destination="JoB-5s-hE9" id="4cz-dU-rbb"/>
+                        <outlet property="bruteButton" destination="dJ8-NR-iti" id="6uo-kA-iHI"/>
+                        <outlet property="currInitiativeLabel" destination="juC-IO-fos" id="TR0-Cc-EQC"/>
+                        <outlet property="doomButton" destination="43D-HL-0Bh" id="CwO-bE-phh"/>
+                        <outlet property="globalTimer" destination="h3S-em-jpw" id="1Os-El-MGh"/>
+                        <outlet property="mindthiefButton" destination="9cl-Lb-Eq8" id="RfB-ei-Hyu"/>
+                        <outlet property="np0" destination="4sg-vH-M8c" id="ip9-qa-Gov"/>
+                        <outlet property="np1" destination="44T-4f-TUA" id="IJ1-u0-YIJ"/>
+                        <outlet property="np2" destination="iFq-VL-lRg" id="zjo-M0-uVW"/>
+                        <outlet property="np3" destination="36L-8c-XyG" id="aeF-zJ-Oha"/>
+                        <outlet property="np4" destination="EkU-ZG-YuX" id="Fjt-js-pZD"/>
+                        <outlet property="np5" destination="LAd-o4-IX2" id="5se-lt-wdh"/>
+                        <outlet property="np6" destination="crR-ow-iJe" id="Rgs-Zo-KjP"/>
+                        <outlet property="np7" destination="PPn-dn-PT8" id="NdP-EH-ivD"/>
+                        <outlet property="np8" destination="Znh-XY-ppc" id="F3z-EB-Agw"/>
+                        <outlet property="np9" destination="Cgf-5r-HfW" id="rsT-pe-Hnc"/>
+                        <outlet property="player1ImageView" destination="W58-wF-bqL" id="GJ7-9C-Ime"/>
+                        <outlet property="player2ImageView" destination="W58-wF-bqL" id="KX5-lx-Aqb"/>
+                        <outlet property="player3ImageView" destination="b5i-zc-lYa" id="6qz-tj-s05"/>
+                        <outlet property="player4ImageView" destination="FQf-kW-T67" id="sNe-hI-3Rt"/>
+                        <outlet property="tinkererButton" destination="lc3-cg-FYO" id="jbv-hU-IIq"/>
+                    </connections>
                 </viewController>
+                <view contentMode="scaleToFill" id="4sK-U1-LBV" userLabel="Popup">
+                    <rect key="frame" x="0.0" y="0.0" width="496" height="321"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <subviews>
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="abQ-z5-iCQ">
+                            <rect key="frame" x="100" y="80" width="296" height="211"/>
+                            <subviews>
+                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="mwG-Ks-n3l">
+                                    <rect key="frame" x="0.0" y="0.0" width="296" height="49"/>
+                                    <subviews>
+                                        <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="44T-4f-TUA">
+                                            <rect key="frame" x="0.0" y="0.0" width="93.333333333333329" height="49"/>
+                                            <color key="backgroundColor" red="0.1176470588" green="0.23529411759999999" blue="0.3921568627" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <fontDescription key="fontDescription" name="PirataOne-Regular" family="Pirata One" pointSize="40"/>
+                                            <state key="normal" title="1">
+                                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </state>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                    <integer key="value" value="10"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
+                                            <connections>
+                                                <action selector="numPadButtonPress:" destination="BYZ-38-t0r" eventType="touchUpInside" id="TjI-Ur-Qwc"/>
+                                            </connections>
+                                        </button>
+                                        <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iFq-VL-lRg">
+                                            <rect key="frame" x="101.33333333333334" y="0.0" width="93.333333333333343" height="49"/>
+                                            <color key="backgroundColor" red="0.1176470588" green="0.23529411759999999" blue="0.3921568627" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <fontDescription key="fontDescription" name="PirataOne-Regular" family="Pirata One" pointSize="40"/>
+                                            <state key="normal" title="2">
+                                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </state>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                    <integer key="value" value="10"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
+                                            <connections>
+                                                <action selector="numPadButtonPress:" destination="BYZ-38-t0r" eventType="touchDown" id="Znw-W1-GeL"/>
+                                            </connections>
+                                        </button>
+                                        <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="36L-8c-XyG">
+                                            <rect key="frame" x="202.66666666666669" y="0.0" width="93.333333333333314" height="49"/>
+                                            <color key="backgroundColor" red="0.1176470588" green="0.23529411759999999" blue="0.3921568627" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <fontDescription key="fontDescription" name="PirataOne-Regular" family="Pirata One" pointSize="40"/>
+                                            <state key="normal" title="3">
+                                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </state>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                    <integer key="value" value="10"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
+                                            <connections>
+                                                <action selector="numPadButtonPress:" destination="BYZ-38-t0r" eventType="touchDown" id="Otw-cj-q7g"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                </stackView>
+                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="l1c-mZ-d1J">
+                                    <rect key="frame" x="0.0" y="54" width="296" height="49"/>
+                                    <subviews>
+                                        <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EkU-ZG-YuX">
+                                            <rect key="frame" x="0.0" y="0.0" width="93.333333333333329" height="49"/>
+                                            <color key="backgroundColor" red="0.1176470588" green="0.23529411759999999" blue="0.3921568627" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <fontDescription key="fontDescription" name="PirataOne-Regular" family="Pirata One" pointSize="40"/>
+                                            <state key="normal" title="4">
+                                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </state>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                    <integer key="value" value="10"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
+                                            <connections>
+                                                <action selector="numPadButtonPress:" destination="BYZ-38-t0r" eventType="touchDown" id="wg8-Zk-hYW"/>
+                                            </connections>
+                                        </button>
+                                        <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LAd-o4-IX2">
+                                            <rect key="frame" x="101.33333333333334" y="0.0" width="93.333333333333343" height="49"/>
+                                            <color key="backgroundColor" red="0.1176470588" green="0.23529411759999999" blue="0.3921568627" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <fontDescription key="fontDescription" name="PirataOne-Regular" family="Pirata One" pointSize="40"/>
+                                            <state key="normal" title="5">
+                                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </state>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                    <integer key="value" value="10"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
+                                            <connections>
+                                                <action selector="numPadButtonPress:" destination="BYZ-38-t0r" eventType="touchDown" id="rt2-Wr-Tuc"/>
+                                            </connections>
+                                        </button>
+                                        <button opaque="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="crR-ow-iJe">
+                                            <rect key="frame" x="202.66666666666669" y="0.0" width="93.333333333333314" height="49"/>
+                                            <color key="backgroundColor" red="0.1176470588" green="0.23529411759999999" blue="0.3921568627" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <fontDescription key="fontDescription" name="PirataOne-Regular" family="Pirata One" pointSize="40"/>
+                                            <state key="normal" title="6">
+                                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </state>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                    <integer key="value" value="10"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
+                                            <connections>
+                                                <action selector="numPadButtonPress:" destination="BYZ-38-t0r" eventType="touchDown" id="WVZ-ob-lqA"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                </stackView>
+                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="RBH-yl-pXk">
+                                    <rect key="frame" x="0.0" y="108" width="296" height="49"/>
+                                    <subviews>
+                                        <button opaque="NO" tag="7" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PPn-dn-PT8">
+                                            <rect key="frame" x="0.0" y="0.0" width="93.333333333333329" height="49"/>
+                                            <color key="backgroundColor" red="0.1176470588" green="0.23529411759999999" blue="0.3921568627" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <fontDescription key="fontDescription" name="PirataOne-Regular" family="Pirata One" pointSize="40"/>
+                                            <state key="normal" title="7">
+                                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </state>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                    <integer key="value" value="10"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
+                                            <connections>
+                                                <action selector="numPadButtonPress:" destination="BYZ-38-t0r" eventType="touchDown" id="29u-Dy-zlr"/>
+                                            </connections>
+                                        </button>
+                                        <button opaque="NO" tag="8" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Znh-XY-ppc">
+                                            <rect key="frame" x="101.33333333333334" y="0.0" width="93.333333333333343" height="49"/>
+                                            <color key="backgroundColor" red="0.1176470588" green="0.23529411759999999" blue="0.3921568627" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <fontDescription key="fontDescription" name="PirataOne-Regular" family="Pirata One" pointSize="40"/>
+                                            <state key="normal" title="8">
+                                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </state>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                    <integer key="value" value="10"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
+                                            <connections>
+                                                <action selector="numPadButtonPress:" destination="BYZ-38-t0r" eventType="touchDown" id="0Eh-gu-BeY"/>
+                                            </connections>
+                                        </button>
+                                        <button opaque="NO" tag="9" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cgf-5r-HfW">
+                                            <rect key="frame" x="202.66666666666669" y="0.0" width="93.333333333333314" height="49"/>
+                                            <color key="backgroundColor" red="0.1176470588" green="0.23529411759999999" blue="0.3921568627" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <fontDescription key="fontDescription" name="PirataOne-Regular" family="Pirata One" pointSize="40"/>
+                                            <state key="normal" title="9">
+                                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </state>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                    <integer key="value" value="10"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
+                                            <connections>
+                                                <action selector="numPadButtonPress:" destination="BYZ-38-t0r" eventType="touchDown" id="tBm-ye-s1C"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                </stackView>
+                                <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="JeC-go-Vyv">
+                                    <rect key="frame" x="0.0" y="162" width="296" height="49"/>
+                                    <subviews>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4sg-vH-M8c">
+                                            <rect key="frame" x="0.0" y="0.0" width="194.66666666666666" height="49"/>
+                                            <color key="backgroundColor" red="0.1176470588" green="0.23529411759999999" blue="0.3921568627" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <fontDescription key="fontDescription" name="PirataOne-Regular" family="Pirata One" pointSize="40"/>
+                                            <state key="normal" title="0">
+                                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </state>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                    <integer key="value" value="10"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
+                                            <connections>
+                                                <action selector="numPadButtonPress:" destination="BYZ-38-t0r" eventType="touchDown" id="beS-ae-QHw"/>
+                                            </connections>
+                                        </button>
+                                        <button opaque="NO" tag="99" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sen-0B-Rcz">
+                                            <rect key="frame" x="202.66666666666669" y="0.0" width="93.333333333333314" height="49"/>
+                                            <color key="backgroundColor" red="0.0" green="0.050160227240000001" blue="0.11704582249999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <fontDescription key="fontDescription" name="PirataOne-Regular" family="Pirata One" pointSize="40"/>
+                                            <state key="normal" title="99">
+                                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </state>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                    <integer key="value" value="10"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
+                                            <connections>
+                                                <action selector="numPadButtonPress:" destination="BYZ-38-t0r" eventType="touchDown" id="3bd-yt-w4u"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                </stackView>
+                            </subviews>
+                            <constraints>
+                                <constraint firstItem="sen-0B-Rcz" firstAttribute="width" secondItem="Cgf-5r-HfW" secondAttribute="width" id="kKn-aJ-Ogo"/>
+                            </constraints>
+                        </stackView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="--" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="juC-IO-fos">
+                            <rect key="frame" x="100" y="23" width="296" height="48.333333333333336"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" name="PirataOne-Regular" family="Pirata One" pointSize="60"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <nil key="highlightedColor"/>
+                            <color key="shadowColor" red="0.0" green="0.050160227240000001" blue="0.11704582249999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <size key="shadowOffset" width="1" height="2"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="0.1016427654" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="abQ-z5-iCQ" secondAttribute="trailing" constant="100" id="DDn-hd-Njg"/>
+                        <constraint firstItem="abQ-z5-iCQ" firstAttribute="leading" secondItem="FLq-mK-3Kb" secondAttribute="leading" constant="100" id="I6l-44-Nyx"/>
+                        <constraint firstAttribute="bottom" secondItem="abQ-z5-iCQ" secondAttribute="bottom" constant="30" id="eSc-vw-a7g"/>
+                        <constraint firstItem="abQ-z5-iCQ" firstAttribute="top" secondItem="FLq-mK-3Kb" secondAttribute="top" constant="80" id="gDO-nc-tuZ"/>
+                    </constraints>
+                    <viewLayoutGuide key="safeArea" id="FLq-mK-3Kb"/>
+                </view>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="27.717391304347828" y="44.927536231884062"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="brute" width="300" height="300"/>
+        <image name="doom" width="300" height="300"/>
+        <image name="mindthief" width="300" height="300"/>
+        <image name="tinkerer" width="300" height="300"/>
+    </resources>
 </document>
