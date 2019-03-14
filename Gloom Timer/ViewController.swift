@@ -19,10 +19,10 @@ class ViewController: UIViewController {
     var currInitiativeTens: Int = -1
     var currInitiativePlayer: Int = -1
     
-    var players = [Player(player_class: "brute", player_number: 1),
-                   Player(player_class: "doomstalker", player_number: 2),
-                   Player(player_class: "mindthief", player_number: 3),
-                   Player(player_class: "tinkerer", player_number: 4)]
+    var players = [Player(player_class: "spellweaver", player_number: 1),
+                   Player(player_class: "scoundrel", player_number: 2),
+                   Player(player_class: "music", player_number: 3),
+                   Player(player_class: "saw", player_number: 4)]
     
     var effect: UIVisualEffect!
     
