@@ -19,10 +19,12 @@ class ViewController: UIViewController, UITextFieldDelegate {
     var currInitiativeTens: Int = -1
     var currInitiativePlayer: Int = -1
     
-    var players = [Player(player_class: "brute", player_number: 1),
-                   Player(player_class: "doomstalker", player_number: 2),
-                   Player(player_class: "mindthief", player_number: 3),
-                   Player(player_class: "tinkerer", player_number: 4)]
+    var currPlayerSelection: Int = 0
+    var players: [Player] = []
+//                    = [Player(player_class: "brute", player_number: 1),
+//                   Player(player_class: "doomstalker", player_number: 2),
+//                   Player(player_class: "mindthief", player_number: 3),
+//                   Player(player_class: "tinkerer", player_number: 4)]
     
     var effect: UIVisualEffect!
     
@@ -102,42 +104,13 @@ class ViewController: UIViewController, UITextFieldDelegate {
         startTime = Date().timeIntervalSinceReferenceDate - elapsed
         timer = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: #selector(UpdateTimer), userInfo: nil, repeats: true)
         
-        // Assign image to buttons
-        for (i, imageView) in playerButtonImages.enumerated() {
-            imageView.image = UIImage(named: players[i].player_class)
-        }
-        
-        // Assign colors to buttons
-        for (i, button) in playerButtons.enumerated() {
-            button.backgroundColor = players[i].player_color
-        }
-        
         // Rotate player 1 and 4 buttons upside down
         player1ImageView.transform = playerButton1.transform.rotated(by: CGFloat(Double.pi))
         player4ImageView.transform = playerButton4.transform.rotated(by: CGFloat(Double.pi))
         
         // Set color of class buttons
         for button in classButtons {
-            switch button.tag {
-            case 0: button.backgroundColor = getColor(name: "lion")
-            case 1: button.backgroundColor = getColor(name: "thunder")
-            case 2: button.backgroundColor = getColor(name: "brute")
-            case 3: button.backgroundColor = getColor(name: "doomstalker")
-            case 4: button.backgroundColor = getColor(name: "triforce")
-            case 5: button.backgroundColor = getColor(name: "mindthief")
-            case 6: button.backgroundColor = getColor(name: "moon")
-            case 7: button.backgroundColor = getColor(name: "octopus")
-            case 8: button.backgroundColor = getColor(name: "spellweaver")
-            case 9: button.backgroundColor = getColor(name: "wind")
-            case 10: button.backgroundColor = getColor(name: "sun")
-            case 11: button.backgroundColor = getColor(name: "tinkerer")
-            case 12: button.backgroundColor = getColor(name: "music")
-            case 13: button.backgroundColor = getColor(name: "scoundrel")
-            case 14: button.backgroundColor = getColor(name: "saw")
-            case 15: button.backgroundColor = getColor(name: "arrows")
-            case 16: button.backgroundColor = getColor(name: "cragheart")
-            default: button.backgroundColor = getColor(name: "unassigned")
-            }
+            button.backgroundColor = getColor(name: classes[button.tag])
         }
         
         // Set delegate for text field
@@ -207,6 +180,30 @@ class ViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
+    @IBAction func classSelectionPressed(_ sender: UIButton) {
+        players.append(Player(player_class: classes[sender.tag], player_number: currPlayerSelection, player_name: playerNameTextField.text!))
+        print("Created player \(currPlayerSelection + 1): \(classes[sender.tag])")
+        currPlayerSelection += 1
+        playerNameTextField.text = "Player \(currPlayerSelection + 1)"
+        
+        if(currPlayerSelection == 4) {
+            // Assign image to buttons
+            for (i, imageView) in playerButtonImages.enumerated() {
+                imageView.image = UIImage(named: players[i].player_class)
+            }
+            
+            // Assign colors to buttons
+            for (i, button) in playerButtons.enumerated() {
+                button.backgroundColor = players[i].player_color
+            }
+            
+            // Go to player board
+            hideClassSelection()
+            
+        }
+    }
+    
+    
     @IBAction func invisBackButton(_ sender: Any) {
         players[currInitiativePlayer].player_initiative = -1
         print("Player \(currInitiativePlayer + 1) (\(players[currInitiativePlayer].player_class)) initiative is \(players[currInitiativePlayer].player_initiative)")
@@ -226,6 +223,11 @@ class ViewController: UIViewController, UITextFieldDelegate {
         playerSelectionView.center = self.view.center
         playerSelectionView.transform = CGAffineTransform.identity
         playerSelectionView.alpha = 1
+    }
+    
+    func hideClassSelection() {
+        self.playerSelectionView.removeFromSuperview()
+        showPlayerBoard()
     }
     
     func showPlayerBoard() {
