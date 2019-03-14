@@ -166,7 +166,7 @@
                                                             <action selector="playerButtonPress:" destination="BYZ-38-t0r" eventType="touchUpInside" id="siV-nx-VIg"/>
                                                         </connections>
                                                     </button>
-                                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="doom" translatesAutoresizingMaskIntoConstraints="NO" id="ArB-Eh-Eci">
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="doomstalker" translatesAutoresizingMaskIntoConstraints="NO" id="ArB-Eh-Eci">
                                                         <rect key="frame" x="113.33333333333331" y="0.0" width="111.33333333333331" height="111.33333333333333"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" secondItem="ArB-Eh-Eci" secondAttribute="height" multiplier="1:1" id="AP0-lW-ERe"/>
@@ -193,6 +193,12 @@
                                     </stackView>
                                 </subviews>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6hy-Nb-rWQ" userLabel="invisBackBtn">
+                                <rect key="frame" x="0.0" y="0.0" width="736" height="414"/>
+                                <connections>
+                                    <action selector="invisBackButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ap2-oF-sm1"/>
+                                </connections>
+                            </button>
                             <visualEffectView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JoB-5s-hE9">
                                 <rect key="frame" x="0.0" y="0.0" width="736" height="414"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="PH8-dg-KeI">
@@ -205,24 +211,26 @@
                         <color key="backgroundColor" red="0.0" green="0.050160227237424589" blue="0.11704582253886009" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="JoB-5s-hE9" secondAttribute="trailing" id="2CS-Rf-HkE"/>
+                            <constraint firstItem="6hy-Nb-rWQ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="4bL-4X-knf"/>
+                            <constraint firstItem="6hy-Nb-rWQ" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="T0F-Zq-phV"/>
                             <constraint firstAttribute="trailing" secondItem="zPT-9c-Vhi" secondAttribute="trailing" constant="20" id="Tbx-nS-wNW"/>
                             <constraint firstItem="JoB-5s-hE9" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="YFk-Tg-Heg"/>
                             <constraint firstItem="zPT-9c-Vhi" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="bLw-tF-yiR"/>
                             <constraint firstItem="zPT-9c-Vhi" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="eaF-Vq-O2U"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="JoB-5s-hE9" secondAttribute="bottom" id="gw4-0f-mWd"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="6hy-Nb-rWQ" secondAttribute="trailing" id="iq8-FA-RZX"/>
                             <constraint firstItem="JoB-5s-hE9" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="jz2-7m-DCG"/>
                             <constraint firstItem="zPT-9c-Vhi" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" constant="-20" id="sws-uA-2iF"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="6hy-Nb-rWQ" secondAttribute="bottom" id="yyk-cq-Po8"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
                         <outlet property="PopupView" destination="4sK-U1-LBV" id="hEr-kK-Oxb"/>
                         <outlet property="blurFx" destination="JoB-5s-hE9" id="4cz-dU-rbb"/>
-                        <outlet property="bruteButton" destination="dJ8-NR-iti" id="6uo-kA-iHI"/>
                         <outlet property="currInitiativeLabel" destination="juC-IO-fos" id="TR0-Cc-EQC"/>
-                        <outlet property="doomButton" destination="43D-HL-0Bh" id="CwO-bE-phh"/>
                         <outlet property="globalTimer" destination="h3S-em-jpw" id="1Os-El-MGh"/>
-                        <outlet property="mindthiefButton" destination="9cl-Lb-Eq8" id="RfB-ei-Hyu"/>
+                        <outlet property="invisiBackButton" destination="6hy-Nb-rWQ" id="f1P-3w-1CQ"/>
                         <outlet property="np0" destination="4sg-vH-M8c" id="ip9-qa-Gov"/>
                         <outlet property="np1" destination="44T-4f-TUA" id="IJ1-u0-YIJ"/>
                         <outlet property="np2" destination="iFq-VL-lRg" id="zjo-M0-uVW"/>
@@ -234,10 +242,13 @@
                         <outlet property="np8" destination="Znh-XY-ppc" id="F3z-EB-Agw"/>
                         <outlet property="np9" destination="Cgf-5r-HfW" id="rsT-pe-Hnc"/>
                         <outlet property="player1ImageView" destination="W58-wF-bqL" id="GJ7-9C-Ime"/>
-                        <outlet property="player2ImageView" destination="W58-wF-bqL" id="KX5-lx-Aqb"/>
+                        <outlet property="player2ImageView" destination="ArB-Eh-Eci" id="ngA-qI-dG1"/>
                         <outlet property="player3ImageView" destination="b5i-zc-lYa" id="6qz-tj-s05"/>
                         <outlet property="player4ImageView" destination="FQf-kW-T67" id="sNe-hI-3Rt"/>
-                        <outlet property="tinkererButton" destination="lc3-cg-FYO" id="jbv-hU-IIq"/>
+                        <outlet property="playerButton1" destination="dJ8-NR-iti" id="6uo-kA-iHI"/>
+                        <outlet property="playerButton2" destination="43D-HL-0Bh" id="CwO-bE-phh"/>
+                        <outlet property="playerButton3" destination="9cl-Lb-Eq8" id="RfB-ei-Hyu"/>
+                        <outlet property="playerButton4" destination="lc3-cg-FYO" id="jbv-hU-IIq"/>
                     </connections>
                 </viewController>
                 <view contentMode="scaleToFill" id="4sK-U1-LBV" userLabel="Popup">
@@ -448,9 +459,8 @@
                                 <constraint firstItem="sen-0B-Rcz" firstAttribute="width" secondItem="Cgf-5r-HfW" secondAttribute="width" id="kKn-aJ-Ogo"/>
                             </constraints>
                         </stackView>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="--" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="juC-IO-fos">
-                            <rect key="frame" x="100" y="23" width="296" height="48.333333333333336"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="--" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="juC-IO-fos">
+                            <rect key="frame" x="100" y="0.0" width="296" height="71.333333333333329"/>
                             <fontDescription key="fontDescription" name="PirataOne-Regular" family="Pirata One" pointSize="60"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
@@ -460,8 +470,12 @@
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="0.1016427654" colorSpace="calibratedWhite"/>
                     <constraints>
+                        <constraint firstItem="juC-IO-fos" firstAttribute="width" secondItem="abQ-z5-iCQ" secondAttribute="width" id="3yZ-dM-xVV"/>
                         <constraint firstAttribute="trailing" secondItem="abQ-z5-iCQ" secondAttribute="trailing" constant="100" id="DDn-hd-Njg"/>
                         <constraint firstItem="abQ-z5-iCQ" firstAttribute="leading" secondItem="FLq-mK-3Kb" secondAttribute="leading" constant="100" id="I6l-44-Nyx"/>
+                        <constraint firstItem="juC-IO-fos" firstAttribute="centerX" secondItem="abQ-z5-iCQ" secondAttribute="centerX" id="Lzk-dw-56y"/>
+                        <constraint firstItem="juC-IO-fos" firstAttribute="top" secondItem="4sK-U1-LBV" secondAttribute="topMargin" id="Qaw-q8-uC8"/>
+                        <constraint firstItem="abQ-z5-iCQ" firstAttribute="top" secondItem="juC-IO-fos" secondAttribute="bottom" constant="8.6666666666666572" id="VaL-ee-c5n"/>
                         <constraint firstAttribute="bottom" secondItem="abQ-z5-iCQ" secondAttribute="bottom" constant="30" id="eSc-vw-a7g"/>
                         <constraint firstItem="abQ-z5-iCQ" firstAttribute="top" secondItem="FLq-mK-3Kb" secondAttribute="top" constant="80" id="gDO-nc-tuZ"/>
                     </constraints>
@@ -474,7 +488,7 @@
     </scenes>
     <resources>
         <image name="brute" width="300" height="300"/>
-        <image name="doom" width="300" height="300"/>
+        <image name="doomstalker" width="300" height="300"/>
         <image name="mindthief" width="300" height="300"/>
         <image name="tinkerer" width="300" height="300"/>
     </resources>
