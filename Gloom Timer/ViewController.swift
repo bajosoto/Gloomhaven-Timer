@@ -173,6 +173,19 @@ class ViewController: UIViewController, UITextFieldDelegate {
         print("Created player \(currPlayerSelection + 1): \(classes[sender.tag])")
         currPlayerSelection += 1
         
+        // Find button view (from button pressed) in order to disable
+        var buttView: UIView?
+        for classButtonView in self.classButtonViews {
+            if (classButtonView.tag) == sender.tag {
+                buttView = classButtonView
+            }
+        }
+        // Disable button
+        UIView.animate(withDuration: 0.4) {
+            buttView!.alpha = 0.3
+        }
+        sender.isEnabled = false
+        
         // Animate Text out
         UIView.animate(withDuration: 0.2) {
             self.playerNameTextField.alpha = 0
@@ -190,14 +203,26 @@ class ViewController: UIViewController, UITextFieldDelegate {
             // Go to player board
             hideClassSelection()
         } else {
-            playerNameTextField.text = "Player \(currPlayerSelection + 1)"
+            // BEGIN BBB Exclusive:
+            var nextName: String
+            switch (currPlayerSelection) {
+                case 1: nextName = "Gaby"
+                case 2: nextName = "Sergio"
+                case 3: nextName = "Gui"
+                default: nextName = "Player \(currPlayerSelection + 1)"
+            }
+            playerNameTextField.text = nextName
+            // END BBB Exclusive
+            
+            // Non-BBB Version
+//            playerNameTextField.text = "Player \(currPlayerSelection + 1)"
+            
             // Animate Text In
             UIView.animate(withDuration: 0.2) {
                 self.playerNameTextField.alpha = 1
             }
         }
     }
-    
     
     @IBAction func invisBackButton(_ sender: Any) {
         players[currInitiativePlayer].player_initiative = -1
