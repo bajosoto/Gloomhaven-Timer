@@ -35,6 +35,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var playerButtonArea2: UIView!
     @IBOutlet weak var playerButtonArea3: UIView!
     @IBOutlet weak var playerButtonArea4: UIView!
+    @IBOutlet var playerButtonAreas: [UIView]!
     
     @IBOutlet weak var playerButton1: UIButton!
     @IBOutlet weak var playerButton2: UIButton!
@@ -84,6 +85,9 @@ class ViewController: UIViewController {
         
         // Populate numpad buttons
         npButtons = [np1, np2, np3, np4, np5, np6, np7, np8, np9, np0]
+        
+        // Populate Player Button Areas
+        playerButtonAreas = [playerButtonArea1, playerButtonArea2, playerButtonArea3, playerButtonArea4]
         
         // Store blur effect
         effect = blurFx.effect
@@ -167,14 +171,11 @@ class ViewController: UIViewController {
     
     func showPlayerBoard() {
         playerBoard.isHidden = false
-        playerButtonArea1.transform = CGAffineTransform.identity.scaledBy(x: 1.3, y: 1.3)
-        playerButtonArea2.transform = CGAffineTransform.identity.scaledBy(x: 1.3, y: 1.3)
-        playerButtonArea3.transform = CGAffineTransform.identity.scaledBy(x: 1.3, y: 1.3)
-        playerButtonArea4.transform = CGAffineTransform.identity.scaledBy(x: 1.3, y: 1.3)
-        playerButtonArea1.alpha = 0
-        playerButtonArea2.alpha = 0
-        playerButtonArea3.alpha = 0
-        playerButtonArea4.alpha = 0
+        
+        for playerButtonArea in playerButtonAreas {
+            playerButtonArea.transform = CGAffineTransform.identity.scaledBy(x: 1.3, y: 1.3)
+            playerButtonArea.alpha = 0
+        }
         
         UIView.animateKeyframes(withDuration: 1, delay: 0, options: [.calculationModeCubic], animations: {
             UIView.addKeyframe(withRelativeStartTime: 0.0/0.5, relativeDuration: 0.2/0.5, animations: {
@@ -196,10 +197,6 @@ class ViewController: UIViewController {
         }, completion:{ _ in
             // Do nothing
         })
-//        UIView.animate(withDuration: 0.1) {
-//            self.playerButtonArea1.transform = CGAffineTransform.identity
-//            self.playerButtonArea1.alpha = 1
-//        }
     }
     
     func animateNumPadViewIn(player: Int) {
