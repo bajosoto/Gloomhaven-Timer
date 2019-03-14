@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UITextFieldDelegate {
 
     weak var timer: Timer?
     var startTime: Double = 0
@@ -19,10 +19,10 @@ class ViewController: UIViewController {
     var currInitiativeTens: Int = -1
     var currInitiativePlayer: Int = -1
     
-    var players = [Player(player_class: "spellweaver", player_number: 1),
-                   Player(player_class: "scoundrel", player_number: 2),
-                   Player(player_class: "music", player_number: 3),
-                   Player(player_class: "saw", player_number: 4)]
+    var players = [Player(player_class: "brute", player_number: 1),
+                   Player(player_class: "doomstalker", player_number: 2),
+                   Player(player_class: "mindthief", player_number: 3),
+                   Player(player_class: "tinkerer", player_number: 4)]
     
     var effect: UIVisualEffect!
     
@@ -37,11 +37,15 @@ class ViewController: UIViewController {
     @IBOutlet weak var playerButtonArea4: UIView!
     @IBOutlet var playerButtonAreas: [UIView]!
     
+    @IBOutlet var classButtons: [UIButton]!
+    
     @IBOutlet weak var playerButton1: UIButton!
     @IBOutlet weak var playerButton2: UIButton!
     @IBOutlet weak var playerButton3: UIButton!
     @IBOutlet weak var playerButton4: UIButton!
     @IBOutlet var playerButtons: [UIButton]!
+    
+    @IBOutlet weak var playerNameTextField: UITextField!
     
     @IBOutlet weak var player1ImageView: UIImageView!
     @IBOutlet weak var player2ImageView: UIImageView!
@@ -52,6 +56,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var invisiBackButton: UIButton!
     
     @IBOutlet var PopupView: UIView!
+    @IBOutlet var playerSelectionView: UIView!
+    
     @IBOutlet weak var blurFx: UIVisualEffectView!
     
     @IBOutlet weak var np1: UIButton!
@@ -65,7 +71,6 @@ class ViewController: UIViewController {
     @IBOutlet weak var np9: UIButton!
     @IBOutlet weak var np0: UIButton!
     @IBOutlet var npButtons: [UIButton]!
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -110,12 +115,58 @@ class ViewController: UIViewController {
         // Rotate player 1 and 4 buttons upside down
         player1ImageView.transform = playerButton1.transform.rotated(by: CGFloat(Double.pi))
         player4ImageView.transform = playerButton4.transform.rotated(by: CGFloat(Double.pi))
+        
+        // Set color of class buttons
+        for button in classButtons {
+            switch button.tag {
+            case 0: button.backgroundColor = getColor(name: "lion")
+            case 1: button.backgroundColor = getColor(name: "thunder")
+            case 2: button.backgroundColor = getColor(name: "brute")
+            case 3: button.backgroundColor = getColor(name: "doomstalker")
+            case 4: button.backgroundColor = getColor(name: "triforce")
+            case 5: button.backgroundColor = getColor(name: "mindthief")
+            case 6: button.backgroundColor = getColor(name: "moon")
+            case 7: button.backgroundColor = getColor(name: "octopus")
+            case 8: button.backgroundColor = getColor(name: "spellweaver")
+            case 9: button.backgroundColor = getColor(name: "wind")
+            case 10: button.backgroundColor = getColor(name: "sun")
+            case 11: button.backgroundColor = getColor(name: "tinkerer")
+            case 12: button.backgroundColor = getColor(name: "music")
+            case 13: button.backgroundColor = getColor(name: "scoundrel")
+            case 14: button.backgroundColor = getColor(name: "saw")
+            case 15: button.backgroundColor = getColor(name: "arrows")
+            case 16: button.backgroundColor = getColor(name: "cragheart")
+            default: button.backgroundColor = getColor(name: "unassigned")
+            }
+        }
+        
+        // Set delegate for text field
+        self.playerNameTextField.delegate = self
+    }
+    
+    // End editing when pressing return
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        playerNameTextField.resignFirstResponder()
+        return true
+    }
+    
+    func getColor(name: String) -> UIColor {
+        if (colors.keys.contains(name)) {
+            print("Found color \(name)")
+            return colors[name]!
+        } else {
+            print("Didnt find color \(name)")
+            return colors["unassigned"]!
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        // Show class selection
+        showClassSelection()
+        
         // Show player board
-        showPlayerBoard()
+//        showPlayerBoard()
     }
 
     @IBAction func numPadButtonPress(_ sender: UIButton) {
@@ -167,6 +218,14 @@ class ViewController: UIViewController {
         currInitiativePlayer = sender.tag - 1
         currInitiativeOnes = -1
         currInitiativeTens = -1
+    }
+    
+    func showClassSelection() {
+        
+        self.view.superview!.addSubview(playerSelectionView)
+        playerSelectionView.center = self.view.center
+        playerSelectionView.transform = CGAffineTransform.identity
+        playerSelectionView.alpha = 1
     }
     
     func showPlayerBoard() {
