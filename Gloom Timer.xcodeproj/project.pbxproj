@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		490689572239A8A70039AE95 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 490689562239A8A70039AE95 /* Player.swift */; };
+		494CEDDE223B230D00AA1847 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494CEDDD223B230C00AA1847 /* Extensions.swift */; };
 		49D104A02236BF360047129E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D1049F2236BF360047129E /* AppDelegate.swift */; };
 		49D104A22236BF360047129E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D104A12236BF360047129E /* ViewController.swift */; };
 		49D104A52236BF360047129E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 49D104A32236BF360047129E /* Main.storyboard */; };
@@ -37,6 +38,7 @@
 
 /* Begin PBXFileReference section */
 		490689562239A8A70039AE95 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
+		494CEDDD223B230C00AA1847 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		49D1049C2236BF360047129E /* Gloom Timer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Gloom Timer.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		49D1049F2236BF360047129E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		49D104A12236BF360047129E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -109,6 +111,7 @@
 				49D104A82236BF390047129E /* LaunchScreen.storyboard */,
 				49D104AB2236BF390047129E /* Info.plist */,
 				490689562239A8A70039AE95 /* Player.swift */,
+				494CEDDD223B230C00AA1847 /* Extensions.swift */,
 			);
 			path = "Gloom Timer";
 			sourceTree = "<group>";
@@ -274,6 +277,7 @@
 				49D104A22236BF360047129E /* ViewController.swift in Sources */,
 				490689572239A8A70039AE95 /* Player.swift in Sources */,
 				49D104A02236BF360047129E /* AppDelegate.swift in Sources */,
+				494CEDDE223B230D00AA1847 /* Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

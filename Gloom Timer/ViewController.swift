@@ -14,6 +14,8 @@ class ViewController: UIViewController, UITextFieldDelegate {
     var timeStart: Double = 0
     var timeCharSelStart: Double = 0
     var timeCharSelEnd: Double = 0
+    var timeScenarioSetupStart: Double = 0
+    var timeScenarioSetupEnd: Double = 0
     
     var currInitiativeOnes: Int = -1
     var currInitiativeTens: Int = -1
@@ -32,6 +34,10 @@ class ViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var globalTimer: UILabel!
     
     @IBOutlet var playerBoard: UIView!
+    
+    @IBOutlet weak var scenarioSetupImg: UIImageView!
+    @IBOutlet weak var scenarioSetupLabel: UILabel!
+    @IBOutlet weak var scenarioSetupDoneButton: UIButton!
     
     @IBOutlet weak var playerButtonArea1: UIView!
     @IBOutlet weak var playerButtonArea2: UIView!
@@ -60,6 +66,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet var PopupView: UIView!
     @IBOutlet var playerSelectionView: UIView!
+    @IBOutlet var scenarioSetupView: UIView!
     
     @IBOutlet weak var blurFx: UIVisualEffectView!
     
@@ -237,6 +244,10 @@ class ViewController: UIViewController, UITextFieldDelegate {
         currInitiativeTens = -1
     }
     
+    @IBAction func scenarioSetupPressed(_ sender: Any) {
+        hideScenarioSetup()
+    }
+    
     func showClassSelection() {
         self.view.superview!.addSubview(playerSelectionView)
         
@@ -293,6 +304,57 @@ class ViewController: UIViewController, UITextFieldDelegate {
         }, completion:{ _ in
             self.timeCharSelEnd = self.getTimeNow()
             self.playerSelectionView.removeFromSuperview()
+            self.showScenarioSetup()
+        })
+    }
+    
+    func showScenarioSetup() {
+        self.view.superview!.addSubview(scenarioSetupView)
+        
+        // Store time
+        timeScenarioSetupStart = getTimeNow()
+        
+        scenarioSetupLabel.alpha = 0
+        scenarioSetupImg.alpha = 0
+        scenarioSetupDoneButton.alpha = 0
+        
+        // Show main window
+        scenarioSetupView.center = self.view.center
+        scenarioSetupView.transform = CGAffineTransform.identity
+        scenarioSetupView.alpha = 1
+        
+        scenarioSetupImg.rotate360Degrees()
+        
+        // Animate buttons
+        UIView.animateKeyframes(withDuration: 1, delay: 0, options: [.calculationModeCubic], animations: {
+            UIView.addKeyframe(withRelativeStartTime: 0/5, relativeDuration: 1/3, animations: {
+                self.scenarioSetupLabel.alpha = 1
+            })
+            UIView.addKeyframe(withRelativeStartTime: 1/5, relativeDuration: 1/3, animations: {
+                self.scenarioSetupImg.alpha = 1
+            })
+            UIView.addKeyframe(withRelativeStartTime: 2/5, relativeDuration: 1/3, animations: {
+                self.scenarioSetupDoneButton.alpha = 1
+            })
+        })
+    }
+    
+    func hideScenarioSetup() {
+        // Animate buttons
+        UIView.animateKeyframes(withDuration: 1, delay: 0, options: [.calculationModeCubic], animations: {
+            UIView.addKeyframe(withRelativeStartTime: 0/5, relativeDuration: 1/3, animations: {
+                self.scenarioSetupLabel.alpha = 0
+            })
+            UIView.addKeyframe(withRelativeStartTime: 1/5, relativeDuration: 1/3, animations: {
+                self.scenarioSetupImg.alpha = 0
+            })
+            UIView.addKeyframe(withRelativeStartTime: 2/5, relativeDuration: 1/3, animations: {
+                self.scenarioSetupDoneButton.alpha = 0
+            })
+        }, completion: { _ in
+            self.timeScenarioSetupEnd = self.getTimeNow()
+            self.scenarioSetupView.removeFromSuperview()
+            self.scenarioSetupImg.layer.removeAllAnimations()
             self.showPlayerBoard()
         })
     }

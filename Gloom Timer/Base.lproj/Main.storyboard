@@ -38,6 +38,11 @@
                                                         <state key="normal">
                                                             <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </state>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                                <integer key="value" value="10"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
                                                         <connections>
                                                             <action selector="playerButtonPress:" destination="BYZ-38-t0r" eventType="touchUpInside" id="SQf-UN-Ek8"/>
                                                         </connections>
@@ -49,7 +54,6 @@
                                                         </constraints>
                                                     </imageView>
                                                 </subviews>
-                                                <color key="backgroundColor" red="0.3529411764705882" green="0.26666666666666666" blue="0.19607843137254902" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstItem="lc3-cg-FYO" firstAttribute="top" secondItem="k1U-8T-J0S" secondAttribute="top" id="5W6-w9-lnS"/>
                                                     <constraint firstItem="lc3-cg-FYO" firstAttribute="top" secondItem="k1U-8T-J0S" secondAttribute="top" id="8Je-bM-1wI"/>
@@ -74,6 +78,11 @@
                                                         <state key="normal">
                                                             <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </state>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                                <integer key="value" value="10"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
                                                         <connections>
                                                             <action selector="playerButtonPress:" destination="BYZ-38-t0r" eventType="touchUpInside" id="5Ew-ab-yxv"/>
                                                         </connections>
@@ -85,7 +94,6 @@
                                                         </constraints>
                                                     </imageView>
                                                 </subviews>
-                                                <color key="backgroundColor" red="0.11764705882352941" green="0.23529411764705882" blue="0.39215686274509803" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstItem="dJ8-NR-iti" firstAttribute="leading" secondItem="2Zk-Ht-Mb8" secondAttribute="leading" id="Hq3-kc-U6H"/>
                                                     <constraint firstItem="W58-wF-bqL" firstAttribute="top" secondItem="2Zk-Ht-Mb8" secondAttribute="top" id="KxX-Tl-5rx"/>
@@ -126,6 +134,11 @@
                                                         <state key="normal">
                                                             <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </state>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                                <integer key="value" value="10"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
                                                         <connections>
                                                             <action selector="playerButtonPress:" destination="BYZ-38-t0r" eventType="touchUpInside" id="1p4-w5-dgw"/>
                                                         </connections>
@@ -137,7 +150,6 @@
                                                         </constraints>
                                                     </imageView>
                                                 </subviews>
-                                                <color key="backgroundColor" red="0.2666666667" green="0.34509803919999998" blue="0.4941176471" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstItem="b5i-zc-lYa" firstAttribute="top" secondItem="Dj1-Uw-RKX" secondAttribute="top" id="4SX-kY-HJB"/>
                                                     <constraint firstAttribute="bottom" secondItem="9cl-Lb-Eq8" secondAttribute="bottom" id="5RW-3B-IF8"/>
@@ -162,6 +174,11 @@
                                                         <state key="normal">
                                                             <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </state>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                                <integer key="value" value="10"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
                                                         <connections>
                                                             <action selector="playerButtonPress:" destination="BYZ-38-t0r" eventType="touchUpInside" id="siV-nx-VIg"/>
                                                         </connections>
@@ -173,7 +190,6 @@
                                                         </constraints>
                                                     </imageView>
                                                 </subviews>
-                                                <color key="backgroundColor" red="0.1764705882352941" green="0.41176470588235292" blue="0.4823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstItem="ArB-Eh-Eci" firstAttribute="top" secondItem="7Ea-ne-AH3" secondAttribute="top" id="1rC-lA-OTh"/>
                                                     <constraint firstAttribute="bottom" secondItem="ArB-Eh-Eci" secondAttribute="bottom" id="2WY-bB-UKr"/>
@@ -256,6 +272,10 @@
                         <outlet property="playerButtonArea4" destination="k1U-8T-J0S" id="unI-Qx-Bbl"/>
                         <outlet property="playerNameTextField" destination="QDX-tx-63J" id="sHf-pb-S0t"/>
                         <outlet property="playerSelectionView" destination="ERa-s2-6jZ" id="M5V-Ua-CAD"/>
+                        <outlet property="scenarioSetupDoneButton" destination="nY9-Lv-ZVh" id="RWR-Jt-ymj"/>
+                        <outlet property="scenarioSetupImg" destination="YMA-ew-ZTr" id="b1Y-BM-i6r"/>
+                        <outlet property="scenarioSetupLabel" destination="0dB-t1-zB7" id="3ui-Pi-b1m"/>
+                        <outlet property="scenarioSetupView" destination="yg1-97-acQ" id="YsN-YD-NXq"/>
                         <outletCollection property="classButtons" destination="woh-4J-wMZ" collectionClass="NSMutableArray" id="hU4-IM-Q2o"/>
                         <outletCollection property="classButtons" destination="rWn-sd-AIN" collectionClass="NSMutableArray" id="dj9-f1-Sg4"/>
                         <outletCollection property="classButtons" destination="1Jc-w9-afV" collectionClass="NSMutableArray" id="Y1M-TU-ePQ"/>
@@ -324,6 +344,11 @@
                                                     <state key="normal">
                                                         <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </state>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                            <integer key="value" value="10"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
                                                     <connections>
                                                         <action selector="classSelectionPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="lfK-QI-Raa"/>
                                                     </connections>
@@ -359,6 +384,11 @@
                                                     <state key="normal">
                                                         <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </state>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                            <integer key="value" value="10"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
                                                     <connections>
                                                         <action selector="classSelectionPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="1Tc-9y-xkm"/>
                                                     </connections>
@@ -394,6 +424,11 @@
                                                     <state key="normal">
                                                         <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </state>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                            <integer key="value" value="10"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
                                                     <connections>
                                                         <action selector="classSelectionPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="xoW-GN-tgb"/>
                                                     </connections>
@@ -429,6 +464,11 @@
                                                     <state key="normal">
                                                         <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </state>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                            <integer key="value" value="10"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
                                                     <connections>
                                                         <action selector="classSelectionPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="kV8-BP-iiI"/>
                                                     </connections>
@@ -464,6 +504,11 @@
                                                     <state key="normal">
                                                         <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </state>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                            <integer key="value" value="10"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
                                                     <connections>
                                                         <action selector="classSelectionPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="P9L-Or-5ib"/>
                                                     </connections>
@@ -499,6 +544,11 @@
                                                     <state key="normal">
                                                         <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </state>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                            <integer key="value" value="10"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
                                                     <connections>
                                                         <action selector="classSelectionPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="aFk-Qs-ACp"/>
                                                     </connections>
@@ -539,6 +589,11 @@
                                                     <state key="normal">
                                                         <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </state>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                            <integer key="value" value="10"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
                                                     <connections>
                                                         <action selector="classSelectionPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Ggq-l2-Rhk"/>
                                                     </connections>
@@ -574,6 +629,11 @@
                                                     <state key="normal">
                                                         <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </state>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                            <integer key="value" value="10"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
                                                     <connections>
                                                         <action selector="classSelectionPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="z1Y-9e-ikS"/>
                                                     </connections>
@@ -609,6 +669,11 @@
                                                     <state key="normal">
                                                         <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </state>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                            <integer key="value" value="10"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
                                                     <connections>
                                                         <action selector="classSelectionPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ZjF-79-CbH"/>
                                                     </connections>
@@ -644,6 +709,11 @@
                                                     <state key="normal">
                                                         <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </state>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                            <integer key="value" value="10"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
                                                     <connections>
                                                         <action selector="classSelectionPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="5By-us-kta"/>
                                                     </connections>
@@ -679,6 +749,11 @@
                                                     <state key="normal">
                                                         <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </state>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                            <integer key="value" value="10"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
                                                     <connections>
                                                         <action selector="classSelectionPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="1Lg-oY-hM5"/>
                                                     </connections>
@@ -714,6 +789,11 @@
                                                     <state key="normal">
                                                         <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </state>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                            <integer key="value" value="10"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
                                                     <connections>
                                                         <action selector="classSelectionPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Ytw-le-BPy"/>
                                                     </connections>
@@ -754,6 +834,11 @@
                                                     <state key="normal">
                                                         <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </state>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                            <integer key="value" value="10"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
                                                     <connections>
                                                         <action selector="classSelectionPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="As7-jw-vQK"/>
                                                     </connections>
@@ -789,6 +874,11 @@
                                                     <state key="normal">
                                                         <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </state>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                            <integer key="value" value="10"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
                                                     <connections>
                                                         <action selector="classSelectionPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="zfd-jC-fqb"/>
                                                     </connections>
@@ -824,6 +914,11 @@
                                                     <state key="normal">
                                                         <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </state>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                            <integer key="value" value="10"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
                                                     <connections>
                                                         <action selector="classSelectionPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ahH-Cu-U6M"/>
                                                     </connections>
@@ -859,6 +954,11 @@
                                                     <state key="normal">
                                                         <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </state>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                            <integer key="value" value="10"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
                                                     <connections>
                                                         <action selector="classSelectionPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="5Oc-rc-DDs"/>
                                                     </connections>
@@ -894,6 +994,11 @@
                                                     <state key="normal">
                                                         <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </state>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                            <integer key="value" value="10"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
                                                     <connections>
                                                         <action selector="classSelectionPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="l76-sb-MeI"/>
                                                     </connections>
@@ -933,6 +1038,54 @@
                         <constraint firstItem="F7j-bs-Tq3" firstAttribute="top" secondItem="82V-vs-j0c" secondAttribute="top" constant="20" id="uaY-Hn-xfY"/>
                     </constraints>
                     <viewLayoutGuide key="safeArea" id="82V-vs-j0c"/>
+                </view>
+                <view contentMode="scaleToFill" id="yg1-97-acQ" userLabel="scenarioSetup">
+                    <rect key="frame" x="0.0" y="0.0" width="736" height="414"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="hex" translatesAutoresizingMaskIntoConstraints="NO" id="YMA-ew-ZTr">
+                            <rect key="frame" x="325.66666666666669" y="162.66666666666666" width="85" height="89"/>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Scenario Setup" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0dB-t1-zB7">
+                            <rect key="frame" x="210.66666666666663" y="55.666666666666657" width="315" height="77"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="315" id="jQg-um-0Jd"/>
+                                <constraint firstAttribute="height" constant="77" id="luO-sH-sN5"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="PirataOne-Regular" family="Pirata One" pointSize="60"/>
+                            <color key="textColor" red="0.87450980392156863" green="0.87323927879333496" blue="0.87450980392156863" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nY9-Lv-ZVh">
+                            <rect key="frame" x="308" y="300" width="120" height="64"/>
+                            <color key="backgroundColor" red="0.1176470588" green="0.23529411759999999" blue="0.3921568627" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="120" id="6la-Ed-RbX"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="PirataOne-Regular" family="Pirata One" pointSize="40"/>
+                            <state key="normal" title="Done">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </state>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                    <integer key="value" value="10"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                            <connections>
+                                <action selector="scenarioSetupPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="A15-eX-XOH"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" red="0.0" green="0.050980392159999999" blue="0.1176470588" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstItem="YMA-ew-ZTr" firstAttribute="centerY" secondItem="yg1-97-acQ" secondAttribute="centerY" id="ABM-hV-W3e"/>
+                        <constraint firstItem="wBE-m0-GNb" firstAttribute="bottom" secondItem="nY9-Lv-ZVh" secondAttribute="bottom" constant="50" id="NMo-7t-2Y7"/>
+                        <constraint firstItem="0dB-t1-zB7" firstAttribute="centerX" secondItem="yg1-97-acQ" secondAttribute="centerX" id="fEp-XQ-BzK"/>
+                        <constraint firstItem="YMA-ew-ZTr" firstAttribute="centerX" secondItem="yg1-97-acQ" secondAttribute="centerX" id="th1-mn-xuY"/>
+                        <constraint firstItem="nY9-Lv-ZVh" firstAttribute="centerX" secondItem="yg1-97-acQ" secondAttribute="centerX" id="vtk-ZA-anu"/>
+                        <constraint firstItem="YMA-ew-ZTr" firstAttribute="top" secondItem="0dB-t1-zB7" secondAttribute="bottom" constant="30" id="wdV-qF-KNL"/>
+                    </constraints>
+                    <viewLayoutGuide key="safeArea" id="wBE-m0-GNb"/>
                 </view>
                 <view contentMode="scaleToFill" id="4sK-U1-LBV" userLabel="Popup">
                     <rect key="frame" x="0.0" y="0.0" width="496" height="321"/>
@@ -1174,6 +1327,7 @@
         <image name="brute" width="300" height="300"/>
         <image name="cragheart" width="300" height="300"/>
         <image name="doomstalker" width="300" height="300"/>
+        <image name="hex" width="85" height="89"/>
         <image name="lion" width="300" height="300"/>
         <image name="mindthief" width="300" height="300"/>
         <image name="moon" width="300" height="300"/>
