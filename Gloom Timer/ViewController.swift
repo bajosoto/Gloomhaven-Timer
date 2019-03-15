@@ -543,21 +543,29 @@ class ViewController: UIViewController, UITextFieldDelegate {
     }
     
     func hideInitiativeView() {
+        
         // Animate buttons
         UIView.animateKeyframes(withDuration: 1, delay: 0, options: [.calculationModeCubic], animations: {
-            UIView.addKeyframe(withRelativeStartTime: 0/5, relativeDuration: 1/3, animations: {
-                self.cityLabel.alpha = 0
-            })
-            UIView.addKeyframe(withRelativeStartTime: 1/5, relativeDuration: 1/3, animations: {
-                self.cityImg.alpha = 0
-            })
-            UIView.addKeyframe(withRelativeStartTime: 2/5, relativeDuration: 1/3, animations: {
-                self.cityDoneButton.alpha = 0
+            for i in 0...3 {
+                var buttView: UIView?
+                for view in self.initiativePlayerBackgrounds {
+                    if (view.tag) == i {
+                        buttView = view
+                    }
+                }
+                UIView.addKeyframe(withRelativeStartTime: Double(i) / 5, relativeDuration: 1/3, animations: {
+                    buttView!.transform = CGAffineTransform.identity.translatedBy(x: -50, y: 0)
+                    buttView!.alpha = 0
+                })
+            }
+            UIView.addKeyframe(withRelativeStartTime: 4/5, relativeDuration: 1/3, animations: {
+                self.initiativeBtnOutlet.alpha = 0
             })
         }, completion: { _ in
             self.timeInitiativeEnd = self.getTimeNow()
             self.initiativeView.removeFromSuperview()
-            self.showPlayerBoard()
+            // Do something here
+            //            self.showPlayerBoard()
         })
     }
     

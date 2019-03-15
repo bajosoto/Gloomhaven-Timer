@@ -27,7 +27,6 @@ let classes: [String] = ["lion",
                         "arrows",
                         "cragheart"]
 
-
 let colors: [String: UIColor] = ["tinkerer": UIColor(red: 90/255, green: 69/255, blue: 50/255, alpha: 1.0),
                                  "brute": UIColor(red: 30/255, green: 60/255, blue: 100/255, alpha: 1.0),
                                  "mindthief": UIColor(red: 68/255, green: 88/255, blue: 126/255, alpha: 1.0),
@@ -35,6 +34,7 @@ let colors: [String: UIColor] = ["tinkerer": UIColor(red: 90/255, green: 69/255,
                                  "scoundrel": UIColor(red: 132/255, green: 162/255, blue: 101/255, alpha: 1.0),
                                  "cragheart": UIColor(red: 112/255, green: 126/255, blue: 41/255, alpha: 1.0),
                                  "spellweaver": UIColor(red: 152/255, green: 111/255, blue: 174/255, alpha: 1.0),
+                                 "monster": UIColor(red: 164/255, green: 9/255, blue: 14/255, alpha: 1.0),
                                  "unassigned": UIColor(red: 200/255, green: 200/255, blue: 200/255, alpha: 1.0)]
 
 func getColor(name: String) -> UIColor {
