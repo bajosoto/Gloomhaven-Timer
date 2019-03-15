@@ -244,6 +244,10 @@
                     <connections>
                         <outlet property="PopupView" destination="4sK-U1-LBV" id="hEr-kK-Oxb"/>
                         <outlet property="blurFx" destination="JoB-5s-hE9" id="4cz-dU-rbb"/>
+                        <outlet property="cityDoneButton" destination="mK8-Tp-4g1" id="ecn-dS-sNu"/>
+                        <outlet property="cityEventsView" destination="F2p-7M-Qkr" id="Pd5-cX-i2A"/>
+                        <outlet property="cityImg" destination="CkW-GW-mx5" id="nNq-8c-LbW"/>
+                        <outlet property="cityLabel" destination="7OW-aS-kdc" id="geZ-eK-v01"/>
                         <outlet property="currInitiativeLabel" destination="juC-IO-fos" id="TR0-Cc-EQC"/>
                         <outlet property="globalTimer" destination="h3S-em-jpw" id="1Os-El-MGh"/>
                         <outlet property="invisiBackButton" destination="6hy-Nb-rWQ" id="f1P-3w-1CQ"/>
@@ -1087,6 +1091,54 @@
                     </constraints>
                     <viewLayoutGuide key="safeArea" id="wBE-m0-GNb"/>
                 </view>
+                <view contentMode="scaleToFill" id="F2p-7M-Qkr" userLabel="cityEvents">
+                    <rect key="frame" x="0.0" y="0.0" width="736" height="414"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="waypoint" translatesAutoresizingMaskIntoConstraints="NO" id="CkW-GW-mx5">
+                            <rect key="frame" x="332.66666666666669" y="172" width="71" height="70"/>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="City + Road Events" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7OW-aS-kdc">
+                            <rect key="frame" x="143" y="65" width="450" height="77"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="77" id="l0U-ar-0PZ"/>
+                                <constraint firstAttribute="width" constant="450" id="n8H-Fg-ajM"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="PirataOne-Regular" family="Pirata One" pointSize="60"/>
+                            <color key="textColor" red="0.87450980389999999" green="0.87323927879999996" blue="0.87450980389999999" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mK8-Tp-4g1">
+                            <rect key="frame" x="308" y="300" width="120" height="64"/>
+                            <color key="backgroundColor" red="0.1176470588" green="0.23529411759999999" blue="0.3921568627" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="120" id="Pva-Da-pCv"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="PirataOne-Regular" family="Pirata One" pointSize="40"/>
+                            <state key="normal" title="Done">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </state>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                    <integer key="value" value="10"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                            <connections>
+                                <action selector="cityPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="FbS-h5-KZB"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" red="0.0" green="0.050980392159999999" blue="0.1176470588" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstItem="mK8-Tp-4g1" firstAttribute="centerX" secondItem="F2p-7M-Qkr" secondAttribute="centerX" id="88O-4x-iLt"/>
+                        <constraint firstItem="ak7-Bq-Vuo" firstAttribute="bottom" secondItem="mK8-Tp-4g1" secondAttribute="bottom" constant="50" id="8Cm-3L-PYx"/>
+                        <constraint firstItem="CkW-GW-mx5" firstAttribute="centerX" secondItem="F2p-7M-Qkr" secondAttribute="centerX" id="8ab-D2-oAG"/>
+                        <constraint firstItem="CkW-GW-mx5" firstAttribute="top" secondItem="7OW-aS-kdc" secondAttribute="bottom" constant="30" id="DFx-Nh-Obn"/>
+                        <constraint firstItem="7OW-aS-kdc" firstAttribute="centerX" secondItem="F2p-7M-Qkr" secondAttribute="centerX" id="aln-J0-XnD"/>
+                        <constraint firstItem="CkW-GW-mx5" firstAttribute="centerY" secondItem="F2p-7M-Qkr" secondAttribute="centerY" id="ztQ-hF-TgK"/>
+                    </constraints>
+                    <viewLayoutGuide key="safeArea" id="ak7-Bq-Vuo"/>
+                </view>
                 <view contentMode="scaleToFill" id="4sK-U1-LBV" userLabel="Popup">
                     <rect key="frame" x="0.0" y="0.0" width="496" height="321"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -1340,6 +1392,7 @@
         <image name="thunder" width="300" height="300"/>
         <image name="tinkerer" width="300" height="300"/>
         <image name="triforce" width="300" height="300"/>
+        <image name="waypoint" width="71" height="70"/>
         <image name="wind" width="300" height="300"/>
     </resources>
 </document>

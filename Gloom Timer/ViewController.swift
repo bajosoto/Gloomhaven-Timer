@@ -16,6 +16,8 @@ class ViewController: UIViewController, UITextFieldDelegate {
     var timeCharSelEnd: Double = 0
     var timeScenarioSetupStart: Double = 0
     var timeScenarioSetupEnd: Double = 0
+    var timeCityStart: Double = 0
+    var timeCityEnd: Double = 0
     
     var currInitiativeOnes: Int = -1
     var currInitiativeTens: Int = -1
@@ -23,10 +25,6 @@ class ViewController: UIViewController, UITextFieldDelegate {
     
     var currPlayerSelection: Int = 0
     var players: [Player] = []
-//                    = [Player(player_class: "brute", player_number: 1),
-//                   Player(player_class: "doomstalker", player_number: 2),
-//                   Player(player_class: "mindthief", player_number: 3),
-//                   Player(player_class: "tinkerer", player_number: 4)]
     
     var effect: UIVisualEffect!
     
@@ -35,9 +33,15 @@ class ViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet var playerBoard: UIView!
     
+    @IBOutlet var scenarioSetupView: UIView!
     @IBOutlet weak var scenarioSetupImg: UIImageView!
     @IBOutlet weak var scenarioSetupLabel: UILabel!
     @IBOutlet weak var scenarioSetupDoneButton: UIButton!
+    
+    @IBOutlet var cityEventsView: UIView!
+    @IBOutlet weak var cityDoneButton: UIButton!
+    @IBOutlet weak var cityLabel: UILabel!
+    @IBOutlet weak var cityImg: UIImageView!
     
     @IBOutlet weak var playerButtonArea1: UIView!
     @IBOutlet weak var playerButtonArea2: UIView!
@@ -66,7 +70,6 @@ class ViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet var PopupView: UIView!
     @IBOutlet var playerSelectionView: UIView!
-    @IBOutlet var scenarioSetupView: UIView!
     
     @IBOutlet weak var blurFx: UIVisualEffectView!
     
@@ -248,6 +251,10 @@ class ViewController: UIViewController, UITextFieldDelegate {
         hideScenarioSetup()
     }
     
+    @IBAction func cityPressed(_ sender: Any) {
+        hideCityEvents()
+    }
+    
     func showClassSelection() {
         self.view.superview!.addSubview(playerSelectionView)
         
@@ -355,6 +362,57 @@ class ViewController: UIViewController, UITextFieldDelegate {
             self.timeScenarioSetupEnd = self.getTimeNow()
             self.scenarioSetupView.removeFromSuperview()
             self.scenarioSetupImg.layer.removeAllAnimations()
+            self.showCityEvents()
+        })
+    }
+    
+    func showCityEvents() {
+        self.view.superview!.addSubview(cityEventsView)
+        
+        // Store time
+        timeCityStart = getTimeNow()
+        
+        cityLabel.alpha = 0
+        cityImg.alpha = 0
+        cityDoneButton.alpha = 0
+        
+        // Show main window
+        cityEventsView.center = self.view.center
+        cityEventsView.transform = CGAffineTransform.identity
+        cityEventsView.alpha = 1
+        
+//        scenarioSetupImg.rotate360Degrees()
+        
+        // Animate buttons
+        UIView.animateKeyframes(withDuration: 1, delay: 0, options: [.calculationModeCubic], animations: {
+            UIView.addKeyframe(withRelativeStartTime: 0/5, relativeDuration: 1/3, animations: {
+                self.cityLabel.alpha = 1
+            })
+            UIView.addKeyframe(withRelativeStartTime: 1/5, relativeDuration: 1/3, animations: {
+                self.cityImg.alpha = 1
+            })
+            UIView.addKeyframe(withRelativeStartTime: 2/5, relativeDuration: 1/3, animations: {
+                self.cityDoneButton.alpha = 1
+            })
+        })
+    }
+    
+    func hideCityEvents() {
+        // Animate buttons
+        UIView.animateKeyframes(withDuration: 1, delay: 0, options: [.calculationModeCubic], animations: {
+            UIView.addKeyframe(withRelativeStartTime: 0/5, relativeDuration: 1/3, animations: {
+                self.cityLabel.alpha = 0
+            })
+            UIView.addKeyframe(withRelativeStartTime: 1/5, relativeDuration: 1/3, animations: {
+                self.cityImg.alpha = 0
+            })
+            UIView.addKeyframe(withRelativeStartTime: 2/5, relativeDuration: 1/3, animations: {
+                self.cityDoneButton.alpha = 0
+            })
+        }, completion: { _ in
+            self.timeCityEnd = self.getTimeNow()
+            self.cityEventsView.removeFromSuperview()
+//            self.cityImg.layer.removeAllAnimations()
             self.showPlayerBoard()
         })
     }
