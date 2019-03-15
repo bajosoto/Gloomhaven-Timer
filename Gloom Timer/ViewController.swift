@@ -18,6 +18,9 @@ class ViewController: UIViewController, UITextFieldDelegate {
     var timeScenarioSetupEnd: Double = 0
     var timeCityStart: Double = 0
     var timeCityEnd: Double = 0
+    var timeInitiativeStart: Double = 0
+    var timeInitiativeEnd: Double = 0
+    
     
     var currInitiativeOnes: Int = -1
     var currInitiativeTens: Int = -1
@@ -42,6 +45,15 @@ class ViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var cityDoneButton: UIButton!
     @IBOutlet weak var cityLabel: UILabel!
     @IBOutlet weak var cityImg: UIImageView!
+    
+    @IBOutlet var initiativeView: UIView!
+    @IBOutlet var initiativePlayerBackgrounds: [UIView]!
+    @IBOutlet var initiativeNumberLabels: [UILabel]!
+    @IBOutlet var initiativeImages: [UIImageView]!
+    @IBOutlet var initiativeNames: [UILabel]!
+    @IBOutlet weak var initiativeBtnOutlet: UIButton!
+    var initiativeOrder = [0, 1, 2, 3]
+
     
     @IBOutlet weak var playerButtonArea1: UIView!
     @IBOutlet weak var playerButtonArea2: UIView!
@@ -167,14 +179,45 @@ class ViewController: UIViewController, UITextFieldDelegate {
         currInitiativeLabel.text = "\(tens)\(ones)"
         
         if ((currInitiativeOnes != -1) && (currInitiativeTens != -1)) {
-            // Close window
-            animateNumPadViewOut()
             // Assign initiative to player
             players[currInitiativePlayer].player_initiative = currInitiativeTens * 10 + currInitiativeOnes
             // Reset interface
             currInitiativeOnes = -1
             currInitiativeTens = -1
             print("Player \(currInitiativePlayer + 1) (\(players[currInitiativePlayer].player_class)) initiative is \(players[currInitiativePlayer].player_initiative)")
+            // Close window
+            animateNumPadViewOut()
+            // Validate if all players have initiative
+            var allDone = true
+            for i in 0...3 {
+                if (players[i].player_initiative == -1){
+                    allDone = false
+                    break
+                }
+            }
+            if (allDone) {
+                getInitiativeOrder()
+                print("The order is:")
+                for i in 0...3 {
+                    print("\(i): \(players[initiativeOrder[i]].player_name) (\(players[initiativeOrder[i]].player_initiative))")
+                }
+                hidePlayerBoard()
+            }
+        }
+    }
+    
+    func getInitiativeOrder() {
+        for i in 0...3 {
+            var lowest = 100
+            for j in i...3 {
+                let initiative = players[initiativeOrder[j]].player_initiative
+                if (initiative < lowest) {
+                    let tmp = initiativeOrder[i]
+                    initiativeOrder[i] = initiativeOrder[j]
+                    initiativeOrder[j] = tmp
+                    lowest = players[initiativeOrder[i]].player_initiative
+                }
+            }
         }
     }
     
@@ -417,6 +460,107 @@ class ViewController: UIViewController, UITextFieldDelegate {
         })
     }
     
+    func showInitiativeView() {
+        self.view.superview!.addSubview(initiativeView)
+        
+        // Store time
+        timeInitiativeStart = getTimeNow()
+        
+        // Pre-translate frames for animation
+        for frame in initiativePlayerBackgrounds {
+            frame.transform = CGAffineTransform.identity.translatedBy(x: 0, y: -30)
+            frame.alpha = 0
+        }
+        
+        for i in 0...3 {
+            // Set frame color
+            var frame: UIView?
+            for frameView in self.initiativePlayerBackgrounds {
+                if (frameView.tag) == i {
+                    frame = frameView
+                }
+            }
+            frame?.backgroundColor = players[initiativeOrder[i]].player_color
+            // Set alpha 0  and translation for animation
+            frame!.alpha = 0
+            frame!.transform = CGAffineTransform.identity.translatedBy(x: 50, y: 0)
+            
+            // Set frame text
+            var textIndex: UILabel?
+            for name in self.initiativeNames {
+                if (name.tag) == i {
+                    textIndex = name
+                }
+            }
+            textIndex?.text = players[initiativeOrder[i]].player_name
+            print("grabbing name: \(players[initiativeOrder[i]].player_name)")
+            
+            // Set frame initiatives
+            var initiativeIndex: UILabel?
+            for initiative in self.initiativeNumberLabels {
+                if (initiative.tag) == i {
+                    initiativeIndex = initiative
+                }
+            }
+            initiativeIndex?.text = String(players[initiativeOrder[i]].player_initiative)
+            print("grabbing initiative: \(String(players[initiativeOrder[i]].player_initiative))")
+            
+            // Set frame images
+            var imageIndex: UIImageView?
+            for image in self.initiativeImages {
+                if (image.tag) == i {
+                    imageIndex = image
+                }
+            }
+            imageIndex?.image = players[initiativeOrder[i]].player_icon.image
+        }
+
+        initiativeBtnOutlet.alpha = 0
+        
+        // Show main window
+        initiativeView.center = self.view.center
+        initiativeView.transform = CGAffineTransform.identity
+        initiativeView.alpha = 1
+        
+        // Animate buttons
+        UIView.animateKeyframes(withDuration: 1, delay: 0, options: [.calculationModeCubic], animations: {
+            for i in 0...3 {
+                var buttView: UIView?
+                for view in self.initiativePlayerBackgrounds {
+                    if (view.tag) == i {
+                        buttView = view
+                    }
+                }
+                UIView.addKeyframe(withRelativeStartTime: Double(i) / 5, relativeDuration: 1/3, animations: {
+                    buttView!.transform = CGAffineTransform.identity
+                    buttView!.alpha = 1
+                })
+            }
+            UIView.addKeyframe(withRelativeStartTime: 4/5, relativeDuration: 1/3, animations: {
+                self.initiativeBtnOutlet.alpha = 1
+            })
+        })
+    }
+    
+    func hideInitiativeView() {
+        // Animate buttons
+        UIView.animateKeyframes(withDuration: 1, delay: 0, options: [.calculationModeCubic], animations: {
+            UIView.addKeyframe(withRelativeStartTime: 0/5, relativeDuration: 1/3, animations: {
+                self.cityLabel.alpha = 0
+            })
+            UIView.addKeyframe(withRelativeStartTime: 1/5, relativeDuration: 1/3, animations: {
+                self.cityImg.alpha = 0
+            })
+            UIView.addKeyframe(withRelativeStartTime: 2/5, relativeDuration: 1/3, animations: {
+                self.cityDoneButton.alpha = 0
+            })
+        }, completion: { _ in
+            self.timeInitiativeEnd = self.getTimeNow()
+            self.initiativeView.removeFromSuperview()
+            self.showPlayerBoard()
+        })
+    }
+    
     func showPlayerBoard() {
         playerBoard.isHidden = false
         
@@ -444,6 +588,31 @@ class ViewController: UIViewController, UITextFieldDelegate {
             })
         }, completion:{ _ in
             // Do nothing
+        })
+    }
+    
+    func hidePlayerBoard() {
+        UIView.animateKeyframes(withDuration: 1, delay: 0, options: [.calculationModeCubic], animations: {
+            UIView.addKeyframe(withRelativeStartTime: 0.0/0.5, relativeDuration: 0.2/0.5, animations: {
+                self.playerButtonArea4.transform = CGAffineTransform.identity.scaledBy(x: 0.7, y: 0.7)
+                self.playerButtonArea4.alpha = 0
+            })
+            UIView.addKeyframe(withRelativeStartTime: 0.1/0.5, relativeDuration: 0.2/0.5, animations: {
+                self.playerButtonArea1.transform = CGAffineTransform.identity.scaledBy(x: 0.7, y: 0.7)
+                self.playerButtonArea1.alpha = 0
+            })
+            UIView.addKeyframe(withRelativeStartTime: 0.2/0.5, relativeDuration: 0.2/0.5, animations: {
+                self.playerButtonArea3.transform = CGAffineTransform.identity.scaledBy(x: 0.7, y: 0.7)
+                self.playerButtonArea3.alpha = 0
+            })
+            UIView.addKeyframe(withRelativeStartTime: 0.3/0.5, relativeDuration: 0.2/0.5, animations: {
+                self.playerButtonArea2.transform = CGAffineTransform.identity.scaledBy(x: 0.7, y: 0.7)
+                self.playerButtonArea2.alpha = 0
+            })
+        }, completion:{ _ in
+            //
+            self.showInitiativeView()
+            self.playerBoard.isHidden = true
         })
     }
     
