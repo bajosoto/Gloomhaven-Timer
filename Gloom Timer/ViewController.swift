@@ -298,6 +298,10 @@ class ViewController: UIViewController, UITextFieldDelegate {
         currInitiativePlayer = sender.tag - 1
         currInitiativeOnes = -1
         currInitiativeTens = -1
+        
+        // Disable player button
+        sender.isEnabled = false
+        sender.superview!.alpha = 0.2
     }
     
     @IBAction func scenarioSetupPressed(_ sender: Any) {
@@ -652,6 +656,10 @@ class ViewController: UIViewController, UITextFieldDelegate {
     }
     
     func hidePlayerBoard() {
+        playerButton1.isEnabled = true
+        playerButton2.isEnabled = true
+        playerButton3.isEnabled = true
+        playerButton4.isEnabled = true
         UIView.animateKeyframes(withDuration: 1, delay: 0, options: [.calculationModeCubic], animations: {
             UIView.addKeyframe(withRelativeStartTime: 0.0/0.5, relativeDuration: 0.2/0.5, animations: {
                 self.playerButtonArea4.transform = CGAffineTransform.identity.scaledBy(x: 0.7, y: 0.7)
