@@ -13,13 +13,21 @@ class ViewController: UIViewController, UITextFieldDelegate {
     weak var timer: Timer?
     var timeStart: Double = 0
     var timeCharSelStart: Double = 0
-    var timeCharSelEnd: Double = 0
+    var timeCharSelTotal: Double = 0
     var timeScenarioSetupStart: Double = 0
-    var timeScenarioSetupEnd: Double = 0
+    var timeScenarioSetupTotal: Double = 0
     var timeCityStart: Double = 0
-    var timeCityEnd: Double = 0
+    var timeCityTotal: Double = 0
     var timeInitiativeStart: Double = 0
-    var timeInitiativeEnd: Double = 0
+    var timeInitiativeTotal: [Double] = [0, 0, 0, 0]
+    var timeScreenInitiativeStart: Double = 0
+    var timeScreenInitiativeEnd: Double = 0
+    var timeBreakStart: Double = 0
+    var timeBreakTotal: Double = 0
+    var breakEnded: Bool = false
+    var timeTurnStart: Double = 0
+    var timeTurnTotal: [Double] = [0, 0, 0, 0, 0]
+    var lastTurnFrom: Int = -1
     
     var currInitiativeOnes: Int = -1
     var currInitiativeTens: Int = -1
@@ -194,6 +202,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
             // Reset interface
             currInitiativeOnes = -1
             currInitiativeTens = -1
+            calcTimeElapsed(since: timeInitiativeStart, store: &(timeInitiativeTotal[currInitiativePlayer]), str: "Initiative player \(currInitiativePlayer + 1)")
             print("Player \(currInitiativePlayer + 1) (\(players[currInitiativePlayer].player_class)) initiative is \(players[currInitiativePlayer].player_initiative)")
             // Close window
             animateNumPadViewOut()
@@ -317,6 +326,22 @@ class ViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func turnButtonPressed(_ sender: UIButton) {
+        
+        if (breakEnded == false){
+            breakEnded = true
+            calcTimeElapsed(since: timeBreakStart, store: &timeBreakTotal, str: "Break")
+        }
+        
+        if (lastTurnFrom != -1) {
+            if( lastTurnFrom == 4){
+                calcTimeElapsed(since: timeTurnStart, store: &timeTurnTotal[lastTurnFrom], str: "Monster turn")
+            } else {
+                calcTimeElapsed(since: timeTurnStart, store: &timeTurnTotal[lastTurnFrom], str: "Player \(lastTurnFrom + 1)")
+            }
+            
+        }
+        timeTurnStart = getTimeNow()
+        
         switch (sender.tag){
         case 0: // Monster button
             UIView.animate(withDuration: 0.2, animations: {
@@ -328,7 +353,8 @@ class ViewController: UIViewController, UITextFieldDelegate {
                 UIView.animate(withDuration: 0.2, animations: {
                     self.turnsIcon.alpha = 1
                 }) { (_) in
-                    
+                    // Store monster as last turn for time keeping
+                    self.lastTurnFrom = 4
                 }
             }
         case 1: // Player / end round button
@@ -343,6 +369,10 @@ class ViewController: UIViewController, UITextFieldDelegate {
                     UIView.animate(withDuration: 0.2, animations: {
                         self.turnsIcon.alpha = 1
                     }) { (_) in
+                        // Store current (e.g. last) turn for time keeping
+                        if(self.currTurn < 4) {
+                            self.lastTurnFrom = self.initiativeOrder[self.currTurn]
+                        }
                         self.animateTurnButtonViewOut(turn: self.currTurn)
                         self.currTurn += 1
                     }
@@ -409,7 +439,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
                 })
             }
         }, completion:{ _ in
-            self.timeCharSelEnd = self.getTimeNow()
+            self.calcTimeElapsed(since: self.timeCharSelStart, store: &self.timeCharSelTotal, str: "Class selection")
             self.playerSelectionView.removeFromSuperview()
             self.showScenarioSetup()
         })
@@ -459,7 +489,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
                 self.scenarioSetupDoneButton.alpha = 0
             })
         }, completion: { _ in
-            self.timeScenarioSetupEnd = self.getTimeNow()
+            self.calcTimeElapsed(since: self.timeScenarioSetupStart, store: &self.timeScenarioSetupTotal, str: "Scenario setup")
             self.scenarioSetupView.removeFromSuperview()
             self.scenarioSetupImg.layer.removeAllAnimations()
             self.showCityEvents()
@@ -510,7 +540,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
                 self.cityDoneButton.alpha = 0
             })
         }, completion: { _ in
-            self.timeCityEnd = self.getTimeNow()
+            self.calcTimeElapsed(since: self.timeCityStart, store: &self.timeCityTotal, str: "City/Road events")
             self.cityEventsView.removeFromSuperview()
 //            self.cityImg.layer.removeAllAnimations()
             self.showPlayerBoard()
@@ -519,9 +549,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
     
     func showInitiativeView() {
         self.view.superview!.addSubview(initiativeView)
-        
-        // Store time
-        timeInitiativeStart = getTimeNow()
+        timeScreenInitiativeStart = getTimeNow()
         
         // Pre-translate frames for animation
         for frame in initiativePlayerBackgrounds {
@@ -550,7 +578,6 @@ class ViewController: UIViewController, UITextFieldDelegate {
                 }
             }
             textIndex?.text = players[initiativeOrder[i]].player_name
-            print("grabbing name: \(players[initiativeOrder[i]].player_name)")
             
             // Set frame initiatives
             var initiativeIndex: UILabel?
@@ -560,7 +587,6 @@ class ViewController: UIViewController, UITextFieldDelegate {
                 }
             }
             initiativeIndex?.text = String(players[initiativeOrder[i]].player_initiative)
-            print("grabbing initiative: \(String(players[initiativeOrder[i]].player_initiative))")
             
             // Set frame images
             var imageIndex: UIImageView?
@@ -619,14 +645,17 @@ class ViewController: UIViewController, UITextFieldDelegate {
                 self.initiativeBtnOutlet.alpha = 0
             })
         }, completion: { _ in
-            self.timeInitiativeEnd = self.getTimeNow()
             self.initiativeView.removeFromSuperview()
             self.showTurnsView()
         })
+        calcTimeElapsed(since: timeScreenInitiativeStart, store: &timeScreenInitiativeEnd, str: "Screen initiative input")
     }
     
     func showPlayerBoard() {
         playerBoard.isHidden = false
+        
+        // Store time
+        timeInitiativeStart = getTimeNow()
         
         for playerButtonArea in playerButtonAreas {
             playerButtonArea.transform = CGAffineTransform.identity.scaledBy(x: 1.3, y: 1.3)
@@ -687,6 +716,8 @@ class ViewController: UIViewController, UITextFieldDelegate {
     func showTurnsView() {
         self.view.superview!.addSubview(turnsView)
         
+        timeBreakStart = getTimeNow()
+        
         // Hide buttons
         turnButton1View.alpha = 0
         turnButton2View.alpha = 0
@@ -696,6 +727,12 @@ class ViewController: UIViewController, UITextFieldDelegate {
         turnsView.center = self.view.center
         turnsView.transform = CGAffineTransform.identity
         turnsView.alpha = 1
+        
+        self.turnsImg.image = UIImage(named: "sleep")
+        self.turnsIcon.backgroundColor = colors["transparent"]
+        UIView.animate(withDuration: 0.4) {
+            self.turnsIcon.alpha = 1
+        }
         
         // Show initial buttons
         animateTurnButtonViewIn(turn: -1)
@@ -847,6 +884,8 @@ class ViewController: UIViewController, UITextFieldDelegate {
         }
         initiativeOrder = [0, 1, 2, 3]
         currTurn = 0
+        breakEnded = false
+        lastTurnFrom = -1
         hideTurnsView()
     }
     
@@ -854,11 +893,13 @@ class ViewController: UIViewController, UITextFieldDelegate {
         return Date().timeIntervalSinceReferenceDate
     }
     
-    @objc func UpdateTimer() {
-        var time: Double = 0
-        
-        // Calculate total time since timer started in seconds
-        time = getTimeNow() - timeStart
+    func calcTimeElapsed(since: Double, store: inout Double, str: String = "undefined"){
+        store += getTimeNow() - since
+        print ("\(str) new time is: \(getTidyTime(timeIn: store))" )
+    }
+    
+    func getTidyTime(timeIn: Double) -> String {
+        var time = timeIn
         
         // Calculate hours
         let hours = UInt8(time / 3600.0)
@@ -872,7 +913,16 @@ class ViewController: UIViewController, UITextFieldDelegate {
         let seconds = UInt8(time)
         time -= TimeInterval(seconds)
         
-        globalTimer.text = String(format: "%02d:%02d:%02d", hours, minutes, seconds)
+        return String(format: "%02d:%02d:%02d", hours, minutes, seconds)
+    }
+    
+    @objc func UpdateTimer() {
+        var time: Double = 0
+        
+        // Calculate total time since timer started in seconds
+        time = getTimeNow() - timeStart
+        
+        globalTimer.text = getTidyTime(timeIn: time)
     }
 }
 

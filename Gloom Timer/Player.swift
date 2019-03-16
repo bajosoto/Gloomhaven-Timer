@@ -36,6 +36,7 @@ let colors: [String: UIColor] = ["tinkerer": UIColor(red: 90/255, green: 69/255,
                                  "spellweaver": UIColor(red: 152/255, green: 111/255, blue: 174/255, alpha: 1.0),
                                  "monster": UIColor(red: 164/255, green: 9/255, blue: 14/255, alpha: 1.0),
                                  "gray": UIColor(red: 100/255, green: 100/255, blue: 100/255, alpha: 1.0),
+                                 "transparent": UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 0.0),
                                  "unassigned": UIColor(red: 200/255, green: 200/255, blue: 200/255, alpha: 1.0)]
 
 func getColor(name: String) -> UIColor {
