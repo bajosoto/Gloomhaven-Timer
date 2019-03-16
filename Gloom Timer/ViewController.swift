@@ -21,7 +21,6 @@ class ViewController: UIViewController, UITextFieldDelegate {
     var timeInitiativeStart: Double = 0
     var timeInitiativeEnd: Double = 0
     
-    
     var currInitiativeOnes: Int = -1
     var currInitiativeTens: Int = -1
     var currInitiativePlayer: Int = -1
@@ -54,6 +53,17 @@ class ViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var initiativeBtnOutlet: UIButton!
     var initiativeOrder = [0, 1, 2, 3]
 
+    @IBOutlet var turnsView: UIView!
+    @IBOutlet weak var turnsIcon: UIView!
+    @IBOutlet weak var turnsImg: UIImageView!
+    @IBOutlet weak var turnButton1View: UIView!
+    @IBOutlet weak var turnButton1Img: UIImageView!
+    @IBOutlet weak var turnButton1Text: UILabel!
+    @IBOutlet weak var turnButton2Img: UIImageView!
+    @IBOutlet weak var turnButton2Text: UILabel!
+    @IBOutlet weak var turnButton2View: UIView!
+    var currTurn: Int = 0
+    var monsterActive: Bool = true
     
     @IBOutlet weak var playerButtonArea1: UIView!
     @IBOutlet weak var playerButtonArea2: UIView!
@@ -297,6 +307,46 @@ class ViewController: UIViewController, UITextFieldDelegate {
     @IBAction func cityPressed(_ sender: Any) {
         hideCityEvents()
     }
+    
+    @IBAction func initiativeViewDonePressed(_ sender: Any) {
+        hideInitiativeView()
+    }
+    
+    @IBAction func turnButtonPressed(_ sender: UIButton) {
+        switch (sender.tag){
+        case 0: // Monster button
+            UIView.animate(withDuration: 0.2, animations: {
+                self.turnsIcon.alpha = 0
+            }) { (_) in
+                self.animateTurnButtonViewOut(turn: -1)
+                self.turnsImg.image = UIImage(named: "monster")
+                self.turnsIcon.backgroundColor = colors["monster"]
+                UIView.animate(withDuration: 0.2, animations: {
+                    self.turnsIcon.alpha = 1
+                }) { (_) in
+                    
+                }
+            }
+        case 1: // Player / end round button
+            UIView.animate(withDuration: 0.2, animations: {
+                self.turnsIcon.alpha = 0
+            }) { (_) in
+                self.animateTurnButtonViewOut(turn: self.currTurn)
+                self.turnsImg.image = self.players[self.initiativeOrder[self.currTurn]].player_icon.image
+                self.turnsIcon.backgroundColor = self.players[self.initiativeOrder[self.currTurn]].player_color
+                UIView.animate(withDuration: 0.2, animations: {
+                    self.turnsIcon.alpha = 1
+                }) { (_) in
+                    self.currTurn += 1
+                    self.animateTurnButtonViewOut(turn: self.currTurn)
+                }
+            }
+        default:
+            // Do nothing. Shouldn't reach this
+            break
+        }
+    }
+    
     
     func showClassSelection() {
         self.view.superview!.addSubview(playerSelectionView)
@@ -564,8 +614,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         }, completion: { _ in
             self.timeInitiativeEnd = self.getTimeNow()
             self.initiativeView.removeFromSuperview()
-            // Do something here
-            //            self.showPlayerBoard()
+            self.showTurnsView()
         })
     }
     
@@ -624,6 +673,35 @@ class ViewController: UIViewController, UITextFieldDelegate {
         })
     }
     
+    func showTurnsView() {
+        self.view.superview!.addSubview(turnsView)
+        
+        // Hide buttons
+        turnButton1View.alpha = 0
+        turnButton2View.alpha = 0
+        turnsIcon.alpha = 0
+        
+        // Show main window
+        turnsView.center = self.view.center
+        turnsView.transform = CGAffineTransform.identity
+        turnsView.alpha = 1
+        
+        // Show initial buttons
+        animateTurnButtonViewIn(turn: -1)
+        animateTurnButtonViewIn(turn: currTurn)
+        
+    }
+    
+    func hideTurnsView() {
+        
+        UIView.animate(withDuration: 0.2, animations: {
+            self.turnsIcon.alpha = 0
+        }) { (_) in
+            self.turnsView.removeFromSuperview()
+            self.showPlayerBoard()
+        }
+    }
+    
     func animateNumPadViewIn(player: Int) {
         var t_in = CGAffineTransform.identity
         t_in = t_in.scaledBy(x: 1.3, y: 1.3)
@@ -668,6 +746,97 @@ class ViewController: UIViewController, UITextFieldDelegate {
             self.currInitiativeLabel.text = "--"
             self.PopupView.removeFromSuperview()
         }
+    }
+    
+    func animateTurnButtonViewIn(turn: Int) {
+        
+        if (turn == -1) { // Monster turn
+            if (monsterActive == true) {
+                // No setup needed for monster button (always monster)
+                
+                // Setup animation
+                turnButton1View.alpha = 0
+                turnButton1View.transform = CGAffineTransform.identity.translatedBy(x: 0, y: 50)
+                
+                UIView.animate(withDuration: 0.2, animations: {
+                    self.turnButton1View.alpha = 1
+                    self.turnButton1View.transform = CGAffineTransform.identity
+                },completion: { _ in
+                    // Do something
+                })
+                monsterActive = false
+            }
+        } else if (turn == 4) { // End turn
+            // Setup button
+            turnButton2View.backgroundColor = colors["gray"]
+            turnButton2Img.image = UIImage(named: "pause")
+            turnButton2Text.text = "Next Turn"
+
+            // Setup animation
+            turnButton2View.alpha = 0
+            turnButton2View.transform = CGAffineTransform.identity.translatedBy(x: 0, y: 50)
+            
+            UIView.animate(withDuration: 0.2, animations: {
+                self.turnButton2View.alpha = 1
+                self.turnButton2View.transform = CGAffineTransform.identity
+            },completion: { _ in
+                // Do something
+            })
+        } else { // Player turn
+            // Setup button
+            turnButton2View.backgroundColor = players[initiativeOrder[turn]].player_color
+            turnButton2Img.image = players[initiativeOrder[turn]].player_icon.image
+            turnButton2Text.text = players[initiativeOrder[turn]].player_name
+            
+            // Setup animation
+            turnButton2View.alpha = 0
+            turnButton2View.transform = CGAffineTransform.identity.translatedBy(x: 0, y: 50)
+            
+            UIView.animate(withDuration: 0.2, animations: {
+                self.turnButton2View.alpha = 1
+                self.turnButton2View.transform = CGAffineTransform.identity
+            },completion: { _ in
+                // Do something
+            })
+        }
+    }
+    
+    func animateTurnButtonViewOut(turn: Int) {
+        
+        if (turn == -1) { // Monster
+            UIView.animate(withDuration: 0.2) {
+                self.turnButton1View.alpha = 0
+                self.turnButton1View.transform = CGAffineTransform.identity.translatedBy(x: 0, y: 50)
+            }
+            monsterActive = true
+        } else if (turn == 4) { // End Turn
+            UIView.animate(withDuration: 0.2, animations: {
+                self.turnButton2View.alpha = 0
+                self.turnButton2View.transform = CGAffineTransform.identity.translatedBy(x: 0, y: 50)
+            },completion: { _ in
+                self.newRound()
+            })
+        } else { // Player turn
+            UIView.animate(withDuration: 0.2, animations: {
+                self.turnButton2View.alpha = 0
+                self.turnButton2View.transform = CGAffineTransform.identity.translatedBy(x: 0, y: 50)
+            },completion: { _ in
+                self.animateTurnButtonViewIn(turn: -1)
+                self.animateTurnButtonViewIn(turn: self.currTurn)
+            })
+        }
+        
+        // TODO: Check logic to spawn new button(s) 
+    }
+    
+    func newRound() {
+        monsterActive = true
+        for player in players {
+            player.player_initiative = -1
+        }
+        initiativeOrder = [0, 1, 2, 3]
+        currTurn = 0
+        hideTurnsView()
     }
     
     func getTimeNow() -> Double {
