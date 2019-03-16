@@ -331,14 +331,17 @@ class ViewController: UIViewController, UITextFieldDelegate {
             UIView.animate(withDuration: 0.2, animations: {
                 self.turnsIcon.alpha = 0
             }) { (_) in
-                self.animateTurnButtonViewOut(turn: self.currTurn)
-                self.turnsImg.image = self.players[self.initiativeOrder[self.currTurn]].player_icon.image
-                self.turnsIcon.backgroundColor = self.players[self.initiativeOrder[self.currTurn]].player_color
-                UIView.animate(withDuration: 0.2, animations: {
-                    self.turnsIcon.alpha = 1
-                }) { (_) in
-                    self.currTurn += 1
+                if (self.currTurn == 4){
                     self.animateTurnButtonViewOut(turn: self.currTurn)
+                } else {
+                    self.turnsImg.image = self.players[self.initiativeOrder[self.currTurn]].player_icon.image
+                    self.turnsIcon.backgroundColor = self.players[self.initiativeOrder[self.currTurn]].player_color
+                    UIView.animate(withDuration: 0.2, animations: {
+                        self.turnsIcon.alpha = 1
+                    }) { (_) in
+                        self.animateTurnButtonViewOut(turn: self.currTurn)
+                        self.currTurn += 1
+                    }
                 }
             }
         default:
