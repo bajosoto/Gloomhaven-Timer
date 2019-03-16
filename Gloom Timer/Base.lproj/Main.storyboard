@@ -111,15 +111,55 @@
                                             </view>
                                         </subviews>
                                     </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="qZs-5H-JOK">
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="qZs-5H-JOK">
                                         <rect key="frame" x="0.0" y="131.33333333333334" width="696" height="111.33333333333334"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h3S-em-jpw">
-                                                <rect key="frame" x="0.0" y="0.0" width="696" height="111.33333333333333"/>
-                                                <fontDescription key="fontDescription" name="PirataOne-Regular" family="Pirata One" pointSize="60"/>
-                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DYr-xs-alc" userLabel="spacer">
+                                                <rect key="frame" x="0.0" y="0.0" width="218.66666666666666" height="111.33333333333333"/>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NBx-hL-0kY" userLabel="player4">
+                                                <rect key="frame" x="238.66666666666669" y="0.0" width="218.66666666666669" height="111.33333333333333"/>
+                                                <subviews>
+                                                    <button opaque="NO" tag="4" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Sx-56-QYo" userLabel="buttonPlayer_4">
+                                                        <rect key="frame" x="0.0" y="0.0" width="218.66666666666666" height="111.33333333333333"/>
+                                                        <color key="backgroundColor" white="0.81423833210703356" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <state key="normal">
+                                                            <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </state>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                                <integer key="value" value="10"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <action selector="exitPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="xsH-ec-E0U"/>
+                                                        </connections>
+                                                    </button>
+                                                    <imageView userInteractionEnabled="NO" alpha="0.84999999999999998" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="exit" translatesAutoresizingMaskIntoConstraints="NO" id="sjW-FF-Gip">
+                                                        <rect key="frame" x="53.666666666666622" y="0.0" width="111.33333333333331" height="111.33333333333333"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="sjW-FF-Gip" secondAttribute="height" multiplier="1:1" id="sNt-xK-ABH"/>
+                                                        </constraints>
+                                                    </imageView>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstItem="sjW-FF-Gip" firstAttribute="centerY" secondItem="NBx-hL-0kY" secondAttribute="centerY" id="1ct-gw-LMG"/>
+                                                    <constraint firstAttribute="bottom" secondItem="sjW-FF-Gip" secondAttribute="bottom" id="6dV-vC-GKa"/>
+                                                    <constraint firstItem="7Sx-56-QYo" firstAttribute="leading" secondItem="NBx-hL-0kY" secondAttribute="leading" id="JFe-4S-6Md"/>
+                                                    <constraint firstItem="7Sx-56-QYo" firstAttribute="top" secondItem="NBx-hL-0kY" secondAttribute="top" id="L8N-ha-ns7"/>
+                                                    <constraint firstAttribute="trailing" secondItem="7Sx-56-QYo" secondAttribute="trailing" id="MGb-XT-bW2"/>
+                                                    <constraint firstItem="7Sx-56-QYo" firstAttribute="leading" secondItem="NBx-hL-0kY" secondAttribute="leading" id="OOh-sB-ktR"/>
+                                                    <constraint firstItem="7Sx-56-QYo" firstAttribute="top" secondItem="NBx-hL-0kY" secondAttribute="top" id="OXk-EJ-f9N"/>
+                                                    <constraint firstItem="sjW-FF-Gip" firstAttribute="centerX" secondItem="NBx-hL-0kY" secondAttribute="centerX" id="P1l-KY-A0f"/>
+                                                    <constraint firstAttribute="bottom" secondItem="7Sx-56-QYo" secondAttribute="bottom" id="XJ3-Mn-5zx"/>
+                                                    <constraint firstAttribute="bottom" secondItem="7Sx-56-QYo" secondAttribute="bottom" id="a2I-9v-Nwf"/>
+                                                    <constraint firstAttribute="trailing" secondItem="7Sx-56-QYo" secondAttribute="trailing" id="ieD-qR-QIK"/>
+                                                    <constraint firstItem="sjW-FF-Gip" firstAttribute="top" secondItem="NBx-hL-0kY" secondAttribute="top" id="zEC-Ej-7Zx"/>
+                                                </constraints>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7du-sx-dMN" userLabel="spacer">
+                                                <rect key="frame" x="477.33333333333331" y="0.0" width="218.66666666666669" height="111.33333333333333"/>
+                                            </view>
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="XR5-P2-6Ju">
@@ -215,6 +255,13 @@
                                     <action selector="invisBackButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ap2-oF-sm1"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ybP-G3-QsX" userLabel="tempinvisiBack">
+                                <rect key="frame" x="0.0" y="0.0" width="736" height="414"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="tempInvisiBackPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="vHT-r6-rxQ"/>
+                                </connections>
+                            </button>
                             <visualEffectView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JoB-5s-hE9">
                                 <rect key="frame" x="0.0" y="0.0" width="736" height="414"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="PH8-dg-KeI">
@@ -249,7 +296,8 @@
                         <outlet property="cityImg" destination="CkW-GW-mx5" id="nNq-8c-LbW"/>
                         <outlet property="cityLabel" destination="7OW-aS-kdc" id="geZ-eK-v01"/>
                         <outlet property="currInitiativeLabel" destination="juC-IO-fos" id="TR0-Cc-EQC"/>
-                        <outlet property="globalTimer" destination="h3S-em-jpw" id="1Os-El-MGh"/>
+                        <outlet property="exitButton" destination="7Sx-56-QYo" id="1OS-FK-dDc"/>
+                        <outlet property="exitButtonArea" destination="NBx-hL-0kY" id="rjX-mS-EhS"/>
                         <outlet property="initiativeBtnOutlet" destination="zhg-yi-ldh" id="yqg-H1-CHR"/>
                         <outlet property="initiativeView" destination="35j-GH-2gB" id="jWR-XX-beX"/>
                         <outlet property="invisiBackButton" destination="6hy-Nb-rWQ" id="f1P-3w-1CQ"/>
@@ -278,10 +326,13 @@
                         <outlet property="playerButtonArea4" destination="k1U-8T-J0S" id="unI-Qx-Bbl"/>
                         <outlet property="playerNameTextField" destination="QDX-tx-63J" id="sHf-pb-S0t"/>
                         <outlet property="playerSelectionView" destination="ERa-s2-6jZ" id="M5V-Ua-CAD"/>
+                        <outlet property="resultsText" destination="coP-5m-4yU" id="5t5-b1-yNt"/>
+                        <outlet property="resultsView" destination="Nla-e3-Y2V" id="q4n-zx-zkL"/>
                         <outlet property="scenarioSetupDoneButton" destination="nY9-Lv-ZVh" id="RWR-Jt-ymj"/>
                         <outlet property="scenarioSetupImg" destination="YMA-ew-ZTr" id="b1Y-BM-i6r"/>
                         <outlet property="scenarioSetupLabel" destination="0dB-t1-zB7" id="3ui-Pi-b1m"/>
                         <outlet property="scenarioSetupView" destination="yg1-97-acQ" id="YsN-YD-NXq"/>
+                        <outlet property="tempInvisiBackButton" destination="ybP-G3-QsX" id="Vhe-lG-j4F"/>
                         <outlet property="turnButton1Img" destination="ket-wR-Z7c" id="VhP-je-hNy"/>
                         <outlet property="turnButton1Text" destination="Sfu-jt-13Q" id="OZh-Hg-vRs"/>
                         <outlet property="turnButton1View" destination="BHl-JA-R22" id="z6S-rG-LZ3"/>
@@ -1780,6 +1831,27 @@
                     </constraints>
                     <viewLayoutGuide key="safeArea" id="FLq-mK-3Kb"/>
                 </view>
+                <view contentMode="scaleToFill" id="Nla-e3-Y2V" userLabel="Results">
+                    <rect key="frame" x="0.0" y="0.0" width="496" height="321"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <subviews>
+                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" directionalLockEnabled="YES" showsVerticalScrollIndicator="NO" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="coP-5m-4yU">
+                            <rect key="frame" x="0.0" y="0.0" width="496" height="321"/>
+                            <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <fontDescription key="fontDescription" name="PirataOne-Regular" family="Pirata One" pointSize="27"/>
+                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                        </textView>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="0.1016427654" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="bA1-YS-Tea" firstAttribute="trailing" secondItem="coP-5m-4yU" secondAttribute="trailing" id="Fro-V9-Nbu"/>
+                        <constraint firstItem="bA1-YS-Tea" firstAttribute="bottom" secondItem="coP-5m-4yU" secondAttribute="bottom" id="Gds-A6-UEQ"/>
+                        <constraint firstItem="coP-5m-4yU" firstAttribute="leading" secondItem="bA1-YS-Tea" secondAttribute="leading" id="QTi-Q5-4gZ"/>
+                        <constraint firstItem="coP-5m-4yU" firstAttribute="top" secondItem="bA1-YS-Tea" secondAttribute="top" id="Wo3-mv-t6v"/>
+                    </constraints>
+                    <viewLayoutGuide key="safeArea" id="bA1-YS-Tea"/>
+                </view>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="27.717391304347828" y="44.927536231884062"/>
@@ -1790,6 +1862,7 @@
         <image name="brute" width="300" height="300"/>
         <image name="cragheart" width="300" height="300"/>
         <image name="doomstalker" width="300" height="300"/>
+        <image name="exit" width="642" height="607"/>
         <image name="hex" width="85" height="89"/>
         <image name="initiative" width="126" height="52"/>
         <image name="lion" width="300" height="300"/>

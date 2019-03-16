@@ -82,6 +82,9 @@ class ViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet var classButtons: [UIButton]!
     @IBOutlet var classButtonViews: [UIView]!
     
+    @IBOutlet weak var exitButtonArea: UIView!
+    @IBOutlet weak var exitButton: UIButton!
+    
     @IBOutlet weak var playerButton1: UIButton!
     @IBOutlet weak var playerButton2: UIButton!
     @IBOutlet weak var playerButton3: UIButton!
@@ -97,6 +100,10 @@ class ViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet var playerButtonImages: [UIImageView]!
     
     @IBOutlet weak var invisiBackButton: UIButton!
+    @IBOutlet weak var tempInvisiBackButton: UIButton!
+    
+    @IBOutlet var resultsView: UIView!
+    @IBOutlet weak var resultsText: UITextView!
     
     @IBOutlet var PopupView: UIView!
     @IBOutlet var playerSelectionView: UIView!
@@ -296,6 +303,22 @@ class ViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
+    @IBAction func tempInvisiBackPressed(_ sender: Any) {
+        // Temporary
+        var t_out = resultsView.transform
+        t_out = t_out.scaledBy(x: 1.3, y: 1.3)
+
+        self.tempInvisiBackButton.isEnabled = false
+
+        UIView.animate(withDuration: 0.2, animations: {
+            self.resultsView.transform = t_out
+            self.resultsView.alpha = 0
+            self.blurFx.effect = nil
+        }) { (success:Bool) in
+            self.resultsView.removeFromSuperview()
+        }
+    }
+    
     @IBAction func invisBackButton(_ sender: Any) {
         players[currInitiativePlayer].player_initiative = -1
         print("Player \(currInitiativePlayer + 1) (\(players[currInitiativePlayer].player_class)) initiative is \(players[currInitiativePlayer].player_initiative)")
@@ -384,6 +407,51 @@ class ViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
+    @IBAction func exitPressed(_ sender: Any) {
+        
+        resultsText.text = """
+        Total time: \t\t\t\t\t\t\t\(getTidyTime(timeIn: getTimeNow() - timeStart))
+        
+        Character selection: \t\t\t\t\(getTidyTime(timeIn: timeCharSelTotal))
+        Scenario setup: \t\t\t\t\t\(getTidyTime(timeIn: timeScenarioSetupTotal))
+        City and Road events: \t\t\t\(getTidyTime(timeIn: timeCityTotal))
+        PC app handling: \t\t\t\t\t\(getTidyTime(timeIn: timeScreenInitiativeEnd))
+        
+        Total card selection: \t\t\t\t\(getTidyTime(timeIn: timeInitiativeTotal[0] + timeInitiativeTotal[1] + timeInitiativeTotal[2] + timeInitiativeTotal[3]))
+        \(players[0].player_name)'s card selection: \t\t\t\(getTidyTime(timeIn: timeInitiativeTotal[0]))
+        \(players[1].player_name)'s card selection: \t\t\t\(getTidyTime(timeIn: timeInitiativeTotal[1]))
+        \(players[2].player_name)'s card selection: \t\t\(getTidyTime(timeIn: timeInitiativeTotal[2]))
+        \(players[3].player_name)'s card selection: \t\t\t\t\(getTidyTime(timeIn: timeInitiativeTotal[3]))
+        
+        Break/Discussion/'Oh fuck': \t\(getTidyTime(timeIn: timeBreakTotal))
+        
+        Total turn time: \t\t\t\t\t\(getTidyTime(timeIn: timeTurnTotal[0] + timeTurnTotal[1] + timeTurnTotal[2] + timeTurnTotal[3] + timeTurnTotal[4]))
+        \(players[0].player_name)'s turn time: \t\t\t\t\t\(getTidyTime(timeIn: timeTurnTotal[0]))
+        \(players[1].player_name)'s turn time: \t\t\t\t\t\(getTidyTime(timeIn: timeTurnTotal[1]))
+        \(players[2].player_name)'s turn time: \t\t\t\t\(getTidyTime(timeIn: timeTurnTotal[2]))
+        \(players[3].player_name)'s turn time: \t\t\t\t\t\(getTidyTime(timeIn: timeTurnTotal[3]))
+        Monsters turn time: \t\t\t\t\(getTidyTime(timeIn: timeTurnTotal[4]))
+        """
+        
+        // All this is temporary
+        var t_in = CGAffineTransform.identity
+        t_in = t_in.scaledBy(x: 1.3, y: 1.3)
+        
+        var t_out = CGAffineTransform.identity
+        t_out = t_out.scaledBy(x: 1, y: 1)
+        
+        self.tempInvisiBackButton.isEnabled = true
+        
+        self.view.addSubview(resultsView)
+        resultsView.center = self.view.center
+        resultsView.transform = t_in
+        resultsView.alpha = 0
+        UIView.animate(withDuration: 0.2) {
+            self.blurFx.effect = self.effect
+            self.resultsView.alpha = 1
+            self.resultsView.transform = t_out
+        }
+    }
     
     func showClassSelection() {
         self.view.superview!.addSubview(playerSelectionView)
@@ -661,6 +729,8 @@ class ViewController: UIViewController, UITextFieldDelegate {
             playerButtonArea.transform = CGAffineTransform.identity.scaledBy(x: 1.3, y: 1.3)
             playerButtonArea.alpha = 0
         }
+        exitButtonArea.transform = CGAffineTransform.identity.scaledBy(x: 1.3, y: 1.3)
+        exitButtonArea.alpha = 0
         
         UIView.animateKeyframes(withDuration: 1, delay: 0, options: [.calculationModeCubic], animations: {
             UIView.addKeyframe(withRelativeStartTime: 0.0/0.5, relativeDuration: 0.2/0.5, animations: {
@@ -678,6 +748,10 @@ class ViewController: UIViewController, UITextFieldDelegate {
             UIView.addKeyframe(withRelativeStartTime: 0.3/0.5, relativeDuration: 0.2/0.5, animations: {
                 self.playerButtonArea2.transform = CGAffineTransform.identity
                 self.playerButtonArea2.alpha = 1
+            })
+            UIView.addKeyframe(withRelativeStartTime: 0.4/0.5, relativeDuration: 0.2/0.5, animations: {
+                self.exitButtonArea.transform = CGAffineTransform.identity
+                self.exitButtonArea.alpha = 1
             })
         }, completion:{ _ in
             // Do nothing
@@ -705,6 +779,10 @@ class ViewController: UIViewController, UITextFieldDelegate {
             UIView.addKeyframe(withRelativeStartTime: 0.3/0.5, relativeDuration: 0.2/0.5, animations: {
                 self.playerButtonArea2.transform = CGAffineTransform.identity.scaledBy(x: 0.7, y: 0.7)
                 self.playerButtonArea2.alpha = 0
+            })
+            UIView.addKeyframe(withRelativeStartTime: 0.4/0.5, relativeDuration: 0.2/0.5, animations: {
+                self.exitButtonArea.transform = CGAffineTransform.identity.scaledBy(x: 0.7, y: 0.7)
+                self.exitButtonArea.alpha = 0
             })
         }, completion:{ _ in
             //
@@ -922,7 +1000,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         // Calculate total time since timer started in seconds
         time = getTimeNow() - timeStart
         
-        globalTimer.text = getTidyTime(timeIn: time)
+//        globalTimer.text = getTidyTime(timeIn: time)
     }
 }
 
