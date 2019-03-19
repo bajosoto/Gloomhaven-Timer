@@ -332,8 +332,8 @@ class ViewController: UIViewController, UITextFieldDelegate {
         currInitiativeTens = -1
         
         // Disable player button
-        sender.isEnabled = false
-        sender.superview!.alpha = 0.2
+//        sender.isEnabled = false
+//        sender.superview!.alpha = 0.2
     }
     
     @IBAction func scenarioSetupPressed(_ sender: Any) {
