@@ -179,8 +179,6 @@ class ViewController: UIViewController, UITextFieldDelegate {
 
     @IBAction func numPadButtonPress(_ sender: UIButton) {
         
-        
-        
         switch sender.tag {
             case 1: fallthrough
             case 2: fallthrough
@@ -196,22 +194,38 @@ class ViewController: UIViewController, UITextFieldDelegate {
                     currInitiativeTens = currInitiativeOnes
                 }
                 currInitiativeOnes = sender.tag
+                updateInitiativeLabel()
             case 99:
                 currInitiativeOnes = 9
                 currInitiativeTens = 9
+                updateInitiativeLabel()
+            // OK Button
+            case 10:
+                saveInitiative()
             default: return
         }
         
+        
+        
+    }
+    
+    func updateInitiativeLabel() {
         let ones = currInitiativeOnes == -1 ? "-" : String(currInitiativeOnes)
         let tens = currInitiativeTens == -1 ? "-" : String(currInitiativeTens)
         currInitiativeLabel.text = "\(tens)\(ones)"
-        
+    }
+    
+    func saveInitiative() {
         if ((currInitiativeOnes != -1) && (currInitiativeTens != -1)) {
             // Assign initiative to player
             players[currInitiativePlayer].player_initiative = currInitiativeTens * 10 + currInitiativeOnes
             // Reset interface
             currInitiativeOnes = -1
             currInitiativeTens = -1
+            
+            // TODO: Time elapsed shouldnt be saved here, only the time the ok button was pressed.
+            // The actual time should be added for all player once all players havev saved theirs and
+            // the next screen is shown
             calcTimeElapsed(since: timeInitiativeStart, store: &(timeInitiativeTotal[currInitiativePlayer]), str: "Initiative player \(currInitiativePlayer + 1)")
             print("Player \(currInitiativePlayer + 1) (\(players[currInitiativePlayer].player_class)) initiative is \(players[currInitiativePlayer].player_initiative)")
             // Close window
