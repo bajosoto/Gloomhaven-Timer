@@ -178,6 +178,9 @@ class ViewController: UIViewController, UITextFieldDelegate {
     }
 
     @IBAction func numPadButtonPress(_ sender: UIButton) {
+        
+        
+        
         switch sender.tag {
             case 1: fallthrough
             case 2: fallthrough
@@ -729,6 +732,8 @@ class ViewController: UIViewController, UITextFieldDelegate {
             playerButtonArea.transform = CGAffineTransform.identity.scaledBy(x: 1.3, y: 1.3)
             playerButtonArea.alpha = 0
         }
+        
+        
         exitButtonArea.transform = CGAffineTransform.identity.scaledBy(x: 1.3, y: 1.3)
         exitButtonArea.alpha = 0
         

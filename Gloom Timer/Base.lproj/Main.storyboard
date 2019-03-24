@@ -231,7 +231,7 @@
                                     <action selector="invisBackButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ap2-oF-sm1"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ybP-G3-QsX" userLabel="tempinvisiBack">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ybP-G3-QsX" userLabel="tempinvisiBack">
                                 <rect key="frame" x="0.0" y="0.0" width="736" height="414"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <connections>
@@ -239,9 +239,9 @@
                                 </connections>
                             </button>
                             <visualEffectView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JoB-5s-hE9">
-                                <rect key="frame" x="0.0" y="20" width="414" height="716"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="PH8-dg-KeI">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="716"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 </view>
                                 <blurEffect style="dark"/>
@@ -251,9 +251,9 @@
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="JoB-5s-hE9" secondAttribute="trailing" id="2CS-Rf-HkE"/>
                             <constraint firstItem="6hy-Nb-rWQ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="4bL-4X-knf"/>
+                            <constraint firstItem="JoB-5s-hE9" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="-20" id="4fs-pl-ahp"/>
                             <constraint firstItem="6hy-Nb-rWQ" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="T0F-Zq-phV"/>
                             <constraint firstAttribute="trailing" secondItem="zPT-9c-Vhi" secondAttribute="trailing" constant="20" id="Tbx-nS-wNW"/>
-                            <constraint firstItem="JoB-5s-hE9" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="YFk-Tg-Heg"/>
                             <constraint firstItem="zPT-9c-Vhi" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="bLw-tF-yiR"/>
                             <constraint firstItem="zPT-9c-Vhi" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="eaF-Vq-O2U"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="JoB-5s-hE9" secondAttribute="bottom" id="gw4-0f-mWd"/>
@@ -263,13 +263,6 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="6hy-Nb-rWQ" secondAttribute="bottom" id="yyk-cq-Po8"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <variation key="default">
-                            <mask key="subviews">
-                                <exclude reference="6hy-Nb-rWQ"/>
-                                <exclude reference="ybP-G3-QsX"/>
-                                <exclude reference="JoB-5s-hE9"/>
-                            </mask>
-                        </variation>
                     </view>
                     <connections>
                         <outlet property="PopupView" destination="4sK-U1-LBV" id="hEr-kK-Oxb"/>
@@ -1585,17 +1578,17 @@
                     <viewLayoutGuide key="safeArea" id="FZK-0t-1V0"/>
                 </view>
                 <view contentMode="scaleToFill" id="4sK-U1-LBV" userLabel="Popup">
-                    <rect key="frame" x="0.0" y="0.0" width="496" height="321"/>
+                    <rect key="frame" x="0.0" y="0.0" width="334" height="696"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="abQ-z5-iCQ">
-                            <rect key="frame" x="100" y="80" width="296" height="211"/>
+                            <rect key="frame" x="20" y="100" width="294" height="566"/>
                             <subviews>
                                 <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="mwG-Ks-n3l">
-                                    <rect key="frame" x="0.0" y="0.0" width="296" height="49"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="294" height="90.333333333333329"/>
                                     <subviews>
                                         <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="44T-4f-TUA">
-                                            <rect key="frame" x="0.0" y="0.0" width="93.333333333333329" height="49"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="92.666666666666671" height="90.333333333333329"/>
                                             <color key="backgroundColor" red="0.1176470588" green="0.23529411759999999" blue="0.3921568627" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <fontDescription key="fontDescription" name="PirataOne-Regular" family="Pirata One" pointSize="40"/>
                                             <state key="normal" title="1">
@@ -1611,7 +1604,7 @@
                                             </connections>
                                         </button>
                                         <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iFq-VL-lRg">
-                                            <rect key="frame" x="101.33333333333334" y="0.0" width="93.333333333333343" height="49"/>
+                                            <rect key="frame" x="100.66666666666666" y="0.0" width="92.666666666666657" height="90.333333333333329"/>
                                             <color key="backgroundColor" red="0.1176470588" green="0.23529411759999999" blue="0.3921568627" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <fontDescription key="fontDescription" name="PirataOne-Regular" family="Pirata One" pointSize="40"/>
                                             <state key="normal" title="2">
@@ -1627,7 +1620,7 @@
                                             </connections>
                                         </button>
                                         <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="36L-8c-XyG">
-                                            <rect key="frame" x="202.66666666666669" y="0.0" width="93.333333333333314" height="49"/>
+                                            <rect key="frame" x="201.33333333333334" y="0.0" width="92.666666666666657" height="90.333333333333329"/>
                                             <color key="backgroundColor" red="0.1176470588" green="0.23529411759999999" blue="0.3921568627" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <fontDescription key="fontDescription" name="PirataOne-Regular" family="Pirata One" pointSize="40"/>
                                             <state key="normal" title="3">
@@ -1645,10 +1638,10 @@
                                     </subviews>
                                 </stackView>
                                 <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="l1c-mZ-d1J">
-                                    <rect key="frame" x="0.0" y="54" width="296" height="49"/>
+                                    <rect key="frame" x="0.0" y="95.333333333333343" width="294" height="90"/>
                                     <subviews>
                                         <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EkU-ZG-YuX">
-                                            <rect key="frame" x="0.0" y="0.0" width="93.333333333333329" height="49"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="92.666666666666671" height="90"/>
                                             <color key="backgroundColor" red="0.1176470588" green="0.23529411759999999" blue="0.3921568627" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <fontDescription key="fontDescription" name="PirataOne-Regular" family="Pirata One" pointSize="40"/>
                                             <state key="normal" title="4">
@@ -1664,7 +1657,7 @@
                                             </connections>
                                         </button>
                                         <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LAd-o4-IX2">
-                                            <rect key="frame" x="101.33333333333334" y="0.0" width="93.333333333333343" height="49"/>
+                                            <rect key="frame" x="100.66666666666666" y="0.0" width="92.666666666666657" height="90"/>
                                             <color key="backgroundColor" red="0.1176470588" green="0.23529411759999999" blue="0.3921568627" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <fontDescription key="fontDescription" name="PirataOne-Regular" family="Pirata One" pointSize="40"/>
                                             <state key="normal" title="5">
@@ -1680,7 +1673,7 @@
                                             </connections>
                                         </button>
                                         <button opaque="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="crR-ow-iJe">
-                                            <rect key="frame" x="202.66666666666669" y="0.0" width="93.333333333333314" height="49"/>
+                                            <rect key="frame" x="201.33333333333334" y="0.0" width="92.666666666666657" height="90"/>
                                             <color key="backgroundColor" red="0.1176470588" green="0.23529411759999999" blue="0.3921568627" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <fontDescription key="fontDescription" name="PirataOne-Regular" family="Pirata One" pointSize="40"/>
                                             <state key="normal" title="6">
@@ -1698,10 +1691,10 @@
                                     </subviews>
                                 </stackView>
                                 <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="RBH-yl-pXk">
-                                    <rect key="frame" x="0.0" y="108" width="296" height="49"/>
+                                    <rect key="frame" x="0.0" y="190.33333333333331" width="294" height="90.333333333333314"/>
                                     <subviews>
                                         <button opaque="NO" tag="7" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PPn-dn-PT8">
-                                            <rect key="frame" x="0.0" y="0.0" width="93.333333333333329" height="49"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="92.666666666666671" height="90.333333333333329"/>
                                             <color key="backgroundColor" red="0.1176470588" green="0.23529411759999999" blue="0.3921568627" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <fontDescription key="fontDescription" name="PirataOne-Regular" family="Pirata One" pointSize="40"/>
                                             <state key="normal" title="7">
@@ -1717,7 +1710,7 @@
                                             </connections>
                                         </button>
                                         <button opaque="NO" tag="8" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Znh-XY-ppc">
-                                            <rect key="frame" x="101.33333333333334" y="0.0" width="93.333333333333343" height="49"/>
+                                            <rect key="frame" x="100.66666666666666" y="0.0" width="92.666666666666657" height="90.333333333333329"/>
                                             <color key="backgroundColor" red="0.1176470588" green="0.23529411759999999" blue="0.3921568627" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <fontDescription key="fontDescription" name="PirataOne-Regular" family="Pirata One" pointSize="40"/>
                                             <state key="normal" title="8">
@@ -1733,7 +1726,7 @@
                                             </connections>
                                         </button>
                                         <button opaque="NO" tag="9" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cgf-5r-HfW">
-                                            <rect key="frame" x="202.66666666666669" y="0.0" width="93.333333333333314" height="49"/>
+                                            <rect key="frame" x="201.33333333333334" y="0.0" width="92.666666666666657" height="90.333333333333329"/>
                                             <color key="backgroundColor" red="0.1176470588" green="0.23529411759999999" blue="0.3921568627" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <fontDescription key="fontDescription" name="PirataOne-Regular" family="Pirata One" pointSize="40"/>
                                             <state key="normal" title="9">
@@ -1751,10 +1744,10 @@
                                     </subviews>
                                 </stackView>
                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="JeC-go-Vyv">
-                                    <rect key="frame" x="0.0" y="162" width="296" height="49"/>
+                                    <rect key="frame" x="0.0" y="285.66666666666669" width="294" height="90"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4sg-vH-M8c">
-                                            <rect key="frame" x="0.0" y="0.0" width="194.66666666666666" height="49"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="193.33333333333334" height="90"/>
                                             <color key="backgroundColor" red="0.1176470588" green="0.23529411759999999" blue="0.3921568627" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <fontDescription key="fontDescription" name="PirataOne-Regular" family="Pirata One" pointSize="40"/>
                                             <state key="normal" title="0">
@@ -1770,7 +1763,7 @@
                                             </connections>
                                         </button>
                                         <button opaque="NO" tag="99" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sen-0B-Rcz">
-                                            <rect key="frame" x="202.66666666666669" y="0.0" width="93.333333333333314" height="49"/>
+                                            <rect key="frame" x="201.33333333333334" y="0.0" width="92.666666666666657" height="90"/>
                                             <color key="backgroundColor" red="0.0" green="0.050160227240000001" blue="0.11704582249999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <fontDescription key="fontDescription" name="PirataOne-Regular" family="Pirata One" pointSize="40"/>
                                             <state key="normal" title="99">
@@ -1787,13 +1780,32 @@
                                         </button>
                                     </subviews>
                                 </stackView>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="snm-vP-xyN">
+                                    <rect key="frame" x="0.0" y="380.66666666666669" width="294" height="90.333333333333314"/>
+                                </view>
+                                <button opaque="NO" tag="10" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xvu-E4-xiF">
+                                    <rect key="frame" x="0.0" y="476" width="294" height="90"/>
+                                    <color key="backgroundColor" red="0.40028058975915498" green="0.050160227240000001" blue="0.11704582249999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <fontDescription key="fontDescription" name="PirataOne-Regular" family="Pirata One" pointSize="40"/>
+                                    <state key="normal" title="OK">
+                                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </state>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                            <integer key="value" value="10"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
+                                    <connections>
+                                        <action selector="numPadButtonPress:" destination="BYZ-38-t0r" eventType="touchDown" id="8ZB-W0-oCr"/>
+                                    </connections>
+                                </button>
                             </subviews>
                             <constraints>
                                 <constraint firstItem="sen-0B-Rcz" firstAttribute="width" secondItem="Cgf-5r-HfW" secondAttribute="width" id="kKn-aJ-Ogo"/>
                             </constraints>
                         </stackView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="--" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="juC-IO-fos">
-                            <rect key="frame" x="100" y="0.0" width="296" height="71.333333333333329"/>
+                            <rect key="frame" x="20" y="20" width="294" height="71.333333333333329"/>
                             <fontDescription key="fontDescription" name="PirataOne-Regular" family="Pirata One" pointSize="60"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
@@ -1804,8 +1816,8 @@
                     <color key="backgroundColor" white="1" alpha="0.1016427654" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstItem="juC-IO-fos" firstAttribute="width" secondItem="abQ-z5-iCQ" secondAttribute="width" id="3yZ-dM-xVV"/>
-                        <constraint firstAttribute="trailing" secondItem="abQ-z5-iCQ" secondAttribute="trailing" constant="100" id="DDn-hd-Njg"/>
-                        <constraint firstItem="abQ-z5-iCQ" firstAttribute="leading" secondItem="FLq-mK-3Kb" secondAttribute="leading" constant="100" id="I6l-44-Nyx"/>
+                        <constraint firstAttribute="trailing" secondItem="abQ-z5-iCQ" secondAttribute="trailing" constant="20" id="DDn-hd-Njg"/>
+                        <constraint firstItem="abQ-z5-iCQ" firstAttribute="leading" secondItem="FLq-mK-3Kb" secondAttribute="leading" constant="20" id="I6l-44-Nyx"/>
                         <constraint firstItem="juC-IO-fos" firstAttribute="centerX" secondItem="abQ-z5-iCQ" secondAttribute="centerX" id="Lzk-dw-56y"/>
                         <constraint firstItem="juC-IO-fos" firstAttribute="top" secondItem="4sK-U1-LBV" secondAttribute="topMargin" id="Qaw-q8-uC8"/>
                         <constraint firstItem="abQ-z5-iCQ" firstAttribute="top" secondItem="juC-IO-fos" secondAttribute="bottom" constant="8.6666666666666572" id="VaL-ee-c5n"/>
