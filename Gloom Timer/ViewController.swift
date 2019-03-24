@@ -20,6 +20,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
     var timeCityTotal: Double = 0
     var timeInitiativeStart: Double = 0
     var timeInitiativeTotal: [Double] = [0, 0, 0, 0]
+    var timeInitiativeTemp: [Double] = [0, 0, 0, 0]
     var timeScreenInitiativeStart: Double = 0
     var timeScreenInitiativeEnd: Double = 0
     var timeBreakStart: Double = 0
@@ -223,11 +224,9 @@ class ViewController: UIViewController, UITextFieldDelegate {
             currInitiativeOnes = -1
             currInitiativeTens = -1
             
-            // TODO: Time elapsed shouldnt be saved here, only the time the ok button was pressed.
-            // The actual time should be added for all player once all players havev saved theirs and
-            // the next screen is shown
-            calcTimeElapsed(since: timeInitiativeStart, store: &(timeInitiativeTotal[currInitiativePlayer]), str: "Initiative player \(currInitiativePlayer + 1)")
-            print("Player \(currInitiativePlayer + 1) (\(players[currInitiativePlayer].player_class)) initiative is \(players[currInitiativePlayer].player_initiative)")
+            // Store temporal time
+            timeInitiativeTemp[currInitiativePlayer] = getTimeNow() - timeInitiativeStart
+            print("Player \(currInitiativePlayer + 1) (\(players[currInitiativePlayer].player_class)) initiative is now \(players[currInitiativePlayer].player_initiative)")
             // Close window
             animateNumPadViewOut()
             // Validate if all players have initiative
@@ -239,6 +238,11 @@ class ViewController: UIViewController, UITextFieldDelegate {
                 }
             }
             if (allDone) {
+                // Save initiative times
+                for i in 0...3 {
+                    timeInitiativeTotal[i] += timeInitiativeTemp[i]
+                    print("Player \(i + 1) (\(players[i].player_class)) initiative time is now \(timeInitiativeTotal[i])")
+                }
                 getInitiativeOrder()
                 print("The order is:")
                 for i in 0...3 {
@@ -246,6 +250,8 @@ class ViewController: UIViewController, UITextFieldDelegate {
                 }
                 hidePlayerBoard()
             }
+        } else {
+            
         }
     }
     
@@ -337,7 +343,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func invisBackButton(_ sender: Any) {
-        players[currInitiativePlayer].player_initiative = -1
+//        players[currInitiativePlayer].player_initiative = -1
         print("Player \(currInitiativePlayer + 1) (\(players[currInitiativePlayer].player_class)) initiative is \(players[currInitiativePlayer].player_initiative)")
         animateNumPadViewOut()
     }
