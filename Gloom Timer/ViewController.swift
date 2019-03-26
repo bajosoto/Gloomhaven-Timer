@@ -947,7 +947,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
             // Setup button
             turnButton2View.backgroundColor = colors["gray"]
             turnButton2Img.image = UIImage(named: "pause")
-            turnButton2Text.text = "Next Turn"
+            turnButton2Text.text = "Next Round"
 
             // Setup animation
             turnButton2View.alpha = 0
