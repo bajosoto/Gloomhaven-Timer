@@ -1010,7 +1010,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         
         // Calculate hours
         let hours = UInt8(time / 3600.0)
-        time -= (TimeInterval(hours) * 60)
+        time -= TimeInterval(hours) * 3600.0
         
         // Calculate minutes
         let minutes = UInt8(time / 60.0)
