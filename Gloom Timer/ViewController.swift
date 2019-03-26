@@ -172,6 +172,10 @@ class ViewController: UIViewController, UITextFieldDelegate {
         showClassSelection()
     }
     
+    override var prefersStatusBarHidden: Bool {
+        return true
+    }
+    
     // End editing when pressing return
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         playerNameTextField.resignFirstResponder()
