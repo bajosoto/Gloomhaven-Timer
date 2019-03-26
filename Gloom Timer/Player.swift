@@ -9,23 +9,24 @@
 import Foundation
 import UIKit
 
-let classes: [String] = ["lion",
+let classes: [String] = ["brute",
+                         "spellweaver",
+                         "mindthief",
+                         "tinkerer",
+                         "cragheart",
+                         "scoundrel",
+                         "doomstalker",
+                         "lion",
+                         "moon",
+                         "octopus",
+                         "wind",
+                         "sun",
                         "thunder",
-                        "brute",
-                        "doomstalker",
-                        "triforce",
-                        "mindthief",
-                        "moon",
-                        "octopus",
-                        "spellweaver",
-                        "wind",
-                        "sun",
-                        "tinkerer",
                         "music",
-                        "scoundrel",
                         "saw",
+                        "triforce",
                         "arrows",
-                        "cragheart"]
+                        ]
 
 let colors: [String: UIColor] = ["tinkerer": UIColor(red: 90/255, green: 69/255, blue: 50/255, alpha: 1.0),
                                  "brute": UIColor(red: 30/255, green: 60/255, blue: 100/255, alpha: 1.0),
