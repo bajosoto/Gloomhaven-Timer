@@ -231,8 +231,30 @@ class ViewController: UIViewController, UITextFieldDelegate {
             // Store temporal time
             timeInitiativeTemp[currInitiativePlayer] = getTimeNow() - timeInitiativeStart
             print("Player \(currInitiativePlayer + 1) (\(players[currInitiativePlayer].player_class)) initiative is now \(players[currInitiativePlayer].player_initiative)")
+            
+            // Disable player button
+            switch (currInitiativePlayer) {
+            case 0:
+                playerButton1.isEnabled = false
+                playerButton1.superview!.alpha = 0.2
+            case 1:
+                playerButton2.isEnabled = false
+                playerButton2.superview!.alpha = 0.2
+            case 2:
+                playerButton3.isEnabled = false
+                playerButton3.superview!.alpha = 0.2
+            case 3:
+                playerButton4.isEnabled = false
+                playerButton4.superview!.alpha = 0.2
+            default:
+                print("Why are we here?")
+            }
+            
+            
             // Close window
             animateNumPadViewOut()
+            
+            
             // Validate if all players have initiative
             var allDone = true
             for i in 0...3 {
@@ -358,7 +380,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         currInitiativeOnes = -1
         currInitiativeTens = -1
         
-        // Disable player button
+//        // Disable player button
 //        sender.isEnabled = false
 //        sender.superview!.alpha = 0.2
     }
