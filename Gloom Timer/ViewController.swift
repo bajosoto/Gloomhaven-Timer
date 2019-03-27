@@ -20,6 +20,8 @@ class ViewController: UIViewController, UITextFieldDelegate {
     var timeCityTotal: Double = 0
     var timeInitiativeStart: Double = 0
     var timeInitiativeTotal: [Double] = [0, 0, 0, 0]
+    var timeInitiativeTemp: [Double] = [0, 0, 0, 0]
+    var timeInitiativeCombined: Double = 0
     var timeScreenInitiativeStart: Double = 0
     var timeScreenInitiativeEnd: Double = 0
     var timeBreakStart: Double = 0
@@ -171,6 +173,10 @@ class ViewController: UIViewController, UITextFieldDelegate {
         showClassSelection()
     }
     
+    override var prefersStatusBarHidden: Bool {
+        return true
+    }
+    
     // End editing when pressing return
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         playerNameTextField.resignFirstResponder()
@@ -178,6 +184,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
     }
 
     @IBAction func numPadButtonPress(_ sender: UIButton) {
+        
         switch sender.tag {
             case 1: fallthrough
             case 2: fallthrough
@@ -193,26 +200,62 @@ class ViewController: UIViewController, UITextFieldDelegate {
                     currInitiativeTens = currInitiativeOnes
                 }
                 currInitiativeOnes = sender.tag
+                updateInitiativeLabel()
             case 99:
                 currInitiativeOnes = 9
                 currInitiativeTens = 9
+                updateInitiativeLabel()
+            // OK Button
+            case 10:
+                saveInitiative()
             default: return
         }
         
+        
+        
+    }
+    
+    func updateInitiativeLabel() {
         let ones = currInitiativeOnes == -1 ? "-" : String(currInitiativeOnes)
         let tens = currInitiativeTens == -1 ? "-" : String(currInitiativeTens)
         currInitiativeLabel.text = "\(tens)\(ones)"
-        
+    }
+    
+    func saveInitiative() {
         if ((currInitiativeOnes != -1) && (currInitiativeTens != -1)) {
             // Assign initiative to player
             players[currInitiativePlayer].player_initiative = currInitiativeTens * 10 + currInitiativeOnes
             // Reset interface
             currInitiativeOnes = -1
             currInitiativeTens = -1
-            calcTimeElapsed(since: timeInitiativeStart, store: &(timeInitiativeTotal[currInitiativePlayer]), str: "Initiative player \(currInitiativePlayer + 1)")
-            print("Player \(currInitiativePlayer + 1) (\(players[currInitiativePlayer].player_class)) initiative is \(players[currInitiativePlayer].player_initiative)")
+            
+            // Store temporal time
+            timeInitiativeTemp[currInitiativePlayer] = getTimeNow() - timeInitiativeStart
+            print("Player \(currInitiativePlayer + 1) (\(players[currInitiativePlayer].player_class)) initiative is now \(players[currInitiativePlayer].player_initiative)")
+            
+            // Disable player button
+            switch (currInitiativePlayer) {
+            case 0:
+                playerButton1.isEnabled = false
+                playerButton1.superview!.alpha = 0.2
+            case 1:
+                playerButton2.isEnabled = false
+                playerButton2.superview!.alpha = 0.2
+            case 2:
+                playerButton3.isEnabled = false
+                playerButton3.superview!.alpha = 0.2
+            case 3:
+                playerButton4.isEnabled = false
+                playerButton4.superview!.alpha = 0.2
+            default:
+                print("Why are we here?")
+            }
+            
+            
             // Close window
             animateNumPadViewOut()
+            
+            
             // Validate if all players have initiative
             var allDone = true
             for i in 0...3 {
@@ -222,6 +265,12 @@ class ViewController: UIViewController, UITextFieldDelegate {
                 }
             }
             if (allDone) {
+                // Save initiative times
+                for i in 0...3 {
+                    timeInitiativeTotal[i] += timeInitiativeTemp[i]
+                    print("Player \(i + 1) (\(players[i].player_class)) initiative time is now \(timeInitiativeTotal[i])")
+                }
+                calcTimeElapsed(since: timeInitiativeStart, store: &timeInitiativeCombined, str: "Cumulative Initiative")
                 getInitiativeOrder()
                 print("The order is:")
                 for i in 0...3 {
@@ -229,6 +278,8 @@ class ViewController: UIViewController, UITextFieldDelegate {
                 }
                 hidePlayerBoard()
             }
+        } else {
+            
         }
     }
     
@@ -320,7 +371,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func invisBackButton(_ sender: Any) {
-        players[currInitiativePlayer].player_initiative = -1
+//        players[currInitiativePlayer].player_initiative = -1
         print("Player \(currInitiativePlayer + 1) (\(players[currInitiativePlayer].player_class)) initiative is \(players[currInitiativePlayer].player_initiative)")
         animateNumPadViewOut()
     }
@@ -331,7 +382,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         currInitiativeOnes = -1
         currInitiativeTens = -1
         
-        // Disable player button
+//        // Disable player button
 //        sender.isEnabled = false
 //        sender.superview!.alpha = 0.2
     }
@@ -729,6 +780,8 @@ class ViewController: UIViewController, UITextFieldDelegate {
             playerButtonArea.transform = CGAffineTransform.identity.scaledBy(x: 1.3, y: 1.3)
             playerButtonArea.alpha = 0
         }
+        
+        
         exitButtonArea.transform = CGAffineTransform.identity.scaledBy(x: 1.3, y: 1.3)
         exitButtonArea.alpha = 0
         
@@ -896,7 +949,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
             // Setup button
             turnButton2View.backgroundColor = colors["gray"]
             turnButton2Img.image = UIImage(named: "pause")
-            turnButton2Text.text = "Next Turn"
+            turnButton2Text.text = "Next Round"
 
             // Setup animation
             turnButton2View.alpha = 0
@@ -981,7 +1034,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         
         // Calculate hours
         let hours = UInt8(time / 3600.0)
-        time -= (TimeInterval(hours) * 60)
+        time -= TimeInterval(hours) * 3600.0
         
         // Calculate minutes
         let minutes = UInt8(time / 60.0)
@@ -1003,4 +1056,3 @@ class ViewController: UIViewController, UITextFieldDelegate {
 //        globalTimer.text = getTidyTime(timeIn: time)
     }
 }
-
