@@ -705,7 +705,11 @@ class ViewController: UIViewController, UITextFieldDelegate {
                     initiativeIndex = initiative
                 }
             }
-            initiativeIndex?.text = String(players[initiativeOrder[i]].player_initiative)
+            // Append 0 to single digit initiatives
+            let initiativeWithZeroes = players[initiativeOrder[i]].player_initiative >= 10 ?
+                String(players[initiativeOrder[i]].player_initiative) :
+                "0" + String(players[initiativeOrder[i]].player_initiative)
+            initiativeIndex?.text = initiativeWithZeroes
             
             // Set frame images
             var imageIndex: UIImageView?
