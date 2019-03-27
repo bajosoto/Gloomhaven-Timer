@@ -21,6 +21,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
     var timeInitiativeStart: Double = 0
     var timeInitiativeTotal: [Double] = [0, 0, 0, 0]
     var timeInitiativeTemp: [Double] = [0, 0, 0, 0]
+    var timeInitiativeCombined: Double = 0
     var timeScreenInitiativeStart: Double = 0
     var timeScreenInitiativeEnd: Double = 0
     var timeBreakStart: Double = 0
@@ -269,6 +270,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
                     timeInitiativeTotal[i] += timeInitiativeTemp[i]
                     print("Player \(i + 1) (\(players[i].player_class)) initiative time is now \(timeInitiativeTotal[i])")
                 }
+                calcTimeElapsed(since: timeInitiativeStart, store: &timeInitiativeCombined, str: "Cumulative Initiative")
                 getInitiativeOrder()
                 print("The order is:")
                 for i in 0...3 {
@@ -1054,4 +1056,3 @@ class ViewController: UIViewController, UITextFieldDelegate {
 //        globalTimer.text = getTidyTime(timeIn: time)
     }
 }
-
