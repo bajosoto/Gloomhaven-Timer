@@ -1130,10 +1130,11 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nY9-Lv-ZVh">
-                            <rect key="frame" x="147" y="622" width="120" height="64"/>
+                            <rect key="frame" x="60" y="578" width="294" height="78"/>
                             <color key="backgroundColor" red="0.1176470588" green="0.23529411759999999" blue="0.3921568627" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
-                                <constraint firstAttribute="width" constant="120" id="6la-Ed-RbX"/>
+                                <constraint firstAttribute="width" constant="294" id="6la-Ed-RbX"/>
+                                <constraint firstAttribute="height" constant="78" id="Wqc-rA-Htk"/>
                             </constraints>
                             <fontDescription key="fontDescription" name="PirataOne-Regular" family="Pirata One" pointSize="40"/>
                             <state key="normal" title="Done">
@@ -1152,7 +1153,7 @@
                     <color key="backgroundColor" red="0.0" green="0.050980392159999999" blue="0.1176470588" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstItem="YMA-ew-ZTr" firstAttribute="centerY" secondItem="yg1-97-acQ" secondAttribute="centerY" id="ABM-hV-W3e"/>
-                        <constraint firstItem="wBE-m0-GNb" firstAttribute="bottom" secondItem="nY9-Lv-ZVh" secondAttribute="bottom" constant="50" id="NMo-7t-2Y7"/>
+                        <constraint firstItem="wBE-m0-GNb" firstAttribute="bottom" secondItem="nY9-Lv-ZVh" secondAttribute="bottom" constant="80" id="NMo-7t-2Y7"/>
                         <constraint firstItem="0dB-t1-zB7" firstAttribute="centerX" secondItem="yg1-97-acQ" secondAttribute="centerX" id="fEp-XQ-BzK"/>
                         <constraint firstItem="YMA-ew-ZTr" firstAttribute="centerX" secondItem="yg1-97-acQ" secondAttribute="centerX" id="th1-mn-xuY"/>
                         <constraint firstItem="nY9-Lv-ZVh" firstAttribute="centerX" secondItem="yg1-97-acQ" secondAttribute="centerX" id="vtk-ZA-anu"/>
@@ -1178,10 +1179,11 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mK8-Tp-4g1">
-                            <rect key="frame" x="147" y="622" width="120" height="64"/>
+                            <rect key="frame" x="60" y="578" width="294" height="78"/>
                             <color key="backgroundColor" red="0.1176470588" green="0.23529411759999999" blue="0.3921568627" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
-                                <constraint firstAttribute="width" constant="120" id="Pva-Da-pCv"/>
+                                <constraint firstAttribute="height" constant="78" id="M3k-tU-7Is"/>
+                                <constraint firstAttribute="width" constant="294" id="Pva-Da-pCv"/>
                             </constraints>
                             <fontDescription key="fontDescription" name="PirataOne-Regular" family="Pirata One" pointSize="40"/>
                             <state key="normal" title="Done">
@@ -1200,7 +1202,7 @@
                     <color key="backgroundColor" red="0.0" green="0.050980392159999999" blue="0.1176470588" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstItem="mK8-Tp-4g1" firstAttribute="centerX" secondItem="F2p-7M-Qkr" secondAttribute="centerX" id="88O-4x-iLt"/>
-                        <constraint firstItem="ak7-Bq-Vuo" firstAttribute="bottom" secondItem="mK8-Tp-4g1" secondAttribute="bottom" constant="50" id="8Cm-3L-PYx"/>
+                        <constraint firstItem="ak7-Bq-Vuo" firstAttribute="bottom" secondItem="mK8-Tp-4g1" secondAttribute="bottom" constant="80" id="8Cm-3L-PYx"/>
                         <constraint firstItem="CkW-GW-mx5" firstAttribute="centerX" secondItem="F2p-7M-Qkr" secondAttribute="centerX" id="8ab-D2-oAG"/>
                         <constraint firstItem="CkW-GW-mx5" firstAttribute="top" secondItem="7OW-aS-kdc" secondAttribute="bottom" constant="80" id="DFx-Nh-Obn"/>
                         <constraint firstItem="7OW-aS-kdc" firstAttribute="centerX" secondItem="F2p-7M-Qkr" secondAttribute="centerX" id="aln-J0-XnD"/>
@@ -1213,11 +1215,11 @@
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zhg-yi-ldh">
-                            <rect key="frame" x="147" y="622" width="120" height="64"/>
+                            <rect key="frame" x="60" y="578" width="294" height="78"/>
                             <color key="backgroundColor" red="0.1176470588" green="0.23529411759999999" blue="0.3921568627" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
-                                <constraint firstAttribute="width" constant="120" id="1eg-d9-lB4"/>
-                                <constraint firstAttribute="height" constant="64" id="OHg-jy-7h5"/>
+                                <constraint firstAttribute="width" constant="294" id="1eg-d9-lB4"/>
+                                <constraint firstAttribute="height" constant="78" id="OHg-jy-7h5"/>
                             </constraints>
                             <fontDescription key="fontDescription" name="PirataOne-Regular" family="Pirata One" pointSize="40"/>
                             <state key="normal" title="Done">
@@ -1458,7 +1460,7 @@
                     <constraints>
                         <constraint firstItem="02g-sz-7cU" firstAttribute="top" secondItem="yGU-Jn-CAl" secondAttribute="top" constant="150" id="OrD-u7-mco"/>
                         <constraint firstItem="zhg-yi-ldh" firstAttribute="centerX" secondItem="35j-GH-2gB" secondAttribute="centerX" id="PHy-RU-bU3"/>
-                        <constraint firstItem="yGU-Jn-CAl" firstAttribute="bottom" secondItem="zhg-yi-ldh" secondAttribute="bottom" constant="50" id="g2d-CO-O6C"/>
+                        <constraint firstItem="yGU-Jn-CAl" firstAttribute="bottom" secondItem="zhg-yi-ldh" secondAttribute="bottom" constant="80" id="g2d-CO-O6C"/>
                         <constraint firstItem="02g-sz-7cU" firstAttribute="centerX" secondItem="35j-GH-2gB" secondAttribute="centerX" id="lBO-tu-wUl"/>
                     </constraints>
                     <viewLayoutGuide key="safeArea" id="yGU-Jn-CAl"/>
