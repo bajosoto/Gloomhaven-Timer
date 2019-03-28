@@ -277,6 +277,7 @@
                         <outlet property="initiativeBtnOutlet" destination="zhg-yi-ldh" id="yqg-H1-CHR"/>
                         <outlet property="initiativeView" destination="35j-GH-2gB" id="jWR-XX-beX"/>
                         <outlet property="invisiBackButton" destination="6hy-Nb-rWQ" id="f1P-3w-1CQ"/>
+                        <outlet property="invisiBreakButton" destination="HdB-CA-o0I" id="Ccd-gB-wFs"/>
                         <outlet property="np0" destination="4sg-vH-M8c" id="ip9-qa-Gov"/>
                         <outlet property="np1" destination="44T-4f-TUA" id="IJ1-u0-YIJ"/>
                         <outlet property="np2" destination="iFq-VL-lRg" id="zjo-M0-uVW"/>
@@ -309,9 +310,11 @@
                         <outlet property="scenarioSetupLabel" destination="0dB-t1-zB7" id="3ui-Pi-b1m"/>
                         <outlet property="scenarioSetupView" destination="yg1-97-acQ" id="YsN-YD-NXq"/>
                         <outlet property="tempInvisiBackButton" destination="ybP-G3-QsX" id="Vhe-lG-j4F"/>
+                        <outlet property="turnButton1Button" destination="pis-GC-FV8" id="CCd-Df-9on"/>
                         <outlet property="turnButton1Img" destination="ket-wR-Z7c" id="VhP-je-hNy"/>
                         <outlet property="turnButton1Text" destination="Sfu-jt-13Q" id="OZh-Hg-vRs"/>
                         <outlet property="turnButton1View" destination="BHl-JA-R22" id="z6S-rG-LZ3"/>
+                        <outlet property="turnButton2Button" destination="FCI-Uo-iwW" id="47K-ON-8Aw"/>
                         <outlet property="turnButton2Img" destination="jye-at-Dec" id="5ft-Sc-gv7"/>
                         <outlet property="turnButton2Text" destination="GaH-kk-Bhz" id="vL3-kb-64K"/>
                         <outlet property="turnButton2View" destination="eD4-PW-eXK" id="WSy-MJ-wP9"/>
@@ -1470,20 +1473,30 @@
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="atC-z4-xH4" userLabel="icon">
-                            <rect key="frame" x="127" y="120" width="160" height="160"/>
+                            <rect key="frame" x="127" y="150" width="160" height="160"/>
                             <subviews>
                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sun" translatesAutoresizingMaskIntoConstraints="NO" id="lT2-8m-2XP">
                                     <rect key="frame" x="20" y="20" width="120" height="120"/>
                                 </imageView>
+                                <button opaque="NO" tag="2" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HdB-CA-o0I" userLabel="iconButton">
+                                    <rect key="frame" x="0.0" y="0.0" width="160" height="160"/>
+                                    <connections>
+                                        <action selector="turnButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="qbu-X0-Pmh"/>
+                                    </connections>
+                                </button>
                             </subviews>
                             <color key="backgroundColor" red="0.1764705882" green="0.41176470590000003" blue="0.4823529412" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
                                 <constraint firstItem="lT2-8m-2XP" firstAttribute="leading" secondItem="atC-z4-xH4" secondAttribute="leading" constant="20" id="5ix-RP-XmR"/>
+                                <constraint firstItem="HdB-CA-o0I" firstAttribute="top" secondItem="atC-z4-xH4" secondAttribute="top" id="L1c-dq-BoQ"/>
                                 <constraint firstAttribute="height" constant="160" id="PoO-iG-CEb"/>
+                                <constraint firstItem="HdB-CA-o0I" firstAttribute="leading" secondItem="atC-z4-xH4" secondAttribute="leading" id="Yw0-LI-uUc"/>
                                 <constraint firstItem="lT2-8m-2XP" firstAttribute="top" secondItem="atC-z4-xH4" secondAttribute="top" constant="20" id="aSd-7U-ug2"/>
                                 <constraint firstAttribute="trailing" secondItem="lT2-8m-2XP" secondAttribute="trailing" constant="20" id="kHi-4o-XdI"/>
                                 <constraint firstAttribute="bottom" secondItem="lT2-8m-2XP" secondAttribute="bottom" constant="20" id="w2V-sO-m3j"/>
+                                <constraint firstAttribute="trailing" secondItem="HdB-CA-o0I" secondAttribute="trailing" id="wGG-ho-zVl"/>
                                 <constraint firstAttribute="width" constant="160" id="xtc-Pn-a3m"/>
+                                <constraint firstAttribute="bottom" secondItem="HdB-CA-o0I" secondAttribute="bottom" id="zJo-Oc-7wf"/>
                             </constraints>
                             <userDefinedRuntimeAttributes>
                                 <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -1587,8 +1600,8 @@
                     <constraints>
                         <constraint firstItem="FZK-0t-1V0" firstAttribute="trailing" secondItem="xca-QM-sOo" secondAttribute="trailing" constant="60" id="4BB-Vo-eID"/>
                         <constraint firstItem="FZK-0t-1V0" firstAttribute="bottom" secondItem="xca-QM-sOo" secondAttribute="bottom" constant="80" id="MQj-7V-tQP"/>
-                        <constraint firstItem="atC-z4-xH4" firstAttribute="top" secondItem="FZK-0t-1V0" secondAttribute="top" constant="100" id="N76-Jb-Mmt"/>
-                        <constraint firstItem="xca-QM-sOo" firstAttribute="top" secondItem="atC-z4-xH4" secondAttribute="bottom" constant="160" id="OIx-Q7-qeW"/>
+                        <constraint firstItem="atC-z4-xH4" firstAttribute="top" secondItem="FZK-0t-1V0" secondAttribute="top" constant="130" id="N76-Jb-Mmt"/>
+                        <constraint firstItem="xca-QM-sOo" firstAttribute="top" secondItem="atC-z4-xH4" secondAttribute="bottom" constant="130" id="OIx-Q7-qeW"/>
                         <constraint firstItem="atC-z4-xH4" firstAttribute="centerX" secondItem="e7T-mk-1VC" secondAttribute="centerX" id="T2r-zA-h5y"/>
                         <constraint firstItem="xca-QM-sOo" firstAttribute="leading" secondItem="FZK-0t-1V0" secondAttribute="leading" constant="60" id="cnm-4v-9Rw"/>
                     </constraints>

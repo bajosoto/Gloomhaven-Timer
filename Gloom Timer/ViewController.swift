@@ -72,6 +72,9 @@ class ViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var turnButton2Img: UIImageView!
     @IBOutlet weak var turnButton2Text: UILabel!
     @IBOutlet weak var turnButton2View: UIView!
+    @IBOutlet weak var turnButton1Button: UIButton!
+    @IBOutlet weak var turnButton2Button: UIButton!
+    @IBOutlet weak var invisiBreakButton: UIButton!
     var currTurn: Int = 0
     var monsterActive: Bool = true
     
@@ -401,20 +404,27 @@ class ViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func turnButtonPressed(_ sender: UIButton) {
         
-        if (breakEnded == false){
-            breakEnded = true
-            calcTimeElapsed(since: timeBreakStart, store: &timeBreakTotal, str: "Break")
-        }
-        
-        if (lastTurnFrom != -1) {
-            if( lastTurnFrom == 4){
-                calcTimeElapsed(since: timeTurnStart, store: &timeTurnTotal[lastTurnFrom], str: "Monster turn")
-            } else {
-                calcTimeElapsed(since: timeTurnStart, store: &timeTurnTotal[lastTurnFrom], str: "Player \(lastTurnFrom + 1)")
+        if (sender.tag != 2) {   // If sender is not invisi button (break time)
+            // Enable invisible break button (in case it wasn't before)
+            if (invisiBreakButton.isEnabled == false){
+                invisiBreakButton.isEnabled = true
             }
             
+            if (breakEnded == false){
+                breakEnded = true
+                calcTimeElapsed(since: timeBreakStart, store: &timeBreakTotal, str: "Break")
+            }
+        
+            if (lastTurnFrom != -1) {
+                if( lastTurnFrom == 4){
+                    calcTimeElapsed(since: timeTurnStart, store: &timeTurnTotal[lastTurnFrom], str: "Monster turn")
+                } else {
+                    calcTimeElapsed(since: timeTurnStart, store: &timeTurnTotal[lastTurnFrom], str: "Player \(lastTurnFrom + 1)")
+                }
+                
+            }
+            timeTurnStart = getTimeNow()
         }
-        timeTurnStart = getTimeNow()
         
         switch (sender.tag){
         case 0: // Monster button
@@ -451,6 +461,69 @@ class ViewController: UIViewController, UITextFieldDelegate {
                         self.currTurn += 1
                     }
                 }
+            }
+        case 2: // Break time button (invisible)
+            if (breakEnded == true) {   // We're not in a break
+                breakEnded = false
+                // Disable buttons and disappear image
+                self.turnButton1Button.isEnabled = false
+                self.turnButton2Button.isEnabled = false
+                UIView.animate(withDuration: 0.2, animations: {
+                    self.turnsIcon.alpha = 0
+                    if (self.monsterActive == false) {
+                        self.turnButton1View.alpha = 0.2
+                    }
+                    self.turnButton2View.alpha = 0.2
+                }) { _ in
+                    // change image to break icon
+                    self.turnsImg.image = UIImage(named: "sleep")
+                    self.turnsIcon.backgroundColor = colors["transparent"]
+                    UIView.animate(withDuration: 0.4) {
+                        self.turnsIcon.alpha = 1
+                    }
+                }
+                // Store player/monster time
+                if( lastTurnFrom == 4){
+                    calcTimeElapsed(since: timeTurnStart, store: &timeTurnTotal[lastTurnFrom], str: "Monster turn")
+                } else {
+                    calcTimeElapsed(since: timeTurnStart, store: &timeTurnTotal[lastTurnFrom], str: "Player \(lastTurnFrom + 1)")
+                }
+                
+                // Store start time for break
+                timeBreakStart = getTimeNow()
+                
+                
+            } else {                    // We're on a break
+                breakEnded = true
+                // Enable buttons and reappear image
+                self.turnButton1Button.isEnabled = true
+                self.turnButton2Button.isEnabled = true
+                UIView.animate(withDuration: 0.2, animations: {
+                    self.turnsIcon.alpha = 0
+                    if (self.monsterActive == false) {
+                        self.turnButton1View.alpha = 1
+                    }
+                    self.turnButton2View.alpha = 1
+                }) { _ in
+                    // change image to previous icon
+                    if(self.lastTurnFrom == 4) {
+                        self.turnsImg.image = UIImage(named: "monster")
+                        self.turnsIcon.backgroundColor = colors["monster"]
+                    } else {
+                        self.turnsImg.image = self.players[self.initiativeOrder[self.currTurn]].player_icon.image
+                        self.turnsIcon.backgroundColor = self.players[self.initiativeOrder[self.currTurn]].player_color
+                    }
+                    UIView.animate(withDuration: 0.4) {
+                        self.turnsIcon.alpha = 1
+                    }
+                }
+                
+                // Store break time
+                calcTimeElapsed(since: timeBreakStart, store: &timeBreakTotal, str: "Break")
+                
+                // Store start time for break
+                timeTurnStart = getTimeNow()
+                
             }
         default:
             // Do nothing. Shouldn't reach this
@@ -1017,6 +1090,11 @@ class ViewController: UIViewController, UITextFieldDelegate {
         for player in players {
             player.player_initiative = -1
         }
+        
+        // Disable invisible break button
+        invisiBreakButton.isEnabled = false
+        
+        
         initiativeOrder = [0, 1, 2, 3]
         currTurn = 0
         breakEnded = false
